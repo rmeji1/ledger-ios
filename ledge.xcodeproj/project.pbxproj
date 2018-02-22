@@ -1,0 +1,857 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		548852B3E107C4138A30DF48 /* Pods_ledge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5349C072DC3A44A6007B1346 /* Pods_ledge.framework */; };
+		E10410DF203B44A800F13D57 /* extLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410DE203B44A800F13D57 /* extLoginVC.swift */; };
+		E10410E4203B504D00F13D57 /* C8HPresentTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410E2203B504D00F13D57 /* C8HPresentTables.swift */; };
+		E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10410E3203B504D00F13D57 /* C8HPresentTables.xib */; };
+		E10410E7203C903100F13D57 /* C8HCasinoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */; };
+		E10569F8200FF6CA00984A33 /* startup-image-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F7200FF6CA00984A33 /* startup-image-background.png */; };
+		E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */; };
+		E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */; };
+		E10569FE20100DFD00984A33 /* extUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10569FD20100DFD00984A33 /* extUiView.swift */; };
+		E124C6C5202A2A9E005A43A5 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E124C6C4202A2A9E005A43A5 /* plus.png */; };
+		E124C6C7202A5056005A43A5 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = E124C6C6202A5056005A43A5 /* negative.png */; };
+		E1426D42203E2E71004A6042 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1426D41203E2E71004A6042 /* SwiftNotice.swift */; };
+		E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */; };
+		E15F5D16200D0D6500E99EF3 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15F5D15200D0D6500E99EF3 /* Okta.plist */; };
+		E163CBAC20115BFB00182A6B /* pt_gaming_logo_w-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */; };
+		E16C458C20041DF8005F3D5C /* C8HLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */; };
+		E16F7BD12017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */; };
+		E170ED83200BEB1200238CEA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = E170ED82200BEB1200238CEA /* podfile */; };
+		E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175CACA202E0F88005E7AAC /* Ledger.swift */; };
+		E18EFCDB20364E2F0008183B /* startup-image-iphone-X-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */; };
+		E18EFCDE20364FB30008183B /* 180-X-180-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDC20364FB20008183B /* 180-X-180-B.png */; };
+		E18EFCDF20364FB30008183B /* 120-X-120-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDD20364FB30008183B /* 120-X-120-B.png */; };
+		E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */; };
+		E197757E20250C5100D94927 /* tableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757D20250C4D00D94927 /* tableViewContoller.swift */; };
+		E19775802025211700D94927 /* C8HNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757F2025211700D94927 /* C8HNumberPadView.swift */; };
+		E19AC104200D5CB7005D15AE /* C8HCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19AC103200D5CB7005D15AE /* C8HCasino.swift */; };
+		E1B503302007E7E400B4C701 /* C8HSelectCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B5032F2007E7E400B4C701 /* C8HSelectCasino.swift */; };
+		E1B503332008119000B4C701 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B503322008118600B4C701 /* MapKit.framework */; };
+		E1B503352008146100B4C701 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B503342008145900B4C701 /* CoreLocation.framework */; };
+		E1B50338200837C300B4C701 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E16BB71F2004463500D16DF4 /* Lato-Regular.ttf */; };
+		E1B50339200837C600B4C701 /* LatoLatin-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E16BB7202004478900D16DF4 /* LatoLatin-Thin.ttf */; };
+		E1BF19051FF57EA90083216D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19041FF57EA90083216D /* AppDelegate.swift */; };
+		E1BF190A1FF57EA90083216D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BF19081FF57EA90083216D /* Main.storyboard */; };
+		E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1BF190B1FF57EA90083216D /* ledge.xcdatamodeld */; };
+		E1BF190F1FF57EA90083216D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1BF190E1FF57EA90083216D /* Assets.xcassets */; };
+		E1BF19121FF57EA90083216D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BF19101FF57EA90083216D /* LaunchScreen.storyboard */; };
+		E1BF191D1FF57EAB0083216D /* ledgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF191C1FF57EAB0083216D /* ledgeTests.swift */; };
+		E1BF19281FF57EAB0083216D /* ledgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19271FF57EAB0083216D /* ledgeUITests.swift */; };
+		E1E7403E203656E300583D3B /* subtractions-button-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7403C203656E200583D3B /* subtractions-button-image.png */; };
+		E1E7403F203656E300583D3B /* addition-button-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7403D203656E200583D3B /* addition-button-image.png */; };
+		E1E9F6AA201B5FA900972013 /* C8HTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A9201B5FA900972013 /* C8HTextField.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1BF19191FF57EAB0083216D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1BF18F91FF57EA80083216D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BF19001FF57EA80083216D;
+			remoteInfo = ledge;
+		};
+		E1BF19241FF57EAB0083216D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1BF18F91FF57EA80083216D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BF19001FF57EA80083216D;
+			remoteInfo = ledge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.release.xcconfig"; sourceTree = "<group>"; };
+		1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.debug.xcconfig"; sourceTree = "<group>"; };
+		5349C072DC3A44A6007B1346 /* Pods_ledge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ledge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10410DE203B44A800F13D57 /* extLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extLoginVC.swift; sourceTree = "<group>"; };
+		E10410E2203B504D00F13D57 /* C8HPresentTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = C8HPresentTables.swift; path = Custom/C8HPresentTables.swift; sourceTree = SOURCE_ROOT; };
+		E10410E3203B504D00F13D57 /* C8HPresentTables.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = C8HPresentTables.xib; path = Custom/C8HPresentTables.xib; sourceTree = SOURCE_ROOT; };
+		E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HCasinoRepository.swift; sourceTree = "<group>"; };
+		E10569F7200FF6CA00984A33 /* startup-image-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-background.png"; sourceTree = "<group>"; };
+		E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-B.png"; sourceTree = "<group>"; };
+		E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-A.png"; sourceTree = "<group>"; };
+		E10569FD20100DFD00984A33 /* extUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extUiView.swift; sourceTree = "<group>"; };
+		E124C6C4202A2A9E005A43A5 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		E124C6C6202A5056005A43A5 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
+		E1426D41203E2E71004A6042 /* SwiftNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLoginValidator.swift; sourceTree = "<group>"; };
+		E15F5D11200D007C00E99EF3 /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E15F5D13200D008100E99EF3 /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E15F5D15200D0D6500E99EF3 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Okta.plist; path = "Pods/Target Support Files/Pods-ledge/Okta.plist"; sourceTree = SOURCE_ROOT; };
+		E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo_w-01.png"; sourceTree = "<group>"; };
+		E16BB71F2004463500D16DF4 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		E16BB7202004478900D16DF4 /* LatoLatin-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Thin.ttf"; sourceTree = "<group>"; };
+		E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLoginVC.swift; sourceTree = "<group>"; };
+		E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HSetGegaBalAndTableVC.swift; sourceTree = "<group>"; };
+		E170ED82200BEB1200238CEA /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E175CACA202E0F88005E7AAC /* Ledger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ledger.swift; sourceTree = "<group>"; };
+		E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-iphone-X-B.png"; sourceTree = "<group>"; };
+		E18EFCDC20364FB20008183B /* 180-X-180-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-X-180-B.png"; sourceTree = "<group>"; };
+		E18EFCDD20364FB30008183B /* 120-X-120-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120-X-120-B.png"; sourceTree = "<group>"; };
+		E192EC74200BF8CA00E7F2BC /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E192EC75200BF8CA00E7F2BC /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGeoRegionManager.swift; sourceTree = "<group>"; };
+		E197757D20250C4D00D94927 /* tableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewContoller.swift; sourceTree = "<group>"; };
+		E197757F2025211700D94927 /* C8HNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HNumberPadView.swift; sourceTree = "<group>"; };
+		E19AC103200D5CB7005D15AE /* C8HCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HCasino.swift; sourceTree = "<group>"; };
+		E1B5032F2007E7E400B4C701 /* C8HSelectCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HSelectCasino.swift; sourceTree = "<group>"; };
+		E1B503322008118600B4C701 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E1B503342008145900B4C701 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E1BF19011FF57EA80083216D /* ledge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BF19041FF57EA90083216D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E1BF19091FF57EA90083216D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E1BF190C1FF57EA90083216D /* ledge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ledge.xcdatamodel; sourceTree = "<group>"; };
+		E1BF190E1FF57EA90083216D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1BF19111FF57EA90083216D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E1BF19131FF57EAA0083216D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1BF19181FF57EAB0083216D /* ledgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BF191C1FF57EAB0083216D /* ledgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ledgeTests.swift; sourceTree = "<group>"; };
+		E1BF191E1FF57EAB0083216D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1BF19271FF57EAB0083216D /* ledgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ledgeUITests.swift; sourceTree = "<group>"; };
+		E1BF19291FF57EAB0083216D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1E7403C203656E200583D3B /* subtractions-button-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "subtractions-button-image.png"; sourceTree = "<group>"; };
+		E1E7403D203656E200583D3B /* addition-button-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addition-button-image.png"; sourceTree = "<group>"; };
+		E1E9F6A9201B5FA900972013 /* C8HTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTextField.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1BF18FE1FF57EA80083216D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1B503352008146100B4C701 /* CoreLocation.framework in Frameworks */,
+				E1B503332008119000B4C701 /* MapKit.framework in Frameworks */,
+				548852B3E107C4138A30DF48 /* Pods_ledge.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF19151FF57EAB0083216D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF19201FF57EAB0083216D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA68CE007DB55E079B4C02BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */,
+				07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E15F5D0B200C465900E99EF3 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				E10410E2203B504D00F13D57 /* C8HPresentTables.swift */,
+				E10410E3203B504D00F13D57 /* C8HPresentTables.xib */,
+				E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */,
+				E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */,
+				E1E9F6A9201B5FA900972013 /* C8HTextField.swift */,
+				E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		E170ED80200BE3DE00238CEA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E197757F2025211700D94927 /* C8HNumberPadView.swift */,
+				E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */,
+				E197757D20250C4D00D94927 /* tableViewContoller.swift */,
+				E1B5032F2007E7E400B4C701 /* C8HSelectCasino.swift */,
+				E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */,
+				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E170ED81200BE40800238CEA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF19101FF57EA90083216D /* LaunchScreen.storyboard */,
+				E1BF19081FF57EA90083216D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E19AC105200D5CC7005D15AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E19AC103200D5CB7005D15AE /* C8HCasino.swift */,
+				E10569FD20100DFD00984A33 /* extUiView.swift */,
+				E175CACA202E0F88005E7AAC /* Ledger.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1B503312008118500B4C701 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E15F5D13200D008100E99EF3 /* AppAuth.framework */,
+				E15F5D11200D007C00E99EF3 /* OktaAuth.framework */,
+				E192EC74200BF8CA00E7F2BC /* AppAuth.framework */,
+				E192EC75200BF8CA00E7F2BC /* OktaAuth.framework */,
+				E1B503342008145900B4C701 /* CoreLocation.framework */,
+				E1B503322008118600B4C701 /* MapKit.framework */,
+				5349C072DC3A44A6007B1346 /* Pods_ledge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1B503362008379800B4C701 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7403D203656E200583D3B /* addition-button-image.png */,
+				E1E7403C203656E200583D3B /* subtractions-button-image.png */,
+				E18EFCDD20364FB30008183B /* 120-X-120-B.png */,
+				E18EFCDC20364FB20008183B /* 180-X-180-B.png */,
+				E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */,
+				E124C6C6202A5056005A43A5 /* negative.png */,
+				E124C6C4202A2A9E005A43A5 /* plus.png */,
+				E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */,
+				E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */,
+				E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */,
+				E10569F7200FF6CA00984A33 /* startup-image-background.png */,
+				E1B50337200837AA00B4C701 /* fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1B50337200837AA00B4C701 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E16BB71F2004463500D16DF4 /* Lato-Regular.ttf */,
+				E16BB7202004478900D16DF4 /* LatoLatin-Thin.ttf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		E1BF18F81FF57EA80083216D = {
+			isa = PBXGroup;
+			children = (
+				E1426D41203E2E71004A6042 /* SwiftNotice.swift */,
+				E19AC105200D5CC7005D15AE /* Model */,
+				E15F5D0B200C465900E99EF3 /* Custom */,
+				E170ED82200BEB1200238CEA /* podfile */,
+				E170ED81200BE40800238CEA /* Storyboards */,
+				E170ED80200BE3DE00238CEA /* Controllers */,
+				E1B503362008379800B4C701 /* Resources */,
+				E1BF19031FF57EA80083216D /* ledge */,
+				E1BF191B1FF57EAB0083216D /* ledgeTests */,
+				E1BF19261FF57EAB0083216D /* ledgeUITests */,
+				E1BF19021FF57EA80083216D /* Products */,
+				E1B503312008118500B4C701 /* Frameworks */,
+				AA68CE007DB55E079B4C02BE /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		E1BF19021FF57EA80083216D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF19011FF57EA80083216D /* ledge.app */,
+				E1BF19181FF57EAB0083216D /* ledgeTests.xctest */,
+				E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1BF19031FF57EA80083216D /* ledge */ = {
+			isa = PBXGroup;
+			children = (
+				E15F5D15200D0D6500E99EF3 /* Okta.plist */,
+				E1BF19041FF57EA90083216D /* AppDelegate.swift */,
+				E1BF190E1FF57EA90083216D /* Assets.xcassets */,
+				E1BF19131FF57EAA0083216D /* Info.plist */,
+				E1BF190B1FF57EA90083216D /* ledge.xcdatamodeld */,
+			);
+			path = ledge;
+			sourceTree = "<group>";
+		};
+		E1BF191B1FF57EAB0083216D /* ledgeTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF191C1FF57EAB0083216D /* ledgeTests.swift */,
+				E1BF191E1FF57EAB0083216D /* Info.plist */,
+			);
+			path = ledgeTests;
+			sourceTree = "<group>";
+		};
+		E1BF19261FF57EAB0083216D /* ledgeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E1BF19271FF57EAB0083216D /* ledgeUITests.swift */,
+				E1BF19291FF57EAB0083216D /* Info.plist */,
+			);
+			path = ledgeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1BF19001FF57EA80083216D /* ledge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1BF192C1FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledge" */;
+			buildPhases = (
+				2F33F009EBEAB3BAC3184767 /* [CP] Check Pods Manifest.lock */,
+				E1BF18FD1FF57EA80083216D /* Sources */,
+				E1BF18FE1FF57EA80083216D /* Frameworks */,
+				E1BF18FF1FF57EA80083216D /* Resources */,
+				B712C0942BE4608329C21C27 /* [CP] Embed Pods Frameworks */,
+				354AE166EF1934799F56F07D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ledge;
+			productName = ledge;
+			productReference = E1BF19011FF57EA80083216D /* ledge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1BF19171FF57EAB0083216D /* ledgeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1BF192F1FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledgeTests" */;
+			buildPhases = (
+				E1BF19141FF57EAB0083216D /* Sources */,
+				E1BF19151FF57EAB0083216D /* Frameworks */,
+				E1BF19161FF57EAB0083216D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1BF191A1FF57EAB0083216D /* PBXTargetDependency */,
+			);
+			name = ledgeTests;
+			productName = ledgeTests;
+			productReference = E1BF19181FF57EAB0083216D /* ledgeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E1BF19221FF57EAB0083216D /* ledgeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1BF19321FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledgeUITests" */;
+			buildPhases = (
+				E1BF191F1FF57EAB0083216D /* Sources */,
+				E1BF19201FF57EAB0083216D /* Frameworks */,
+				E1BF19211FF57EAB0083216D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1BF19251FF57EAB0083216D /* PBXTargetDependency */,
+			);
+			name = ledgeUITests;
+			productName = ledgeUITests;
+			productReference = E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1BF18F91FF57EA80083216D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				KnownAssetTags = (
+					New,
+				);
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = com.cre8ivehouse;
+				TargetAttributes = {
+					E1BF19001FF57EA80083216D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					E1BF19171FF57EAB0083216D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E1BF19001FF57EA80083216D;
+					};
+					E1BF19221FF57EAB0083216D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E1BF19001FF57EA80083216D;
+					};
+				};
+			};
+			buildConfigurationList = E1BF18FC1FF57EA80083216D /* Build configuration list for PBXProject "ledge" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1BF18F81FF57EA80083216D;
+			productRefGroup = E1BF19021FF57EA80083216D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1BF19001FF57EA80083216D /* ledge */,
+				E1BF19171FF57EAB0083216D /* ledgeTests */,
+				E1BF19221FF57EAB0083216D /* ledgeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1BF18FF1FF57EA80083216D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E124C6C7202A5056005A43A5 /* negative.png in Resources */,
+				E170ED83200BEB1200238CEA /* podfile in Resources */,
+				E15F5D16200D0D6500E99EF3 /* Okta.plist in Resources */,
+				E1BF19121FF57EA90083216D /* LaunchScreen.storyboard in Resources */,
+				E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */,
+				E1B50339200837C600B4C701 /* LatoLatin-Thin.ttf in Resources */,
+				E163CBAC20115BFB00182A6B /* pt_gaming_logo_w-01.png in Resources */,
+				E18EFCDE20364FB30008183B /* 180-X-180-B.png in Resources */,
+				E1BF190F1FF57EA90083216D /* Assets.xcassets in Resources */,
+				E1E7403E203656E300583D3B /* subtractions-button-image.png in Resources */,
+				E18EFCDF20364FB30008183B /* 120-X-120-B.png in Resources */,
+				E1E7403F203656E300583D3B /* addition-button-image.png in Resources */,
+				E18EFCDB20364E2F0008183B /* startup-image-iphone-X-B.png in Resources */,
+				E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */,
+				E1B50338200837C300B4C701 /* Lato-Regular.ttf in Resources */,
+				E1BF190A1FF57EA90083216D /* Main.storyboard in Resources */,
+				E10569F8200FF6CA00984A33 /* startup-image-background.png in Resources */,
+				E124C6C5202A2A9E005A43A5 /* plus.png in Resources */,
+				E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF19161FF57EAB0083216D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF19211FF57EAB0083216D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F33F009EBEAB3BAC3184767 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ledge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		354AE166EF1934799F56F07D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B712C0942BE4608329C21C27 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/OktaAuth/OktaAuth.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaAuth.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1BF18FD1FF57EA80083216D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E16C458C20041DF8005F3D5C /* C8HLoginVC.swift in Sources */,
+				E19775802025211700D94927 /* C8HNumberPadView.swift in Sources */,
+				E1B503302007E7E400B4C701 /* C8HSelectCasino.swift in Sources */,
+				E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */,
+				E10410E7203C903100F13D57 /* C8HCasinoRepository.swift in Sources */,
+				E16F7BD12017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift in Sources */,
+				E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */,
+				E10569FE20100DFD00984A33 /* extUiView.swift in Sources */,
+				E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */,
+				E10410DF203B44A800F13D57 /* extLoginVC.swift in Sources */,
+				E1E9F6AA201B5FA900972013 /* C8HTextField.swift in Sources */,
+				E19AC104200D5CB7005D15AE /* C8HCasino.swift in Sources */,
+				E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */,
+				E197757E20250C5100D94927 /* tableViewContoller.swift in Sources */,
+				E1BF19051FF57EA90083216D /* AppDelegate.swift in Sources */,
+				E1426D42203E2E71004A6042 /* SwiftNotice.swift in Sources */,
+				E10410E4203B504D00F13D57 /* C8HPresentTables.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF19141FF57EAB0083216D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BF191D1FF57EAB0083216D /* ledgeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1BF191F1FF57EAB0083216D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1BF19281FF57EAB0083216D /* ledgeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1BF191A1FF57EAB0083216D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BF19001FF57EA80083216D /* ledge */;
+			targetProxy = E1BF19191FF57EAB0083216D /* PBXContainerItemProxy */;
+		};
+		E1BF19251FF57EAB0083216D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BF19001FF57EA80083216D /* ledge */;
+			targetProxy = E1BF19241FF57EAB0083216D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E1BF19081FF57EA90083216D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1BF19091FF57EA90083216D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E1BF19101FF57EA90083216D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1BF19111FF57EA90083216D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E1BF192A1FF57EAB0083216D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E1BF192B1FF57EAB0083216D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E1BF192D1FF57EAB0083216D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95W5RG93E4;
+				INFOPLIST_FILE = ledge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E1BF192E1FF57EAB0083216D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95W5RG93E4;
+				INFOPLIST_FILE = ledge/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E1BF19301FF57EAB0083216D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ledgeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledgeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ledge.app/ledge";
+			};
+			name = Debug;
+		};
+		E1BF19311FF57EAB0083216D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ledgeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledgeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ledge.app/ledge";
+			};
+			name = Release;
+		};
+		E1BF19331FF57EAB0083216D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ledgeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledgeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ledge;
+			};
+			name = Debug;
+		};
+		E1BF19341FF57EAB0083216D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ledgeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledgeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ledge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1BF18FC1FF57EA80083216D /* Build configuration list for PBXProject "ledge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BF192A1FF57EAB0083216D /* Debug */,
+				E1BF192B1FF57EAB0083216D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1BF192C1FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BF192D1FF57EAB0083216D /* Debug */,
+				E1BF192E1FF57EAB0083216D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1BF192F1FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledgeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BF19301FF57EAB0083216D /* Debug */,
+				E1BF19311FF57EAB0083216D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1BF19321FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledgeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1BF19331FF57EAB0083216D /* Debug */,
+				E1BF19341FF57EAB0083216D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1BF190B1FF57EA90083216D /* ledge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1BF190C1FF57EA90083216D /* ledge.xcdatamodel */,
+			);
+			currentVersion = E1BF190C1FF57EA90083216D /* ledge.xcdatamodel */;
+			path = ledge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E1BF18F91FF57EA80083216D /* Project object */;
+}
