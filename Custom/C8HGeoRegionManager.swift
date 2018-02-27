@@ -8,10 +8,11 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 protocol C8HGeoRegionDelegate : class {
     func onlyAuthorizedWhenInUse()
-    func successfullyRetrievedUserLocation()
+    //func successfullyRetrievedUserLocation()
 }
 // For now need delegate to alert user for location settings
 class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
@@ -24,7 +25,8 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
     var inRegion: CLCircularRegion?
     weak var delegate: C8HGeoRegionDelegate?
     
-    // ========================================================================
+//  ============================================================================
+//  Initializers
     override init(){
         super.init()
     }
@@ -40,8 +42,12 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
     deinit {
         applicationWillEnterForegroundNotificaiton(enable: false)
     }
+    
 //  ============================================================================
 //    Used to always check the location settings of the application
+    @objc private func applicationWillEnterForeground(){
+        checkAndRequestAuthorizationStatus()
+    }
     func applicationWillEnterForegroundNotificaiton(enable: Bool){
         let notificationCenter = NotificationCenter.default
         if enable{
@@ -51,7 +57,7 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
             notificationCenter.removeObserver(NSNotification.Name.UIApplicationWillEnterForeground)
         }
     }
-    
+//  ============================================================================
     private func checkAndRequestAuthorizationStatus() {
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
@@ -65,11 +71,6 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
             break
         }
     }
-    
-    @objc private func applicationWillEnterForeground(){
-        checkAndRequestAuthorizationStatus()
-    }
-
     func requestLocation(){
         locationManager.requestLocation()
         //setRegions()
@@ -79,23 +80,17 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
     // =========================================================================
     // MARK: Location Monitor delegate
     func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
-        //print("Called this to get region")
-        //locationManager.stopUpdatingLocation()
         guard let loc = manager.location?.coordinate else{
             print("Unable to determine user location")
             return
         }
         location = loc
         debugPrint(location!)
-        //findInWhichRegion(coordinate: loc)
-        //delegate?.successfullyRetrievedUserLocation()
     }
-
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error){
         print("Error for location services:\n " + error.localizedDescription)
         
     }
-    
     // =========================================================================
     // MARK: Region monitoring
     // For now we can use this but eventually need to call the server to get
@@ -104,13 +99,23 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
     func setRegions(){
         print("Monitored Regions count =  \(locationManager.monitoredRegions.count)")
         if locationManager.monitoredRegions.count == 0 {
-            let homeCenter = CLLocationCoordinate2D(latitude: 40.712207 , longitude:  -73.961812)
-            let noBullCenter = CLLocationCoordinate2D(latitude: 40.704440 , longitude:  -73.930006)
-            let crea8iveCenter = CLLocationCoordinate2D(latitude: 40.697485 , longitude:  -73.910931)
-            
-            monitorRegionAtLocation(center: homeCenter, identifier: "Flex Casino")
-            monitorRegionAtLocation(center: noBullCenter, identifier: "No Bull Casino")
-            monitorRegionAtLocation(center: crea8iveCenter, identifier: "Crea8ive House Casino")
+//            let homeCenter = CLLocationCoordinate2D(latitude: 40.712207 , longitude:  -73.961812)
+//            let noBullCenter = CLLocationCoordinate2D(latitude: 40.704440 , longitude:  -73.930006)
+//            let crea8iveCenter = CLLocationCoordinate2D(latitude: 40.697485 , longitude:  -73.910931)
+            let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let casinoFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Casino")
+            do {
+                let fetchedCasinos = try moc.fetch(casinoFetch) as! [C8HCasino]
+                for casino in fetchedCasinos {
+                    let center = CLLocationCoordinate2D(latitude: CLLocationDegrees(casino.latitude),
+                            longitude: CLLocationDegrees(casino.longitude))
+                    monitorRegionAtLocation(center: center,
+                                            identifier: casino.identifer!)
+                }
+            } catch {
+                fatalError("Failed to fetch employees: \(error)")
+            }
+            findInWhichRegion()
         }
     }
     
@@ -120,24 +125,30 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
         }
     }
     
-    func findInWhichRegion(coordinate: CLLocationCoordinate2D){
-        if inRegion == nil{
-            for region in locationManager.monitoredRegions {
-                if let circularRegion = region as? CLCircularRegion{
-                    //                    circularRegion
-                    print(circularRegion.description)
-                    if circularRegion.contains(coordinate){
-                        print("Found region user is in " + circularRegion.identifier)
-                        self.inRegion = circularRegion
+    func findInWhichRegion(){
+        if locationManager.monitoredRegions.count == 0{
+            var repository = C8HCasinoRepository()
+            repository.delegate = self
+            repository.getCasinos()
+        }else{
+            if inRegion == nil{
+                for region in locationManager.monitoredRegions {
+                    if let circularRegion = region as? CLCircularRegion{
+                        //                    circularRegion
+                        print(circularRegion.description)
+                        if circularRegion.contains(location!){
+                            print("Found region user is in " + circularRegion.identifier)
+                            self.inRegion = circularRegion
+                        }
+                        
                     }
-                    
                 }
             }
         }
     }
     
     // Call this to monitor if the user leaves a region
-    func monitorRegionAtLocation(center: CLLocationCoordinate2D, identifier: String ) {
+    func monitorRegionAtLocation(center: CLLocationCoordinate2D, identifier: String) {
         // Make sure the app is authorized.
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             // Make sure region monitoring is supported.
@@ -148,9 +159,7 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
                                               radius: maxDistance, identifier: identifier)
                 region.notifyOnEntry = true
                 region.notifyOnExit = true
-                
                 locationManager.startMonitoring(for: region)
-                print("Started monitoring region " + identifier)
             }
         }
     }

@@ -179,8 +179,8 @@
 				E197757F2025211700D94927 /* C8HNumberPadView.swift */,
 				E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */,
 				E197757D20250C4D00D94927 /* tableViewContoller.swift */,
-				E1B5032F2007E7E400B4C701 /* C8HSelectCasino.swift */,
 				E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */,
+				E1B5032F2007E7E400B4C701 /* C8HSelectCasino.swift */,
 				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
 			);
 			path = Controllers;

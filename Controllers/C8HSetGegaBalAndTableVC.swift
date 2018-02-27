@@ -16,6 +16,7 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     let pickerOptions = ["Black Jack", "Craps", "Roulette"]
     var activeField: UITextField!
     var pickerView = UIPickerView()
+    var tablesPickerView = UIPickerView()
     var manager: C8HGeoRegionManager?
     
     // MARK: - Properties
@@ -26,49 +27,51 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        
-        configurePickerView()
+        tablesPickerView.delegate = self
+        tablesPickerView.accessibilityIdentifier = "tablesPicker"
         pickerView.delegate = self
         pickerTextField.inputView = pickerView
         addObserveNotificationForKeyboard()
-     
-        guard let region = manager?.inRegion else{
-            return
-        }
-        welcomeLabel.text = "Welcome to " + region.identifier
-        
-//        // Create view to add shadow
-//        let overlayView = UIView(frame: view.frame)
-//        overlayView.backgroundColor = UIColor.black
-//        overlayView.alpha = 0.3
-//
-//        // Create activity indicator
-//        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-//        indicator.center = overlayView.center
-//        overlayView.addSubview(indicator)
-//        view.addSubview(overlayView)
-//        indicator.startAnimating()
+        enableOverlayView("Loading")
+        // Load tables.
     }
     
     // MARK: - Configuration
-    
-    func configurePickerView() {
-        // not working
+    func enableOverlayView(_ message: String ){
+        // Create view to add shadow
+        let overlayView = UIView(frame: view.frame)
+        overlayView.backgroundColor = UIColor.black
+        overlayView.alpha = 0.6
+        overlayView.tag = 10
+        overlayView.pleaseWait(message)
+        view.addSubview(overlayView)
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 extension C8HSetGegaBalAndTableVC: UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        if pickerView.accessibilityIdentifier == "tablesPicker"{
+            return 1
+        }
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.accessibilityIdentifier == "tablesPicker"{
+            return 1
+        }
         return pickerOptions.count
     }
 }

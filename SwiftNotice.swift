@@ -14,7 +14,7 @@ extension UIResponder {
     /// wait with your own animated images
     @discardableResult
     func pleaseWaitWithImages(_ imageNames: Array<UIImage>, timeInterval: Int) -> UIWindow{
-        return SwiftNotice.wait(imageNames, timeInterval: timeInterval)
+        return SwiftNotice.wait(imageNames: imageNames, timeInterval: timeInterval)
     }
     // api changed from v3.3
     @discardableResult
@@ -53,9 +53,15 @@ extension UIResponder {
     func notice(_ text: String, type: NoticeType, autoClear: Bool, autoClearTime: Int = 3) -> UIWindow{
         return SwiftNotice.showNoticeWithText(type, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
+    
     @discardableResult
     func pleaseWait() -> UIWindow{
         return SwiftNotice.wait()
+    }
+    
+    @discardableResult
+    func pleaseWait(_ text: String, autoClear: Bool = false) -> UIWindow{
+        return SwiftNotice.showWaitWithText(text, autoClear: false, autoClearTime: 5)
     }
     @discardableResult
     func noticeOnlyText(_ text: String) -> UIWindow{
@@ -154,7 +160,7 @@ class SwiftNotice: NSObject {
     }
     
     @discardableResult
-    static func wait(_ imageNames: Array<UIImage> = Array<UIImage>(), timeInterval: Int = 0) -> UIWindow {
+    static func wait(imageNames: Array<UIImage> = Array<UIImage>(), timeInterval: Int = 0) -> UIWindow {
         let frame = CGRect(x: 0, y: 0, width: 78, height: 78)
         let window = UIWindow()
         window.backgroundColor = UIColor.clear
@@ -251,6 +257,57 @@ class SwiftNotice: NSObject {
         }
         return window
     }
+    
+    @discardableResult
+    static func showWaitWithText(_ text: String, autoClear: Bool, autoClearTime: Int) -> UIWindow {
+        let frame = CGRect(x: 0, y: 0, width: 90, height: 90)
+        let window = UIWindow()
+        window.backgroundColor = UIColor.clear
+        let mainView = UIView()
+        mainView.layer.cornerRadius = 10
+        mainView.backgroundColor = UIColor(red:0, green:0, blue:0, alpha: 0.7)
+        
+        let ai = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        ai.frame = CGRect(x: 27, y: 15, width: 36, height: 36)
+        ai.startAnimating()
+        mainView.addSubview(ai)
+        
+        let label = UILabel(frame: CGRect(x: 0, y: 60, width: 90, height: 16))
+        label.font = UIFont.systemFont(ofSize: 13)
+        label.textColor = UIColor.white
+        label.text = text
+        label.textAlignment = NSTextAlignment.center
+        mainView.addSubview(label)
+        
+        window.frame = frame
+        mainView.frame = frame
+        window.center = rv!.center
+        
+        if let version = Double(UIDevice.current.systemVersion),
+            version < 9.0 {
+            // change center
+            window.center = getRealCenter()
+            // change direction
+            window.transform = CGAffineTransform(rotationAngle: CGFloat(degree * Double.pi / 180))
+        }
+        
+        window.windowLevel = UIWindowLevelAlert
+        window.center = rv!.center
+        window.isHidden = false
+        window.addSubview(mainView)
+        windows.append(window)
+        
+        mainView.alpha = 0.0
+        UIView.animate(withDuration: 0.2, animations: {
+            mainView.alpha = 1
+        })
+        
+        if autoClear {
+            self.perform(.hideNotice, with: window, afterDelay: TimeInterval(autoClearTime))
+        }
+        return window
+    }
+    
     
     @discardableResult
     static func showNoticeWithText(_ type: NoticeType,text: String, autoClear: Bool, autoClearTime: Int) -> UIWindow {

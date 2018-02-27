@@ -8,7 +8,7 @@
 
 import Alamofire
 
-extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate, C8HLoginValidatorDelegate{
+extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     // =========================================================================
     // MARK: Keyboard notification handlers
     func enableKeyboardNotification(){

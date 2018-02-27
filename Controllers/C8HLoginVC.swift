@@ -53,54 +53,46 @@ class C8HLoginVC: UIViewController {
     // =========================================================================
     // Users enters wrong credintials 
     func loginFailure(){
-        guard let overlayView = self.view.viewWithTag(10) else {
-            return
-        }
         overlayView.removeFromSuperview()
         self.noticeError("Error!", autoClear: true, autoClearTime: 3)
-        self.passwordTextField.text = ""
-        self.usernameTextField.text = ""
-        self.textFieldDidEndEditing(self.usernameTextField)
-        self.textFieldDidEndEditing(self.passwordTextField)
+        self.passwordTextField.text = "password"
+        self.usernameTextField.text = "Username"
     }
     
     // =========================================================================
     // MARK: Actions
-    @IBAction func oktaLogin(_ sender: Any){
-//        updateViewToCheckCredientialsOrGetLocation( "" )
-        OktaAuth
-            .login(username, password: password)
-            .start(self) {
-                response, error in
-                if error != nil {
-                    DispatchQueue.main.async {
-                        self.loginFailure()
-                    }
-                }
-                // Success
-                if let authResponse = response {
-                    OktaAuth.tokens?.set(value: authResponse.accessToken!, forKey: "accessToken")
-                    OktaAuth.tokens?.set(value: authResponse.idToken!, forKey: "idToken")
-                    DispatchQueue.main.async{
-                        self.performSegue(withIdentifier: "conditionSegue", sender: nil)
-                    }
-                }
-        }
+    @IBAction func oktaLogin(_ sender: UIButton){
+        sender.isEnabled = false
+        self.performSegue(withIdentifier: "conditionSegue", sender: nil)
+//        OktaAuth
+////            .login(username, password: password)
+//            .login("rm@cre8ivehouse.com", password:"Youtube1996")
+//            .start(self) {
+//                response, error in
+//                if error != nil {
+//                    DispatchQueue.main.async {
+//                        sender.isEnabled = true
+//                        self.loginFailure()
+//                    }
+//                }
+//                // Success
+//                if let authResponse = response {
+//                    OktaAuth.tokens?.set(value: authResponse.accessToken!, forKey: "accessToken")
+//                    OktaAuth.tokens?.set(value: authResponse.idToken!, forKey: "idToken")
+//                    DispatchQueue.main.async{
+//                        self.performSegue(withIdentifier: "conditionSegue", sender: nil)
+//                    }
+//                }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let vc = segue.destination as? C8HSetGegaBalAndTableVC{
+            manager.findInWhichRegion()
             print("Sucessful performaing segue.")
             vc.manager = manager
-            
         }
-        //        let navVC = segue.destination as? UINavigationController
-        //        if let vc = navVC?.viewControllers.first as? C8HSetGegaBalAndTableVC
-        //        {
-        //            print("Sucessful performaing segue.")
-        //            vc.manager = manager
-        //        }
     }
     
     func updateViewToCheckCredientialsOrGetLocation(_ message: String ){
