@@ -22,6 +22,11 @@
 		<key>Pods-ledge.xcscheme</key>
 		<dict>
 			<key>isShown</key>
+			<true/>
+		</dict>
+		<key>PromiseKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
 			<false/>
 		</dict>
 	</dict>

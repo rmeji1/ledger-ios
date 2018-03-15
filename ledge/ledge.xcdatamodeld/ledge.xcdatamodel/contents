@@ -6,7 +6,16 @@
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="Table" representedClassName="C8HTable" syncable="YES" codeGenerationType="class">
+        <attribute name="casinoId" attributeType="Integer 64" minValueString="0" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gameDesc" attributeType="String" defaultValueString="Default Description" syncable="YES"/>
+        <attribute name="gega" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="podium" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="tableNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Casino" positionX="-3348" positionY="-3879" width="128" height="30"/>
+        <element name="Table" positionX="-3348" positionY="-3888" width="128" height="135"/>
     </elements>
 </model>

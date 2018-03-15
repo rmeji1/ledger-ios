@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import CoreData
+import PromiseKit
 
 protocol C8HGeoRegionDelegate : class {
     func onlyAuthorizedWhenInUse()
@@ -37,7 +38,7 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
         locationManager.delegate = self
         locationManager.allowsBackgroundLocationUpdates = true
         checkAndRequestAuthorizationStatus()
-        locationManager.requestLocation()
+        //locationManager.requestLocation()
     }
     deinit {
         applicationWillEnterForegroundNotificaiton(enable: false)
@@ -71,8 +72,9 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
             break
         }
     }
-    func requestLocation(){
-        locationManager.requestLocation()
+    func requestLocation() -> Promise<[CLLocation]>{
+//        locationManager.requestLocation()
+        return CLLocationManager.requestLocation()
         //setRegions()
         //locationManager.requestLocation()
     }
@@ -124,12 +126,11 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
             locationManager.stopMonitoring(for: region)
         }
     }
-    
     func findInWhichRegion(){
         if locationManager.monitoredRegions.count == 0{
             var repository = C8HCasinoRepository()
             repository.delegate = self
-            repository.getCasinos()
+            //repository.getCasinos()
         }else{
             if inRegion == nil{
                 for region in locationManager.monitoredRegions {

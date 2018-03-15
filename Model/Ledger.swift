@@ -10,7 +10,7 @@ import Foundation
 
 struct Ledger: Encodable{
     var gega: String
-    var gtNumber: Int
+    var gtNumber: String
     var beginningBalance: Double
     var endingBalance: Double
     var additions: [Double]

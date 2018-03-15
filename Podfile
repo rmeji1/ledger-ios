@@ -3,7 +3,9 @@ use_frameworks!
 
 target 'ledge' do
     pod 'OktaAuth', '~> 0.1'
-    pod 'Alamofire', '~> 4.6'
+    pod 'PromiseKit', '~> 6.0'
+    pod 'PromiseKit/CoreLocation'
+    pod 'PromiseKit/Alamofire'
 end
 
 

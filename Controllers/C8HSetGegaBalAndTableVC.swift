@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class C8HSetGegaBalAndTableVC: UIViewController{
     private var defaultText = ["gega":"GEGA",
@@ -14,27 +15,63 @@ class C8HSetGegaBalAndTableVC: UIViewController{
                                "beginningBalance":"Beginning Balance"]
 
     let pickerOptions = ["Black Jack", "Craps", "Roulette"]
+    var tables : [C8HTable]? = []
     var activeField: UITextField!
     var pickerView = UIPickerView()
     var tablesPickerView = UIPickerView()
     var manager: C8HGeoRegionManager?
+    
+    var table : C8HTable?
+    var tableIndex : Int?
+    var casino : C8HCasino?
+    
     
     // MARK: - Properties
     @IBOutlet weak var pickerTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var selectTableTextField: C8HTextField!
+    
+    @IBOutlet weak var gameAndTableNumberTextField: C8HTextField!
+    @IBOutlet weak var beginningBalanceTextField: C8HTextField!
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablesPickerView.delegate = self
-        tablesPickerView.accessibilityIdentifier = "tablesPicker"
         pickerView.delegate = self
-        pickerTextField.inputView = pickerView
-        addObserveNotificationForKeyboard()
-        enableOverlayView("Loading")
+        pickerView.dataSource = self
+        selectTableTextField.inputView = pickerView
+        selectTableTextField.accessibilityIdentifier = "TableTextField"
+        //enableOverlayView("Loading")
+        let casinoRepo = C8HCasinoRepository()
+        let tableRepo = C8HTableRepository()
         // Load tables.
+//        CLLocationManager.requestLocation().lastValue
+//            .then{ location in
+//                casinoRepo.findInWhichCasino(loc: location)
+//            }.done{ casino in
+//                self.casino = casino
+//                self.welcomeLabel.text = casino.identifer
+//                tableRepo.findTablesWithCasinoId(casinoId: casino.id).done{ tables in
+//                    self.tables?.append(contentsOf: tables)
+//                    self.disableOverlayView();
+//                    }.catch{error in
+//                        debugPrint(error)
+//                }
+//            }.catch{error in
+//                debugPrint(error)
+//            }.finally {
+//                self.disableOverlayView()
+//        }
+        
+    }
+    override func viewDidAppear(_ animated: Bool){
+        addObserveNotificationForKeyboard()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool){
+        removeObserveNoticationForKeyboard()
     }
     
     // MARK: - Configuration
@@ -47,43 +84,108 @@ class C8HSetGegaBalAndTableVC: UIViewController{
         overlayView.pleaseWait(message)
         view.addSubview(overlayView)
     }
+    func disableOverlayView(){
+        view.viewWithTag(10)?.clearAllNotice()
+        view.viewWithTag(10)?.removeFromSuperview()
+    }
+    
+//  MARK: - Navigation
+    // This has error if user can't select a table or updates it.......
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        dnc = destinationViewController
+        if let dnc = segue.destination as? UINavigationController{
+            if let vc = dnc.topViewController as? C8HPushCloseOrTransactionVC{
+                debugPrint("Sucessful segue to PushCloseOrTransactionVC segue.")
+                guard
+                    let table = table,
+                    let casino = casino,
+                    var tables = tables,
+                    let tableIndex = tableIndex
+                else{
+                    return
+                }
+                vc.table = table
+                vc.casino = casino
+                tables.remove(at: tableIndex)
+                vc.tables = tables
+            }
+        }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
+//==============================================================================
+// MARK - EXTENSIONS
+//==============================================================================
 extension C8HSetGegaBalAndTableVC: UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        if pickerView.accessibilityIdentifier == "tablesPicker"{
-            return 1
-        }
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.accessibilityIdentifier == "tablesPicker"{
-            return 1
+        if activeField.accessibilityIdentifier == "TableTextField"{
+            guard let tables = tables else{ return 0 }
+            return tables.count + 1
         }
-        return pickerOptions.count
+        return pickerOptions.count + 1
     }
 }
 
 extension C8HSetGegaBalAndTableVC: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerOptions[row]
+        var text = " "
+        if row != 0{
+            guard let tables = tables else{ return "" }
+            if activeField.accessibilityIdentifier == "TableTextField"{
+                text =  "Table \(tables[row - 1].tableNumber)"
+                table = tables[row - 1]
+                tableIndex = row - 1
+            }
+            else {
+                 text =  pickerOptions[row - 1]
+            }
+        }
+        return text
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if self.textFieldShouldReturn(pickerTextField){
-            pickerTextField.text = pickerOptions[row]
+        if activeField.accessibilityIdentifier == "TableTextField"{
+            if self.textFieldShouldReturn(activeField){
+                guard let tables = tables else{ return  }
+
+                if row == 0{
+                    selectTableTextField.text = "Select Table"
+                }
+                else{
+//                    String(format: "Tip Amount: $%.02f", tipAmount)
+                    guard
+                        let gameDesc = tables[row-1].gameDesc,
+                        let balance = tables[row-1].podium,
+                        let gegaText = tables[row-1].gega
+                    else {
+                        debugPrint("Error with tables variable in C8HSetGega...")
+                        return
+                    }
+                    
+                    let formatter = NumberFormatter()
+                    formatter.locale = Locale.current
+                    formatter.numberStyle = .currency
+                    if let formattedTipAmount = formatter.string(from: balance as NSNumber) {
+                        beginningBalanceTextField.text = "Balance: \(formattedTipAmount)"
+                    }
+                    
+                    selectTableTextField.text = "Table \(tables[row-1].tableNumber)"
+                    gameAndTableNumberTextField.text = gameDesc
+                    pickerTextField.text = gegaText
+                }
+            }
+        }else{
+            if self.textFieldShouldReturn(pickerTextField){
+                 if row == 0{
+                    pickerTextField.text = "GEGA"
+                 }else{
+                    pickerTextField.text = pickerOptions[row-1]
+
+                }
+            }
         }
     }
 }
@@ -111,25 +213,23 @@ extension C8HSetGegaBalAndTableVC{
 
     @objc
     func keyboardWasShown(_ notification: Notification) {
-//        NSDictionary* info = [aNotification userInfo];
-//        CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
-//        CGRect bkgndRect = activeField.superview.frame;
-//        bkgndRect.size.height += kbSize.height;
-//        [activeField.superview setFrame:bkgndRect];
-//        [scrollView setContentOffset:CGPointMake(0.0, activeField.frame.origin.y-kbSize.height) animated:YES];
+        let info = notification.userInfo
+        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize?.height)!, 0.0)
         
-//        guard let info = notification.userInfo else {
-//            return
-//        }
-//        let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
-////        var bkgndRect = activeField.superview?.frame
-//        var bkgndRect = stackView.superview?.frame
-//        bkgndRect?.size.height += (kbSize?.height)!
-////        activeField.superview?.frame = bkgndRect!
-//        stackView.superview?.frame = bkgndRect!
-//        let point = CGPoint(x: 0.0, y: stackView.frame.maxY-(kbSize?.height)!)
-//        scrollView.setContentOffset(point, animated: true)
-    }
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets;
+        
+        var aRect = self.view.frame
+        aRect.size.height -= (kbSize?.height)!
+        
+        let x = stackView.frame.origin.x + activeField.frame.maxX
+        let y = stackView.frame.origin.y + activeField.frame.maxY
+        let point = CGPoint(x: x , y: y)
+        
+        if !aRect.contains(point){
+            self.scrollView.scrollRectToVisible(stackView.frame, animated: true)
+        }    }
 
     @objc
     func keyboardWillBeHidden(_ notification: Notification){
@@ -141,7 +241,6 @@ extension C8HSetGegaBalAndTableVC{
 // =========================================================================
 // MARK: UITextFieldDelegate functions
 extension C8HSetGegaBalAndTableVC: UITextFieldDelegate{
-   
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
         return true
     }
@@ -157,7 +256,7 @@ extension C8HSetGegaBalAndTableVC: UITextFieldDelegate{
 //        if textField.text == ""{
 //            textField.text = defaultText[identifier]
 //        }
-//        textField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     

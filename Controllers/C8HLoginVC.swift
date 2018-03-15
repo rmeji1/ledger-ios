@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import OktaAuth
+import PromiseKit
 
 class C8HLoginVC: UIViewController {
     var activeField: UITextField!
@@ -31,15 +32,10 @@ class C8HLoginVC: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        enableKeyboardNotification()
-        manager = C8HGeoRegionManager(self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        retrieveCasinoList()
-//        let repo = C8HCasinoRepository()
-//        let casinos = repo.getAllCasinos()
-//        print("Trying to print the casinos outside\(casinos)")
+    override func viewWillAppear(_ animated: Bool) {
+        enableKeyboardNotification()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,6 +78,17 @@ class C8HLoginVC: UIViewController {
 //                    DispatchQueue.main.async{
 //                        self.performSegue(withIdentifier: "conditionSegue", sender: nil)
 //                    }
+//             }
+//        }
+        
+//        OktaAuth
+//            .userinfo() { response, error in
+//                if error != nil {
+//                    print("Error: \(error!)")
+//                }
+//
+//                if let userinfo = response {
+//                    userinfo.forEach { print("\($0): \($1)") }
 //                }
 //        }
     }
@@ -89,7 +96,7 @@ class C8HLoginVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if let vc = segue.destination as? C8HSetGegaBalAndTableVC{
-            manager.findInWhichRegion()
+            //manager.findInWhichRegion()
             print("Sucessful performaing segue.")
             vc.manager = manager
         }
