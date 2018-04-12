@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import PromiseKit
 
 class C8HSetGegaBalAndTableVC: UIViewController{
     private var defaultText = ["gega":"GEGA",
@@ -24,7 +25,6 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     var table : C8HTable?
     var tableIndex : Int?
     var casino : C8HCasino?
-    
     
     // MARK: - Properties
     @IBOutlet weak var pickerTextField: UITextField!
@@ -43,29 +43,48 @@ class C8HSetGegaBalAndTableVC: UIViewController{
         pickerView.dataSource = self
         selectTableTextField.inputView = pickerView
         selectTableTextField.accessibilityIdentifier = "TableTextField"
-        //enableOverlayView("Loading")
+        enableOverlayView("Loading")
         let casinoRepo = C8HCasinoRepository()
         let tableRepo = C8HTableRepository()
         // Load tables.
-//        CLLocationManager.requestLocation().lastValue
-//            .then{ location in
-//                casinoRepo.findInWhichCasino(loc: location)
-//            }.done{ casino in
-//                self.casino = casino
-//                self.welcomeLabel.text = casino.identifer
-//                tableRepo.findTablesWithCasinoId(casinoId: casino.id).done{ tables in
-//                    self.tables?.append(contentsOf: tables)
-//                    self.disableOverlayView();
-//                    }.catch{error in
-//                        debugPrint(error)
-//                }
-//            }.catch{error in
-//                debugPrint(error)
-//            }.finally {
-//                self.disableOverlayView()
-//        }
-        
+        CLLocationManager.requestLocation().lastValue
+            .then{ location in
+                casinoRepo.findInWhichCasino(loc: location)
+            }.done{ casino in
+                self.casino = casino
+                //self.welcomeLabel.text = casino.identifer
+                tableRepo.findTablesWithCasinoId(casinoId: casino.id).done{ tables in
+                    self.tables?.append(contentsOf: tables)
+                    self.disableOverlayView();
+                    }.catch{error in
+                        debugPrint(error)
+                }
+            }.catch{error in
+                if (error as! C8HCasinoError) == C8HCasinoError.errorFromCD  {
+                    DispatchQueue.main.async { self.showAlert() }
+                }
+            }.finally { self.disableOverlayView() }
     }
+    
+    func viewWillReturnFromCreateCasino(_ casino: C8HCasino){
+        self.casino = casino
+        //welcomeLabel.text = casino.identifer
+    }
+    
+    func showAlert(){
+        let title = "Oops"
+        let message = "Can't find casino your located in."
+        let alert = UIAlertController(style: .actionSheet, title: title , message: message)
+        
+        // Enter casino info should present addNewCasinoSegue
+        alert.addAction(title: "Enter casino info", style: .default){ action in
+            self.performSegue(withIdentifier: "addNewCasinoSegue", sender: nil)
+        }
+        alert.addAction(title: "Cancel", style: .destructive)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool){
         addObserveNotificationForKeyboard()
     }
@@ -88,7 +107,49 @@ class C8HSetGegaBalAndTableVC: UIViewController{
         view.viewWithTag(10)?.clearAllNotice()
         view.viewWithTag(10)?.removeFromSuperview()
     }
+  
+  @IBAction func startLedger(_ sender: UIButton) {
+    guard
+      let casinoName = casino?.identifer,
+      let gega = table?.gega,
+      let tableNumber = table?.tableNumber,
+      let gameDesc = table?.gameDesc,
+      let begBal = table?.podium
+//      let endBal = table?
+      else {
+      return
+    }
+    // Add spinning wheel to view and overlay.
+    // I want to create  the ledger and send it to server.
+    // on sucess return from server perfor condtiitonal segue way
+    var ledger = Ledger()
+    ledger.casinoDetails = CasinoDetails(casinoName: casinoName)
+    ledger.tableDetails = TableDetails(gega: gega, gameTable: "\(tableNumber)/\(gameDesc)", beginningBalance:begBal as Decimal)
     
+//    ledger.tableDetails = [
+//      "gega" : gega,
+//      "gameTable" : "\(tableNumber)/\(gameDesc)",
+//      "beginningBalance" : "\(begBal)",
+//    ]
+    // FIXME: - NEED TO CHANGE THIS, should get the emp name + from other source
+    // Save in userdefaults if you want when the user signs in.
+    ledger.empDetails = EmpDetails(badgeNumber: "1234", name: "Roberto Mejia")
+    
+    let ledgerRepo = C8HLedgerRepository()
+    
+    ledgerRepo.createLedger(ledger: ledger)?.done{_ in
+      self.performSegue(withIdentifier: "showNavControllerSegue", sender: nil)
+    }
+    
+    
+   // debugPrint(ledger.casinoDetails!)
+   //
+    
+  }
+  
+  
+  
+  
 //  MARK: - Navigation
     // This has error if user can't select a table or updates it.......
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

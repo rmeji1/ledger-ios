@@ -13,6 +13,7 @@ enum TableRepositoryError : Error{
     case UnableToParseJsonFromServerToDict
     case UnableToParseJson
 }
+
 extension C8HTable{
     convenience init(dict: [String: Any], context: NSManagedObjectContext) throws{
         self.init(context: context)

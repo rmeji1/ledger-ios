@@ -12,7 +12,7 @@ import PromiseKit
 import CoreData
 
 struct C8HTableRepository{
-    let url = "http://192.168.1.17:8080"
+    let url = "http://10.10.111.121:8080"
     let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     func findTablesWithCasinoId(casinoId: Int64) -> Promise<[C8HTable]>{

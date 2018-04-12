@@ -179,6 +179,7 @@ final class LocationPickerViewController: UIViewController {
     override open func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
         preferredContentSize.height = UIScreen.main.bounds.height
+        preferredContentSize.width = UIScreen.main.bounds.width
         
         locationButton.frame.origin = CGPoint(
             x: view.frame.width - locationButton.frame.width - 20,

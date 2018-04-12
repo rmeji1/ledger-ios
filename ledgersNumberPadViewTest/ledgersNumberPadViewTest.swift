@@ -31,17 +31,6 @@ class ledgersNumberPadViewTest: XCTestCase {
     func testExample() {
                 // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        let app = XCUIApplication()
-        let elementsQuery = app.scrollViews.otherElements
-        elementsQuery.buttons["Sign in"].tap()
-        elementsQuery.buttons["Start Ledger"].tap()
-        app.buttons["+/–"].tap()
-        
-        let plusButton = app.buttons["Plus"]
-        plusButton.tap()
-
-        
     }
     
 }

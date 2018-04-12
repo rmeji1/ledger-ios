@@ -32,6 +32,7 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     
     @objc
     func keyboardWasShown(_ notification: Notification) {
+        guard let activeField = activeField else { return }
         let info = notification.userInfo
         let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize?.height)!, 0.0)
@@ -99,8 +100,9 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+        enableKeyboardNotification()
         if textField.restorationIdentifier == "password"{
-            textField.text = ""
+//            textField.text = ""
             textField.isSecureTextEntry = true
         }
         return true
@@ -121,14 +123,14 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     // Add any text validation here.
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
         //  Set to false if any of these conditions are not
-        guard textField.hasText else{
-            if textField.restorationIdentifier == "employeeId"{
-                textField.text = "Employee Id"
-            } else {
-                textField.text = "Password"
-            }
-            return true
-        }
+//        guard textField.hasText else{
+//            if textField.restorationIdentifier == "employeeId"{
+//                textField.text = "Employee Id"
+//            } else {
+//                textField.text = "Password"
+//            }
+//            return true
+//        }
         if textField.restorationIdentifier == "employeeId"{
             username = textField.text!
             debugPrint("Username:" + username)
@@ -140,6 +142,7 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField){
+        removeObserveNoticationForKeyboard()
         self.activeField = nil
     }
 }

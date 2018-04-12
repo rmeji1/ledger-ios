@@ -47,11 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK : - Okta Login
     
-    func application(_ app: UIApplication,
-                     open url: URL,
-                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        return OktaAuth.resume(url, options: options)
-    }
+//    func application(_ app: UIApplication,
+//                     open url: URL,
+//                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+//        return OktaAuth.resume(url, options: options)
+//    }
 
     // MARK: - Core Data stack
 
