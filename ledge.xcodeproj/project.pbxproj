@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		548852B3E107C4138A30DF48 /* Pods_ledge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5349C072DC3A44A6007B1346 /* Pods_ledge.framework */; };
+		B7AD9ECC343214FF157279F7 /* Pods_ledge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72889FD27DC11219DA5F8EF /* Pods_ledge.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E102567E2086429B001C7AB0 /* location-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E102567D2086429B001C7AB0 /* location-image.png */; };
+		E1025680208649C9001C7AB0 /* exit-right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E102567F208649C9001C7AB0 /* exit-right-arrow.png */; };
 		E10410DF203B44A800F13D57 /* extLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410DE203B44A800F13D57 /* extLoginVC.swift */; };
 		E10410E4203B504D00F13D57 /* C8HPresentTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410E2203B504D00F13D57 /* C8HPresentTables.swift */; };
 		E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10410E3203B504D00F13D57 /* C8HPresentTables.xib */; };
@@ -16,32 +18,48 @@
 		E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */; };
 		E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */; };
 		E10569FE20100DFD00984A33 /* extUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10569FD20100DFD00984A33 /* extUiView.swift */; };
-		E124C6C5202A2A9E005A43A5 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E124C6C4202A2A9E005A43A5 /* plus.png */; };
-		E124C6C7202A5056005A43A5 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = E124C6C6202A5056005A43A5 /* negative.png */; };
+		E125BEE2208661580062CAD8 /* add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEDF208661570062CAD8 /* add-sub.png */; };
+		E125BEE3208661580062CAD8 /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEE0208661580062CAD8 /* push.png */; };
+		E125BEE7208664820062CAD8 /* call-manager.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEE5208664810062CAD8 /* call-manager.png */; };
+		E125BEEC208682E60062CAD8 /* C8HMainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */; };
+		E125BEF020868BC10062CAD8 /* stack-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEEF20868BC10062CAD8 /* stack-menu.png */; };
 		E12F7D3D204DB6AA00A74219 /* C8HTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */; };
 		E12F7D412050522B00A74219 /* extTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7D402050522A00A74219 /* extTable.swift */; };
+		E1349BDF208934E8001DB28F /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1349BDE208934E8001DB28F /* NavViewController.swift */; };
 		E1426D42203E2E71004A6042 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1426D41203E2E71004A6042 /* SwiftNotice.swift */; };
+		E14ACEF5207FFFBD001FDDF3 /* 2018022201-ldgrs-header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E14ACEF4207FFFBC001FDDF3 /* 2018022201-ldgrs-header-logo.png */; };
+		E14ACEF72080011C001FDDF3 /* C8HImageViewNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */; };
+		E14ACEFF20800688001FDDF3 /* C8Htitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ACEFE20800688001FDDF3 /* C8Htitle.swift */; };
+		E14ACF01208006BD001FDDF3 /* header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E14ACF00208006BC001FDDF3 /* header-logo.png */; };
 		E14C51FF207E6B5200A60752 /* C8HLedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */; };
+		E152A9392084073500828A12 /* buttons-add-sub-left.png in Resources */ = {isa = PBXBuildFile; fileRef = E152A9382084073400828A12 /* buttons-add-sub-left.png */; };
+		E152A93B2084077800828A12 /* buttons-addition.png in Resources */ = {isa = PBXBuildFile; fileRef = E152A93A2084077800828A12 /* buttons-addition.png */; };
 		E15872432052152400E199A3 /* C8HPushCloseOrTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */; };
 		E15E1D41206A06730052B0BE /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E1D40206A066E0052B0BE /* geolocation.png */; };
 		E15E1D4F206AB7C50052B0BE /* C8HOverlayViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */; };
 		E15E1D51206AB8750052B0BE /* C8HKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E1D50206AB8750052B0BE /* C8HKeyboardHandler.swift */; };
 		E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */; };
-		E15F5D16200D0D6500E99EF3 /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = E15F5D15200D0D6500E99EF3 /* Okta.plist */; };
 		E163CBAC20115BFB00182A6B /* pt_gaming_logo_w-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */; };
 		E16C458C20041DF8005F3D5C /* C8HLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */; };
 		E16F7BD12017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */; };
 		E170ED83200BEB1200238CEA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = E170ED82200BEB1200238CEA /* podfile */; };
 		E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175CACA202E0F88005E7AAC /* Ledger.swift */; };
+		E179B9E420894A600015A102 /* blackstone-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E320894A5F0015A102 /* blackstone-logo-white.png */; };
+		E179B9E620894E830015A102 /* call-manager-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E520894E820015A102 /* call-manager-2.png */; };
+		E179B9E820894F930015A102 /* call-manager-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E720894F920015A102 /* call-manager-3.png */; };
 		E180D5662066DA6C00E3F191 /* C8HCreateCasinoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */; };
 		E180D5682066DB8700E3F191 /* extCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180D5672066DB8700E3F191 /* extCasino.swift */; };
 		E18EFCDB20364E2F0008183B /* startup-image-iphone-X-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */; };
-		E18EFCDE20364FB30008183B /* 180-X-180-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDC20364FB20008183B /* 180-X-180-B.png */; };
-		E18EFCDF20364FB30008183B /* 120-X-120-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDD20364FB30008183B /* 120-X-120-B.png */; };
 		E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */; };
+		E195C794207FCC1000D45645 /* LatoLatin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */; };
+		E195C795207FCC1F00D45645 /* LatoLatin-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */; };
 		E197757E20250C5100D94927 /* tableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757D20250C4D00D94927 /* tableViewContoller.swift */; };
 		E19775802025211700D94927 /* C8HNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757F2025211700D94927 /* C8HNumberPadView.swift */; };
 		E19FBC4E206198FA00CCB977 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19FBC4D206198F900CCB977 /* Transaction.swift */; };
+		E1B1DF1320869479005B9D74 /* menu-stack.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B1DF1220869478005B9D74 /* menu-stack.png */; };
+		E1B1DF15208694D4005B9D74 /* header-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B1DF14208694D4005B9D74 /* header-logo-white.png */; };
+		E1B1DF1920869FCC005B9D74 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B1DF1820869FCC005B9D74 /* close.png */; };
+		E1B1DF1B2086A128005B9D74 /* close-1.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B1DF1A2086A126005B9D74 /* close-1.png */; };
 		E1B314D9206C0F4A00980650 /* TransactionRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B314D8206C0F4A00980650 /* TransactionRepo.swift */; };
 		E1B314DB207DBED200980650 /* Blackstone.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B314DA207DBED200980650 /* Blackstone.png */; };
 		E1B314DD207DCB0900980650 /* blackstone-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B314DC207DCB0800980650 /* blackstone-logo-black.png */; };
@@ -107,8 +125,6 @@
 		E1B643742059982300BD0B08 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B6433F2059982200BD0B08 /* TextField.swift */; };
 		E1B643772059C98D00BD0B08 /* 001-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B643752059C98C00BD0B08 /* 001-lock.png */; };
 		E1B643782059C98D00BD0B08 /* 002-user-silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B643762059C98C00BD0B08 /* 002-user-silhouette.png */; };
-		E1B6437A205A167900BD0B08 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B64379205A167800BD0B08 /* add.png */; };
-		E1B6437C205A16A700BD0B08 /* minus (1).png in Resources */ = {isa = PBXBuildFile; fileRef = E1B6437B205A16A600BD0B08 /* minus (1).png */; };
 		E1BF19051FF57EA90083216D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19041FF57EA90083216D /* AppDelegate.swift */; };
 		E1BF190A1FF57EA90083216D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BF19081FF57EA90083216D /* Main.storyboard */; };
 		E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1BF190B1FF57EA90083216D /* ledge.xcdatamodeld */; };
@@ -116,8 +132,17 @@
 		E1BF19121FF57EA90083216D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BF19101FF57EA90083216D /* LaunchScreen.storyboard */; };
 		E1BF191D1FF57EAB0083216D /* ledgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF191C1FF57EAB0083216D /* ledgeTests.swift */; };
 		E1BF19281FF57EAB0083216D /* ledgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19271FF57EAB0083216D /* ledgeUITests.swift */; };
-		E1E7403E203656E300583D3B /* subtractions-button-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7403C203656E200583D3B /* subtractions-button-image.png */; };
-		E1E7403F203656E300583D3B /* addition-button-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7403D203656E200583D3B /* addition-button-image.png */; };
+		E1D70391208E21AE00622D8E /* ledgeLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */; };
+		E1D703AD208E389400622D8E /* okta3.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D703AC208E389400622D8E /* okta3.plist */; };
+		E1E0FD1120879BCB003611FC /* background-add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1020879BCA003611FC /* background-add-sub.png */; };
+		E1E0FD1320879E37003611FC /* background-push.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1220879E33003611FC /* background-push.png */; };
+		E1E0FD1520879F94003611FC /* background-close.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1420879F94003611FC /* background-close.png */; };
+		E1E0FD172087DA4F003611FC /* add-sub-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD162087DA4F003611FC /* add-sub-background.png */; };
+		E1E0FD192087EA4B003611FC /* not-optimized.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD182087EA4A003611FC /* not-optimized.png */; };
+		E1E0FD1B2087EBB5003611FC /* optimized.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1A2087EBB3003611FC /* optimized.png */; };
+		E1E0FD1F2087F01E003611FC /* Untitled-1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1E2087F01E003611FC /* Untitled-1.pdf */; };
+		E1E7A4E320840B8F005BA3C7 /* buttons-add-sub-right.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7A4E220840B8F005BA3C7 /* buttons-add-sub-right.png */; };
+		E1E7A4E520840C54005BA3C7 /* buttons-subtraction.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E7A4E420840C53005BA3C7 /* buttons-subtraction.png */; };
 		E1E9F6AA201B5FA900972013 /* C8HTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A9201B5FA900972013 /* C8HTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -143,12 +168,19 @@
 			remoteGlobalIDString = E1BF19001FF57EA80083216D;
 			remoteInfo = ledge;
 		};
+		E1D70393208E21AE00622D8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1BF18F91FF57EA80083216D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1BF19001FF57EA80083216D;
+			remoteInfo = ledge;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.release.xcconfig"; sourceTree = "<group>"; };
-		1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.debug.xcconfig"; sourceTree = "<group>"; };
-		5349C072DC3A44A6007B1346 /* Pods_ledge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ledge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72889FD27DC11219DA5F8EF /* Pods_ledge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ledge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E102567D2086429B001C7AB0 /* location-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-image.png"; sourceTree = "<group>"; };
+		E102567F208649C9001C7AB0 /* exit-right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit-right-arrow.png"; sourceTree = "<group>"; };
 		E10410DE203B44A800F13D57 /* extLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extLoginVC.swift; sourceTree = "<group>"; };
 		E10410E2203B504D00F13D57 /* C8HPresentTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = C8HPresentTables.swift; path = Custom/C8HPresentTables.swift; sourceTree = SOURCE_ROOT; };
 		E10410E3203B504D00F13D57 /* C8HPresentTables.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = C8HPresentTables.xib; path = Custom/C8HPresentTables.xib; sourceTree = SOURCE_ROOT; };
@@ -157,12 +189,22 @@
 		E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-B.png"; sourceTree = "<group>"; };
 		E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-A.png"; sourceTree = "<group>"; };
 		E10569FD20100DFD00984A33 /* extUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extUiView.swift; sourceTree = "<group>"; };
-		E124C6C4202A2A9E005A43A5 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		E124C6C6202A5056005A43A5 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
+		E125BEDF208661570062CAD8 /* add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub.png"; sourceTree = "<group>"; };
+		E125BEE0208661580062CAD8 /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
+		E125BEE5208664810062CAD8 /* call-manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager.png"; sourceTree = "<group>"; };
+		E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HMainMenuVC.swift; sourceTree = "<group>"; };
+		E125BEEF20868BC10062CAD8 /* stack-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stack-menu.png"; sourceTree = "<group>"; };
 		E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTableRepository.swift; sourceTree = "<group>"; };
 		E12F7D402050522A00A74219 /* extTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extTable.swift; sourceTree = "<group>"; };
+		E1349BDE208934E8001DB28F /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		E1426D41203E2E71004A6042 /* SwiftNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		E14ACEF4207FFFBC001FDDF3 /* 2018022201-ldgrs-header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2018022201-ldgrs-header-logo.png"; sourceTree = "<group>"; };
+		E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HImageViewNav.swift; sourceTree = "<group>"; };
+		E14ACEFE20800688001FDDF3 /* C8Htitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8Htitle.swift; sourceTree = "<group>"; };
+		E14ACF00208006BC001FDDF3 /* header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo.png"; sourceTree = "<group>"; };
 		E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLedgerRepository.swift; sourceTree = "<group>"; };
+		E152A9382084073400828A12 /* buttons-add-sub-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-add-sub-left.png"; sourceTree = "<group>"; };
+		E152A93A2084077800828A12 /* buttons-addition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-addition.png"; sourceTree = "<group>"; };
 		E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HPushCloseOrTransactionVC.swift; sourceTree = "<group>"; };
 		E15E1D40206A066E0052B0BE /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geolocation.png; sourceTree = "<group>"; };
 		E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HOverlayViews.swift; sourceTree = "<group>"; };
@@ -170,7 +212,6 @@
 		E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLoginValidator.swift; sourceTree = "<group>"; };
 		E15F5D11200D007C00E99EF3 /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15F5D13200D008100E99EF3 /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E15F5D15200D0D6500E99EF3 /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Okta.plist; path = "Pods/Target Support Files/Pods-ledge/Okta.plist"; sourceTree = SOURCE_ROOT; };
 		E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo_w-01.png"; sourceTree = "<group>"; };
 		E16BB71F2004463500D16DF4 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		E16BB7202004478900D16DF4 /* LatoLatin-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Thin.ttf"; sourceTree = "<group>"; };
@@ -178,18 +219,24 @@
 		E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HSetGegaBalAndTableVC.swift; sourceTree = "<group>"; };
 		E170ED82200BEB1200238CEA /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E175CACA202E0F88005E7AAC /* Ledger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ledger.swift; sourceTree = "<group>"; };
+		E179B9E320894A5F0015A102 /* blackstone-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-logo-white.png"; sourceTree = "<group>"; };
+		E179B9E520894E820015A102 /* call-manager-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-2.png"; sourceTree = "<group>"; };
+		E179B9E720894F920015A102 /* call-manager-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-3.png"; sourceTree = "<group>"; };
 		E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HCreateCasinoViewController.swift; sourceTree = "<group>"; };
 		E180D5672066DB8700E3F191 /* extCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extCasino.swift; sourceTree = "<group>"; };
 		E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-iphone-X-B.png"; sourceTree = "<group>"; };
-		E18EFCDC20364FB20008183B /* 180-X-180-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "180-X-180-B.png"; sourceTree = "<group>"; };
-		E18EFCDD20364FB30008183B /* 120-X-120-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "120-X-120-B.png"; sourceTree = "<group>"; };
 		E192EC74200BF8CA00E7F2BC /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E192EC75200BF8CA00E7F2BC /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGeoRegionManager.swift; sourceTree = "<group>"; };
 		E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Black.ttf"; sourceTree = "<group>"; };
+		E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Bold.ttf"; sourceTree = "<group>"; };
 		E197757D20250C4D00D94927 /* tableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewContoller.swift; sourceTree = "<group>"; };
 		E197757F2025211700D94927 /* C8HNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HNumberPadView.swift; sourceTree = "<group>"; };
 		E19FBC4D206198F900CCB977 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		E1B1DF1220869478005B9D74 /* menu-stack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-stack.png"; sourceTree = "<group>"; };
+		E1B1DF14208694D4005B9D74 /* header-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo-white.png"; sourceTree = "<group>"; };
+		E1B1DF1820869FCC005B9D74 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		E1B1DF1A2086A126005B9D74 /* close-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-1.png"; sourceTree = "<group>"; };
 		E1B314D8206C0F4A00980650 /* TransactionRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepo.swift; sourceTree = "<group>"; };
 		E1B314DA207DBED200980650 /* Blackstone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blackstone.png; sourceTree = "<group>"; };
 		E1B314DC207DCB0800980650 /* blackstone-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-logo-black.png"; sourceTree = "<group>"; };
@@ -255,8 +302,6 @@
 		E1B6433F2059982200BD0B08 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		E1B643752059C98C00BD0B08 /* 001-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "001-lock.png"; sourceTree = "<group>"; };
 		E1B643762059C98C00BD0B08 /* 002-user-silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002-user-silhouette.png"; sourceTree = "<group>"; };
-		E1B64379205A167800BD0B08 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
-		E1B6437B205A16A600BD0B08 /* minus (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus (1).png"; sourceTree = "<group>"; };
 		E1BF19011FF57EA80083216D /* ledge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BF19041FF57EA90083216D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1BF19091FF57EA90083216D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -270,9 +315,30 @@
 		E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BF19271FF57EAB0083216D /* ledgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ledgeUITests.swift; sourceTree = "<group>"; };
 		E1BF19291FF57EAB0083216D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1E7403C203656E200583D3B /* subtractions-button-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "subtractions-button-image.png"; sourceTree = "<group>"; };
-		E1E7403D203656E200583D3B /* addition-button-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addition-button-image.png"; sourceTree = "<group>"; };
+		E1D7038E208E21AE00622D8E /* ledgeLoginTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgeLoginTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ledgeLoginTest.swift; sourceTree = "<group>"; };
+		E1D70392208E21AE00622D8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1D70399208E322600622D8E /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A1208E323300622D8E /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A2208E323300622D8E /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A3208E323300622D8E /* Hydra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Hydra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A4208E323300622D8E /* OktaJWT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaJWT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A5208E323300622D8E /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A6208E323300622D8E /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703A7208E323300622D8E /* Vinculum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Vinculum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D703AC208E389400622D8E /* okta3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = okta3.plist; path = ledge/okta3.plist; sourceTree = SOURCE_ROOT; };
+		E1E0FD1020879BCA003611FC /* background-add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-add-sub.png"; sourceTree = "<group>"; };
+		E1E0FD1220879E33003611FC /* background-push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-push.png"; sourceTree = "<group>"; };
+		E1E0FD1420879F94003611FC /* background-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-close.png"; sourceTree = "<group>"; };
+		E1E0FD162087DA4F003611FC /* add-sub-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub-background.png"; sourceTree = "<group>"; };
+		E1E0FD182087EA4A003611FC /* not-optimized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "not-optimized.png"; sourceTree = "<group>"; };
+		E1E0FD1A2087EBB3003611FC /* optimized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = optimized.png; sourceTree = "<group>"; };
+		E1E0FD1E2087F01E003611FC /* Untitled-1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Untitled-1.pdf"; sourceTree = "<group>"; };
+		E1E7A4E220840B8F005BA3C7 /* buttons-add-sub-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-add-sub-right.png"; sourceTree = "<group>"; };
+		E1E7A4E420840C53005BA3C7 /* buttons-subtraction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-subtraction.png"; sourceTree = "<group>"; };
 		E1E9F6A9201B5FA900972013 /* C8HTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTextField.swift; sourceTree = "<group>"; };
+		EC8E5AB75AC89F7932090C45 /* Pods-ledge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.debug.xcconfig"; sourceTree = "<group>"; };
+		FA58A8CE3AA284659FEF9201 /* Pods-ledge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ledge.release.xcconfig"; path = "Pods/Target Support Files/Pods-ledge/Pods-ledge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +355,7 @@
 			files = (
 				E1B503352008146100B4C701 /* CoreLocation.framework in Frameworks */,
 				E1B503332008119000B4C701 /* MapKit.framework in Frameworks */,
-				548852B3E107C4138A30DF48 /* Pods_ledge.framework in Frameworks */,
+				B7AD9ECC343214FF157279F7 /* Pods_ledge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,16 +373,76 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1D7038B208E21AE00622D8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AA68CE007DB55E079B4C02BE /* Pods */ = {
+		03B14C2B8913EE61C2A0E366 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */,
-				07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */,
+				EC8E5AB75AC89F7932090C45 /* Pods-ledge.debug.xcconfig */,
+				FA58A8CE3AA284659FEF9201 /* Pods-ledge.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E102567A20864060001C7AB0 /* Add/Transactions View */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7A4E220840B8F005BA3C7 /* buttons-add-sub-right.png */,
+				E1E7A4E420840C53005BA3C7 /* buttons-subtraction.png */,
+				E1E0FD162087DA4F003611FC /* add-sub-background.png */,
+				E152A93A2084077800828A12 /* buttons-addition.png */,
+				E152A9382084073400828A12 /* buttons-add-sub-left.png */,
+			);
+			name = "Add/Transactions View";
+			sourceTree = "<group>";
+		};
+		E102567B20864088001C7AB0 /* Universal Image */ = {
+			isa = PBXGroup;
+			children = (
+				E14ACEF4207FFFBC001FDDF3 /* 2018022201-ldgrs-header-logo.png */,
+				E14ACF00208006BC001FDDF3 /* header-logo.png */,
+			);
+			name = "Universal Image";
+			sourceTree = "<group>";
+		};
+		E102567C208640BB001C7AB0 /* Blackstone  */ = {
+			isa = PBXGroup;
+			children = (
+				E102567F208649C9001C7AB0 /* exit-right-arrow.png */,
+				E102567D2086429B001C7AB0 /* location-image.png */,
+				E1B314E0207DCCB300980650 /* blackstone_gaming_logo-V3.png */,
+				E1B314DC207DCB0800980650 /* blackstone-logo-black.png */,
+				E1B314DE207DCBD100980650 /* blackstone-background-image.png */,
+				E1B314DA207DBED200980650 /* Blackstone.png */,
+			);
+			name = "Blackstone ";
+			sourceTree = "<group>";
+		};
+		E125BEE4208661670062CAD8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				E179B9E720894F920015A102 /* call-manager-3.png */,
+				E179B9E520894E820015A102 /* call-manager-2.png */,
+				E1B643752059C98C00BD0B08 /* 001-lock.png */,
+				E1B643762059C98C00BD0B08 /* 002-user-silhouette.png */,
+				E1B1DF1820869FCC005B9D74 /* close.png */,
+				E1B1DF14208694D4005B9D74 /* header-logo-white.png */,
+				E1B1DF1220869478005B9D74 /* menu-stack.png */,
+				E125BEEF20868BC10062CAD8 /* stack-menu.png */,
+				E125BEE5208664810062CAD8 /* call-manager.png */,
+				E125BEDF208661570062CAD8 /* add-sub.png */,
+				E1B1DF1A2086A126005B9D74 /* close-1.png */,
+				E125BEE0208661580062CAD8 /* push.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		E12F7D3E204DDFA600A74219 /* Repositories */ = {
@@ -335,8 +461,8 @@
 			children = (
 				E1B642EF2059982200BD0B08 /* Source */,
 				E1426D41203E2E71004A6042 /* SwiftNotice.swift */,
-				E10569FD20100DFD00984A33 /* extUiView.swift */,
-				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
+				E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */,
+				E14ACEFE20800688001FDDF3 /* C8Htitle.swift */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -357,12 +483,17 @@
 		E170ED80200BE3DE00238CEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E10569FD20100DFD00984A33 /* extUiView.swift */,
+				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
+				E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */,
 				E197757F2025211700D94927 /* C8HNumberPadView.swift */,
 				E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */,
+				E1D703AC208E389400622D8E /* okta3.plist */,
 				E197757D20250C4D00D94927 /* tableViewContoller.swift */,
 				E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */,
 				E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */,
 				E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */,
+				E1349BDE208934E8001DB28F /* NavViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -391,13 +522,21 @@
 		E1B503312008118500B4C701 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1D703A1208E323300622D8E /* Alamofire.framework */,
+				E1D703A2208E323300622D8E /* AppAuth.framework */,
+				E1D703A3208E323300622D8E /* Hydra.framework */,
+				E1D703A4208E323300622D8E /* OktaJWT.framework */,
+				E1D703A5208E323300622D8E /* PromiseKit.framework */,
+				E1D703A6208E323300622D8E /* SideMenu.framework */,
+				E1D703A7208E323300622D8E /* Vinculum.framework */,
+				E1D70399208E322600622D8E /* OktaAuth.framework */,
 				E15F5D13200D008100E99EF3 /* AppAuth.framework */,
 				E15F5D11200D007C00E99EF3 /* OktaAuth.framework */,
 				E192EC74200BF8CA00E7F2BC /* AppAuth.framework */,
 				E192EC75200BF8CA00E7F2BC /* OktaAuth.framework */,
 				E1B503342008145900B4C701 /* CoreLocation.framework */,
 				E1B503322008118600B4C701 /* MapKit.framework */,
-				5349C072DC3A44A6007B1346 /* Pods_ledge.framework */,
+				C72889FD27DC11219DA5F8EF /* Pods_ledge.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -405,26 +544,20 @@
 		E1B503362008379800B4C701 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1B314E0207DCCB300980650 /* blackstone_gaming_logo-V3.png */,
-				E1B314DC207DCB0800980650 /* blackstone-logo-black.png */,
-				E1B314DE207DCBD100980650 /* blackstone-background-image.png */,
-				E1B314DA207DBED200980650 /* Blackstone.png */,
+				E179B9E320894A5F0015A102 /* blackstone-logo-white.png */,
+				E1E0FD1E2087F01E003611FC /* Untitled-1.pdf */,
+				E1E0FD1A2087EBB3003611FC /* optimized.png */,
+				E1E0FD182087EA4A003611FC /* not-optimized.png */,
+				E1E0FD1420879F94003611FC /* background-close.png */,
+				E1E0FD1020879BCA003611FC /* background-add-sub.png */,
+				E1E0FD1220879E33003611FC /* background-push.png */,
+				E102567A20864060001C7AB0 /* Add/Transactions View */,
+				E102567B20864088001C7AB0 /* Universal Image */,
+				E125BEE4208661670062CAD8 /* Icons */,
+				E102567C208640BB001C7AB0 /* Blackstone  */,
 				E15E1D40206A066E0052B0BE /* geolocation.png */,
-				E1B6437B205A16A600BD0B08 /* minus (1).png */,
-				E1B64379205A167800BD0B08 /* add.png */,
-				E1B643752059C98C00BD0B08 /* 001-lock.png */,
-				E1B643762059C98C00BD0B08 /* 002-user-silhouette.png */,
-				E1E7403D203656E200583D3B /* addition-button-image.png */,
-				E1E7403C203656E200583D3B /* subtractions-button-image.png */,
-				E18EFCDD20364FB30008183B /* 120-X-120-B.png */,
-				E18EFCDC20364FB20008183B /* 180-X-180-B.png */,
 				E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */,
-				E124C6C6202A5056005A43A5 /* negative.png */,
-				E124C6C4202A2A9E005A43A5 /* plus.png */,
-				E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */,
-				E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */,
-				E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */,
-				E10569F7200FF6CA00984A33 /* startup-image-background.png */,
+				E1BE535A2087791B00BE479B /* Pt Gaming */,
 				E1B50337200837AA00B4C701 /* fonts */,
 			);
 			path = Resources;
@@ -433,6 +566,7 @@
 		E1B50337200837AA00B4C701 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */,
 				E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */,
 				E16BB71F2004463500D16DF4 /* Lato-Regular.ttf */,
 				E16BB7202004478900D16DF4 /* LatoLatin-Thin.ttf */,
@@ -725,6 +859,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		E1BE535A2087791B00BE479B /* Pt Gaming */ = {
+			isa = PBXGroup;
+			children = (
+				E163CBAB20115BFA00182A6B /* pt_gaming_logo_w-01.png */,
+				E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */,
+				E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */,
+				E10569F7200FF6CA00984A33 /* startup-image-background.png */,
+			);
+			name = "Pt Gaming";
+			sourceTree = "<group>";
+		};
 		E1BF18F81FF57EA80083216D = {
 			isa = PBXGroup;
 			children = (
@@ -740,9 +885,10 @@
 				E1BF191B1FF57EAB0083216D /* ledgeTests */,
 				E1BF19261FF57EAB0083216D /* ledgeUITests */,
 				E1B642E6205994E600BD0B08 /* ledgersNumberPadViewTest */,
+				E1D7038F208E21AE00622D8E /* ledgeLoginTest */,
 				E1BF19021FF57EA80083216D /* Products */,
 				E1B503312008118500B4C701 /* Frameworks */,
-				AA68CE007DB55E079B4C02BE /* Pods */,
+				03B14C2B8913EE61C2A0E366 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -753,6 +899,7 @@
 				E1BF19181FF57EAB0083216D /* ledgeTests.xctest */,
 				E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */,
 				E1B642E5205994E500BD0B08 /* ledgersNumberPadViewTest.xctest */,
+				E1D7038E208E21AE00622D8E /* ledgeLoginTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -760,7 +907,6 @@
 		E1BF19031FF57EA80083216D /* ledge */ = {
 			isa = PBXGroup;
 			children = (
-				E15F5D15200D0D6500E99EF3 /* Okta.plist */,
 				E1BF19041FF57EA90083216D /* AppDelegate.swift */,
 				E1BF190E1FF57EA90083216D /* Assets.xcassets */,
 				E1BF19131FF57EAA0083216D /* Info.plist */,
@@ -785,6 +931,15 @@
 				E1BF19291FF57EAB0083216D /* Info.plist */,
 			);
 			path = ledgeUITests;
+			sourceTree = "<group>";
+		};
+		E1D7038F208E21AE00622D8E /* ledgeLoginTest */ = {
+			isa = PBXGroup;
+			children = (
+				E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */,
+				E1D70392208E21AE00622D8E /* Info.plist */,
+			);
+			path = ledgeLoginTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,12 +967,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1BF192C1FF57EAB0083216D /* Build configuration list for PBXNativeTarget "ledge" */;
 			buildPhases = (
-				2F33F009EBEAB3BAC3184767 /* [CP] Check Pods Manifest.lock */,
+				90D37405919B8FB80935353A /* [CP] Check Pods Manifest.lock */,
 				E1BF18FD1FF57EA80083216D /* Sources */,
 				E1BF18FE1FF57EA80083216D /* Frameworks */,
 				E1BF18FF1FF57EA80083216D /* Resources */,
-				B712C0942BE4608329C21C27 /* [CP] Embed Pods Frameworks */,
-				354AE166EF1934799F56F07D /* [CP] Copy Pods Resources */,
+				53A0FBBF22C2528A640B85ED /* [CP] Embed Pods Frameworks */,
+				B2E1CDC80FC776AD3E3EA9F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -864,6 +1019,24 @@
 			productReference = E1BF19231FF57EAB0083216D /* ledgeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E1D7038D208E21AE00622D8E /* ledgeLoginTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1D70397208E21AE00622D8E /* Build configuration list for PBXNativeTarget "ledgeLoginTest" */;
+			buildPhases = (
+				E1D7038A208E21AE00622D8E /* Sources */,
+				E1D7038B208E21AE00622D8E /* Frameworks */,
+				E1D7038C208E21AE00622D8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1D70394208E21AE00622D8E /* PBXTargetDependency */,
+			);
+			name = ledgeLoginTest;
+			productName = ledgeLoginTest;
+			productReference = E1D7038E208E21AE00622D8E /* ledgeLoginTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -901,6 +1074,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = E1BF19001FF57EA80083216D;
 					};
+					E1D7038D208E21AE00622D8E = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E1BF19001FF57EA80083216D;
+					};
 				};
 			};
 			buildConfigurationList = E1BF18FC1FF57EA80083216D /* Build configuration list for PBXProject "ledge" */;
@@ -920,6 +1098,7 @@
 				E1BF19171FF57EAB0083216D /* ledgeTests */,
 				E1BF19221FF57EAB0083216D /* ledgeUITests */,
 				E1B642E4205994E500BD0B08 /* ledgersNumberPadViewTest */,
+				E1D7038D208E21AE00622D8E /* ledgeLoginTest */,
 			);
 		};
 /* End PBXProject section */
@@ -936,33 +1115,53 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E124C6C7202A5056005A43A5 /* negative.png in Resources */,
+				E14ACF01208006BD001FDDF3 /* header-logo.png in Resources */,
+				E1B1DF1320869479005B9D74 /* menu-stack.png in Resources */,
 				E1B314E1207DCCB500980650 /* blackstone_gaming_logo-V3.png in Resources */,
 				E1B643782059C98D00BD0B08 /* 002-user-silhouette.png in Resources */,
 				E15E1D41206A06730052B0BE /* geolocation.png in Resources */,
+				E1E7A4E520840C54005BA3C7 /* buttons-subtraction.png in Resources */,
+				E14ACEF5207FFFBD001FDDF3 /* 2018022201-ldgrs-header-logo.png in Resources */,
+				E152A93B2084077800828A12 /* buttons-addition.png in Resources */,
 				E170ED83200BEB1200238CEA /* podfile in Resources */,
-				E15F5D16200D0D6500E99EF3 /* Okta.plist in Resources */,
-				E1B6437A205A167900BD0B08 /* add.png in Resources */,
 				E1B314DD207DCB0900980650 /* blackstone-logo-black.png in Resources */,
 				E1BF19121FF57EA90083216D /* LaunchScreen.storyboard in Resources */,
-				E1B6437C205A16A700BD0B08 /* minus (1).png in Resources */,
+				E152A9392084073500828A12 /* buttons-add-sub-left.png in Resources */,
+				E125BEE2208661580062CAD8 /* add-sub.png in Resources */,
+				E1B1DF1920869FCC005B9D74 /* close.png in Resources */,
+				E1B1DF15208694D4005B9D74 /* header-logo-white.png in Resources */,
+				E1E0FD1B2087EBB5003611FC /* optimized.png in Resources */,
 				E1B314DF207DCBD200980650 /* blackstone-background-image.png in Resources */,
 				E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */,
 				E1B50339200837C600B4C701 /* LatoLatin-Thin.ttf in Resources */,
 				E163CBAC20115BFB00182A6B /* pt_gaming_logo_w-01.png in Resources */,
-				E18EFCDE20364FB30008183B /* 180-X-180-B.png in Resources */,
+				E1025680208649C9001C7AB0 /* exit-right-arrow.png in Resources */,
+				E179B9E420894A600015A102 /* blackstone-logo-white.png in Resources */,
+				E102567E2086429B001C7AB0 /* location-image.png in Resources */,
+				E195C795207FCC1F00D45645 /* LatoLatin-Black.ttf in Resources */,
+				E179B9E620894E830015A102 /* call-manager-2.png in Resources */,
+				E179B9E820894F930015A102 /* call-manager-3.png in Resources */,
 				E1BF190F1FF57EA90083216D /* Assets.xcassets in Resources */,
-				E1E7403E203656E300583D3B /* subtractions-button-image.png in Resources */,
-				E18EFCDF20364FB30008183B /* 120-X-120-B.png in Resources */,
-				E1E7403F203656E300583D3B /* addition-button-image.png in Resources */,
+				E1D703AD208E389400622D8E /* okta3.plist in Resources */,
+				E1E0FD192087EA4B003611FC /* not-optimized.png in Resources */,
+				E1E0FD172087DA4F003611FC /* add-sub-background.png in Resources */,
+				E125BEE7208664820062CAD8 /* call-manager.png in Resources */,
+				E125BEF020868BC10062CAD8 /* stack-menu.png in Resources */,
+				E1E0FD1520879F94003611FC /* background-close.png in Resources */,
 				E18EFCDB20364E2F0008183B /* startup-image-iphone-X-B.png in Resources */,
+				E195C794207FCC1000D45645 /* LatoLatin-Bold.ttf in Resources */,
 				E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */,
+				E1E0FD1320879E37003611FC /* background-push.png in Resources */,
+				E1E0FD1F2087F01E003611FC /* Untitled-1.pdf in Resources */,
+				E125BEE3208661580062CAD8 /* push.png in Resources */,
 				E1B50338200837C300B4C701 /* Lato-Regular.ttf in Resources */,
+				E1E7A4E320840B8F005BA3C7 /* buttons-add-sub-right.png in Resources */,
 				E1BF190A1FF57EA90083216D /* Main.storyboard in Resources */,
 				E1B643592059982300BD0B08 /* Countries.bundle in Resources */,
+				E1B1DF1B2086A128005B9D74 /* close-1.png in Resources */,
 				E10569F8200FF6CA00984A33 /* startup-image-background.png in Resources */,
-				E124C6C5202A2A9E005A43A5 /* plus.png in Resources */,
 				E1B314DB207DBED200980650 /* Blackstone.png in Resources */,
+				E1E0FD1120879BCB003611FC /* background-add-sub.png in Resources */,
 				E1B643772059C98D00BD0B08 /* 001-lock.png in Resources */,
 				E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */,
 			);
@@ -982,10 +1181,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1D7038C208E21AE00622D8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F33F009EBEAB3BAC3184767 /* [CP] Check Pods Manifest.lock */ = {
+		53A0FBBF22C2528A640B85ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/HydraAsync/Hydra.framework",
+				"${BUILT_PRODUCTS_DIR}/OktaAuth/OktaAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/OktaJWT/OktaJWT.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Vinculum/Vinculum.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hydra.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaJWT.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Vinculum.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90D37405919B8FB80935353A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1003,7 +1241,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		354AE166EF1934799F56F07D /* [CP] Copy Pods Resources */ = {
+		B2E1CDC80FC776AD3E3EA9F6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1016,30 +1254,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B712C0942BE4608329C21C27 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/OktaAuth/OktaAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1072,6 +1286,7 @@
 				E1B643572059982300BD0B08 /* ImagePickerViewController.swift in Sources */,
 				E1B643532059982300BD0B08 /* Contacts.swift in Sources */,
 				E1B643582059982300BD0B08 /* ItemWithImage.swift in Sources */,
+				E14ACEFF20800688001FDDF3 /* C8Htitle.swift in Sources */,
 				E1B6435C2059982300BD0B08 /* LocaleInfo.swift in Sources */,
 				E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */,
 				E1B643722059982300BD0B08 /* Label.swift in Sources */,
@@ -1092,6 +1307,7 @@
 				E1B6436F2059982300BD0B08 /* TextViewController.swift in Sources */,
 				E1B6435D2059982300BD0B08 /* CountryCell.swift in Sources */,
 				E12F7D3D204DB6AA00A74219 /* C8HTableRepository.swift in Sources */,
+				E125BEEC208682E60062CAD8 /* C8HMainMenuVC.swift in Sources */,
 				E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */,
 				E1B6436E2059982300BD0B08 /* AttributedTextBlock.swift in Sources */,
 				E10569FE20100DFD00984A33 /* extUiView.swift in Sources */,
@@ -1105,6 +1321,7 @@
 				E1B643422059982300BD0B08 /* Date+Extension.swift in Sources */,
 				E1E9F6AA201B5FA900972013 /* C8HTextField.swift in Sources */,
 				E1B643672059982300BD0B08 /* PickerViewViewController.swift in Sources */,
+				E14ACEF72080011C001FDDF3 /* C8HImageViewNav.swift in Sources */,
 				E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */,
 				E1B643732059982300BD0B08 /* SegmentedControl.swift in Sources */,
 				E197757E20250C5100D94927 /* tableViewContoller.swift in Sources */,
@@ -1112,6 +1329,7 @@
 				E1B314D9206C0F4A00980650 /* TransactionRepo.swift in Sources */,
 				E1B6436A2059982300BD0B08 /* ItemWithPhoto.swift in Sources */,
 				E1B643692059982300BD0B08 /* TelegramPickerViewController.swift in Sources */,
+				E1349BDF208934E8001DB28F /* NavViewController.swift in Sources */,
 				E12F7D412050522B00A74219 /* extTable.swift in Sources */,
 				E1B6434E2059982300BD0B08 /* UITextView+Extensions.swift in Sources */,
 				E1B6436C2059982300BD0B08 /* OneTextFieldViewController.swift in Sources */,
@@ -1153,6 +1371,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E1D7038A208E21AE00622D8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1D70391208E21AE00622D8E /* ledgeLoginTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1170,6 +1396,11 @@
 			isa = PBXTargetDependency;
 			target = E1BF19001FF57EA80083216D /* ledge */;
 			targetProxy = E1BF19241FF57EAB0083216D /* PBXContainerItemProxy */;
+		};
+		E1D70394208E21AE00622D8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1BF19001FF57EA80083216D /* ledge */;
+			targetProxy = E1D70393208E21AE00622D8E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1332,7 +1563,7 @@
 		};
 		E1BF192D1FF57EAB0083216D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1D0386702E55841BFFB42A48 /* Pods-ledge.debug.xcconfig */;
+			baseConfigurationReference = EC8E5AB75AC89F7932090C45 /* Pods-ledge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1343,13 +1574,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		E1BF192E1FF57EAB0083216D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07957A01361C2B5ADFA0E40C /* Pods-ledge.release.xcconfig */;
+			baseConfigurationReference = FA58A8CE3AA284659FEF9201 /* Pods-ledge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1360,7 +1591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1426,6 +1657,38 @@
 			};
 			name = Release;
 		};
+		E1D70395208E21AE00622D8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95W5RG93E4;
+				INFOPLIST_FILE = ledgeLoginTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mejia.ledgeLoginTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ledge.app/ledge";
+			};
+			name = Debug;
+		};
+		E1D70396208E21AE00622D8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 95W5RG93E4;
+				INFOPLIST_FILE = ledgeLoginTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mejia.ledgeLoginTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ledge.app/ledge";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1470,6 +1733,15 @@
 			buildConfigurations = (
 				E1BF19331FF57EAB0083216D /* Debug */,
 				E1BF19341FF57EAB0083216D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1D70397208E21AE00622D8E /* Build configuration list for PBXNativeTarget "ledgeLoginTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1D70395208E21AE00622D8E /* Debug */,
+				E1D70396208E21AE00622D8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

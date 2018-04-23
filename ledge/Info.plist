@@ -31,6 +31,11 @@
 	<string>Do you allow this app to know your current location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Will you allow this app to always know your location? This is necessary for checking which casino user is located. </string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LatoLatin-Thin.ttf</string>
+		<string>Lato-Regular.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
@@ -49,11 +54,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>LatoLatin-Thin.ttf</string>
-		<string>Lato-Regular.ttf</string>
-	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -61,5 +61,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

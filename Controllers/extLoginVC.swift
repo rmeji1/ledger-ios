@@ -32,28 +32,44 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     
     @objc
     func keyboardWasShown(_ notification: Notification) {
-        guard let activeField = activeField else { return }
-        let info = notification.userInfo
+      scrollView.isScrollEnabled = true
+//      if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+//        let window = self.view.window?.frame {
+//        // We're not just minusing the kb height from the view height because
+//        // the view could already have been resized for the keyboard before
+//        self.view.frame = CGRect(x: self.view.frame.origin.x,
+//                                 y: self.view.frame.origin.y,
+//                                 width: self.view.frame.width,
+//                                 height: window.origin.y + window.height - keyboardSize.height)
+//      } else {
+//        debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
+//      }
+//        guard
+//          let activeField = activeField
+//          else{ return }
+
+      let info = notification.userInfo
         let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize?.height)!, 0.0)
-        
+
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets;
-        
-        var aRect = self.view.frame
-        aRect.size.height -= (kbSize?.height)!
-        
-        let x = stackView.frame.origin.x + activeField.frame.maxX
-        let y = stackView.frame.origin.y + activeField.frame.maxY
-        let point = CGPoint(x: x , y: y)
-        
-        if !aRect.contains(point){
-            self.scrollView.scrollRectToVisible(stackView.frame, animated: true)
-        }
+//
+//        var aRect = self.innerView.frame
+//        aRect.size.height -= (kbSize?.height)!
+
+      self.scrollView.scrollRectToVisible(innerView.frame, animated: true)
+//        let x = stackView.frame.origin.x + activeField.frame.maxX
+//        let y = stackView.frame.origin.y + activeField.frame.maxY
+    
+//        if !aRect.contains(point){
+//            //self.scrollView.scrollRectToVisible(stackView.frame, animated: true)
+//        }
     }
     
     @objc
     func keyboardWillBeHidden(_ notification: Notification){
+      scrollView.isScrollEnabled = true
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
@@ -131,13 +147,13 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
 //            }
 //            return true
 //        }
-        if textField.restorationIdentifier == "employeeId"{
-            username = textField.text!
-            debugPrint("Username:" + username)
-        } else {
-            password = textField.text!
-            debugPrint("Password:" + password)
-        }
+//        if textField.restorationIdentifier == "employeeId"{
+//            username = textField.text!
+//            debugPrint("Username:" + username)
+//        } else {
+//            password = textField.text!
+//            debugPrint("Password:" + password)
+//        }
         return true
     }
     

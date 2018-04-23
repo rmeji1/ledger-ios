@@ -9,7 +9,9 @@
 import UIKit
 import Foundation
 import OktaAuth
+import Hydra
 import PromiseKit
+
 
 protocol C8HNumberPadDelegate : class {
   func updateTable(_ data: [String: String])
@@ -43,8 +45,8 @@ class C8HNumberPadView: UIViewController {
   //  MARK: - PROPERTIES
   //==============================================================================
   @IBOutlet weak var numberLabel: UILabel!
-  @IBOutlet weak var plusButton: UIButton!
-  @IBOutlet weak var minusButton: UIButton!
+//  @IBOutlet weak var plusButton: UIButton!
+  //@IBOutlet weak var minusButton: UIButton!
   
   //==============================================================================
   //  MARK: - VIEW MANAGEMENT
@@ -52,6 +54,20 @@ class C8HNumberPadView: UIViewController {
   override func viewDidLoad() {
     editViewOnLoad()
     editPickerViewForView(on: picker)
+    
+    let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
+    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
+    imageView.contentMode = .scaleAspectFit
+    let image = UIImage(named: "blackstone-logo-white.png")
+    imageView.image = image
+    logoContainer.addSubview(imageView)
+    navigationItem.titleView = logoContainer
+    self.navigationController?.navigationBar.tintColor = UIColor.white;
+    //self.navigationController?.navigationBar.tintColor = UIColor.white;
+//    minusButton.layer.cornerRadius = 10
+//    minusButton.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+//    minusButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+//    self.navigationItem.setHidesBackButton(true, animated:true);
   }
   
   override func didReceiveMemoryWarning() {
@@ -70,13 +86,15 @@ class C8HNumberPadView: UIViewController {
     - dec: Decimal with the amount of the transaction.
    */
   func performTransaction(_ type: Transaction.Transaction_Type, dec: Decimal ){
-    debugPrint("Greater than 0. \(dec)")
-    transaction.amount = dec
-    transaction.type = type.rawValue
-    // FIXME: - Will lead to error if table is not instantistated.
-    transaction.tableId = (table?.id)!
-    transaction.casinoId = (table?.casinoId)!
-    showAlertToAuthenticateManager()
+//    debugPrint("Greater than 0. \(dec)")
+//    transaction.amount = dec
+//    transaction.type = type.rawValue
+//    // FIXME: - Will lead to error if table is not instantistated.
+//    transaction.tableId = (table?.id)!
+//    transaction.casinoId = (table?.casinoId)!
+//    showAlertToAuthenticateManager()
+    
+    _ =  self.navigationController?.popViewController(animated: true)
   }
   
   /**
@@ -113,8 +131,8 @@ class C8HNumberPadView: UIViewController {
    Makes changes to view in view did load.
    */
   func editViewOnLoad(){
-    editButtonImageView(on: plusButton)
-    editButtonImageView(on: minusButton)
+//    editButtonImageView(on: plusButton)
+//    editButtonImageView(on: minusButton)
     numberLabel.text = "$0"
   }
   
@@ -200,27 +218,35 @@ class C8HNumberPadView: UIViewController {
    - username: textField one parameter
    - password: textField two parameter
    */
-  func logInManager(username: String, password: String) -> Promise<String> {
-    return Promise{ seal in
+  func logInManager(username: String, password: String) -> PromiseKit.Promise<String> {
+    return Promise{
+      seal in
       OktaAuth
         //                .login(username, password: password)
         .login("robertmejia30@gmail.com", password:"Ro264874033!")
         //                .login("rm@cre8ivehouse.com", password:"Youtube1996")
-        .start(self) {
-          response, error in
-          if error != nil { seal.reject(error!) }
-          if let authResponse = response {
-            seal.fulfill(authResponse.idToken!)
-          }
+        .start(self).then{ tokenManager in
+          seal.fulfill(tokenManager.accessToken!)
+        }.catch{error in
+          seal.reject(error)
       }
     }
+//      OktaAuth
+//        //                .login(username, password: password)
+//        .login("robertmejia30@gmail.com", password:"Ro264874033!")
+//        //                .login("rm@cre8ivehouse.com", password:"Youtube1996")
+//        .start(self).then{ tokenManager in
+//          tokenManager.accessToken!
+//        }
   }
+  
+ 
   /**
    Retrieves profile of the manager.
    */
-  func retrieveProfile() -> Promise<[String:Any]>{
+  func retrieveProfile() -> PromiseKit.Promise<[String:Any]>{
     return Promise{ seal in
-      OktaAuth.userinfo() { response, error in
+      OktaAuth.getUser{ response, error in
         if error != nil {
           print("Error: \(error!)")
           seal.reject(error!)
@@ -234,13 +260,14 @@ class C8HNumberPadView: UIViewController {
   /**
    Checks manager profile and manager.
    */
-  func compareUserDetails(_ managerDetails : [String:Any]) -> Promise<Bool>{
+  func compareUserDetails(_ managerDetails : [String:Any]) -> PromiseKit.Promise<Bool>{
     return Promise{ seal in
       debugPrint("Manager Details: \(managerDetails)")
       // Changed to employee token information.
-      OktaAuth.tokens?.accessToken =  OktaAuth.tokens?.get(forKey: "accessToken")
-      OktaAuth.tokens?.idToken = OktaAuth.tokens?.get(forKey: "idToken")
-      OktaAuth.tokens?.refreshToken = OktaAuth.tokens?.get(forKey: "refreshToken")
+//      tokens?.get(forKey: "accessToken")
+//      tokens?.idToken = OktaAuth.tokens?.get(forKey: "idToken")
+//      tokens?.refreshToken = OktaAuth.tokens?.get(forKey: "refreshToken")
+//
       firstly{
         retrieveProfile()
         }.done{ empDetails in
@@ -271,7 +298,7 @@ class C8HNumberPadView: UIViewController {
    - parameters:
    - userDetails: user profile retrieved from okta
    */
-  func isManager(_ userDetails : [String:Any]) -> Promise<[String:Any]>{
+  func isManager(_ userDetails : [String:Any]) -> PromiseKit.Promise<[String:Any]>{
     return Promise{seal in
       if userDetails.keys.contains("isMan"){
         if let isMan = userDetails["isMan"] as? Bool{

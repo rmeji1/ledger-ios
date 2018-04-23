@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   okta3.plist
+   ledge
+
+   Created by robert on 4/23/18.
+   Copyright (c) 2018 com.cre8ivehouse. All rights reserved.
+-->
+<!--
+<plist version="1.0">
+    <dict>
+    
+    </dict>
+</plist>
+-->
+<plist version="1.0">
+<dict>
+	<key>issuer</key>
+	<string>https://dev-575417.oktapreview.com/oauth2/default</string>
+	<key>clientSecret</key>
+	<string>MxjiGyEKYeiHEmOvq_Q1nvPTNBXCNgTXwFlZzOnC</string>
+	<key>clientId</key>
+	<string>0oadmccvf1oYkzkLi0h7</string>
+	<key>redirectUri</key>
+	<string>com.oktapreview.dev-575417:/callback</string>
+	<key>scopes</key>
+	<array>
+		<string>email</string>
+		<string>offline_access</string>
+		<string>openid</string>
+		<string>profile</string>
+	</array>
+</dict>
+</plist>

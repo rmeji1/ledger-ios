@@ -17,6 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+      sleep(2);
+      window = UIWindow(frame: UIScreen.main.bounds)
+      UIApplication.shared.statusBarStyle = .lightContent
+
+      if !OktaAuth.isAuthenticated(){
+        // Prompt for login
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
+        UINavigationController
+        window!.rootViewController = homeViewController
+        window!.makeKeyAndVisible()
+      }else{
+        //debugPrint(tokens?)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
+        window!.rootViewController = homeViewController
+        window!.makeKeyAndVisible()
+      }
         return true
     }
 

@@ -9,48 +9,84 @@
  *
  * See the License for the specific language governing permissions and limitations under the License.
  */
+import Hydra
+import OktaJWT
 
 public struct Introspect {
-    
-    
+
     init() {}
-    
-    public func validate(_ token: String, callback: @escaping (Bool?, OktaError?) -> Void) {
+
+    public func validate(_ token: String) -> Promise<Bool> {
         // Validate token
-        
-        if let introspectionEndpoint = getIntrospectionEndpoint() {
-            // Build introspect request
+        return Promise<Bool>(in: .background, { resolve, reject, _ in
+            guard let introspectionEndpoint = self.getIntrospectionEndpoint() else {
+                return reject(OktaError.NoIntrospectionEndpoint)
+            }
 
             let headers = [
-                      "Accept": "application/json",
+                "Accept": "application/json",
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
-            
-            let data = "token=\(token)&client_id=\(OktaAuth.configuration?["clientId"] as! String)&client_secret=\(OktaAuth.configuration?["clientSecret"] as! String)"
-            
-            OktaApi.post(introspectionEndpoint, headers: headers, postData: data) {
-                response, error in
-                callback(response?["active"] as? Bool, error) }
-            
-        } else {
-            callback(nil, .error(error: "Error finding the introspection endpoint"))
+
+            var data = "token=\(token)&client_id=\(OktaAuth.configuration?["clientId"] as! String)"
+
+            // Append the clientSecret if it exists
+            if let clientSecretObj = OktaAuth.configuration?["clientSecret"],
+                let clientSecret = clientSecretObj as? String {
+                    data += "&client_secret=\(clientSecret)"
+            }
+
+            OktaApi.post(introspectionEndpoint, headers: headers, postString: data)
+            .then { response in
+                guard let isActive = response?["active"] as? Bool else {
+                    return reject(OktaError.ParseFailure)
+                }
+                return resolve(isActive)
+            }
+            .catch { error in reject(OktaError.NoIntrospectionEndpoint) }
+        })
+    }
+
+    public func decode(_ token: String) -> Promise<[String: Any]?> {
+        // Decodes the payload of a JWT
+        return Promise<[String: Any]?>(in: .background, { resolve, reject, _ in
+            let payload = token.split(separator: ".")
+            var encodedPayload = "\(payload[1])"
+            if encodedPayload.count % 4 != 0 {
+                let padding = 4 - encodedPayload.count % 4
+                encodedPayload += String(repeating: "=", count: padding)
+            }
+
+            if let data = Data(base64Encoded: encodedPayload, options: []) {
+                let jwt = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any]
+                return resolve(jwt)
+            }
+            return reject(OktaError.JWTDecodeError)
+        })
+    }
+
+    public func validate(jwt: String, options: [String: Any]) throws -> Bool {
+        // Validates a JWT String based on a series of options
+        let validator = OktaJWTValidator(options)
+
+        do {
+            let isValid = try validator.isValid(jwt)
+            return isValid
+        } catch let error {
+            throw OktaError.JWTValidationError(error.localizedDescription)
         }
     }
-    
+
     func getIntrospectionEndpoint() -> URL? {
         // Get the introspection endpoint from the discovery URL, or build it
-        
-        if let discoveryEndpoint = OktaAuth.tokens?.authState?.lastAuthorizationResponse.request.configuration.discoveryDocument?.discoveryDictionary["introspection_endpoint"] {
-            return URL(string: discoveryEndpoint as! String)
+        if let introspectionEndpoint = OktaAuth.wellKnown?["introspection_endpoint"] {
+            return URL(string: introspectionEndpoint as! String)
         }
-        
-        if (OktaAuth.configuration?["issuer"] as! String).contains("oauth2") {
-            // OAuth Authorization Server
-            return URL(string: OktaAuth.configuration?["issuer"] as! String + "/v1/introspect")
+
+        let issuer = OktaAuth.configuration?["issuer"] as! String
+        if issuer.range(of: "oauth2") != nil {
+            return URL(string: Utils.removeTrailingSlash(issuer) + "/v1/introspect")
         }
-        
-        return URL(string: OktaAuth.configuration?["issuer"] as! String + "oauth2/v1/introspect")
-        
-        
+        return URL(string: Utils.removeTrailingSlash(issuer) + "/oauth2/v1/introspect")
     }
 }

@@ -67,6 +67,16 @@
                ReferencedContainer = "container:ledge.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E1D7038D208E21AE00622D8E"
+               BuildableName = "ledgeLoginTest.xctest"
+               BlueprintName = "ledgeLoginTest"
+               ReferencedContainer = "container:ledge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

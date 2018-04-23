@@ -35,10 +35,22 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     
     @IBOutlet weak var gameAndTableNumberTextField: C8HTextField!
     @IBOutlet weak var beginningBalanceTextField: C8HTextField!
-    
-    // MARK: - View Life Cycle
+  
+  // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      //self.navigationItem.setHidesBackButton(true, animated: false)
+      let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
+      let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
+      imageView.contentMode = .scaleAspectFit
+      let image = UIImage(named: "header-logo")
+      imageView.image = image
+      logoContainer.addSubview(imageView)
+      navigationItem.titleView = logoContainer
+      
+      self.navigationItem.setHidesBackButton(true, animated:true);
+      
         pickerView.delegate = self
         pickerView.dataSource = self
         selectTableTextField.inputView = pickerView
@@ -109,42 +121,39 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     }
   
   @IBAction func startLedger(_ sender: UIButton) {
-    guard
-      let casinoName = casino?.identifer,
-      let gega = table?.gega,
-      let tableNumber = table?.tableNumber,
-      let gameDesc = table?.gameDesc,
-      let begBal = table?.podium
-//      let endBal = table?
-      else {
-      return
-    }
-    // Add spinning wheel to view and overlay.
-    // I want to create  the ledger and send it to server.
-    // on sucess return from server perfor condtiitonal segue way
-    var ledger = Ledger()
-    ledger.casinoDetails = CasinoDetails(casinoName: casinoName)
-    ledger.tableDetails = TableDetails(gega: gega, gameTable: "\(tableNumber)/\(gameDesc)", beginningBalance:begBal as Decimal)
-    
-//    ledger.tableDetails = [
-//      "gega" : gega,
-//      "gameTable" : "\(tableNumber)/\(gameDesc)",
-//      "beginningBalance" : "\(begBal)",
-//    ]
-    // FIXME: - NEED TO CHANGE THIS, should get the emp name + from other source
-    // Save in userdefaults if you want when the user signs in.
-    ledger.empDetails = EmpDetails(badgeNumber: "1234", name: "Roberto Mejia")
-    
-    let ledgerRepo = C8HLedgerRepository()
-    
-    ledgerRepo.createLedger(ledger: ledger)?.done{_ in
-      self.performSegue(withIdentifier: "showNavControllerSegue", sender: nil)
-    }
-    
-    
-   // debugPrint(ledger.casinoDetails!)
-   //
-    
+//    guard
+//      let casinoName = casino?.identifer,
+//      let gega = table?.gega,
+//      let tableNumber = table?.tableNumber,
+//      let gameDesc = table?.gameDesc,
+//      let begBal = table?.podium
+////      let endBal = table?
+//      else {
+//      return
+//    }
+//    // Add spinning wheel to view and overlay.
+//    // I want to create  the ledger and send it to server.
+//    // on sucess return from server perfor condtiitonal segue way
+//    var ledger = Ledger()
+//    ledger.casinoDetails = CasinoDetails(casinoName: casinoName)
+//    ledger.tableDetails = TableDetails(gega: gega, gameTable: "\(tableNumber)/\(gameDesc)", beginningBalance:begBal as Decimal)
+//
+////    ledger.tableDetails = [
+////      "gega" : gega,
+////      "gameTable" : "\(tableNumber)/\(gameDesc)",
+////      "beginningBalance" : "\(begBal)",
+////    ]
+//    // FIXME: - NEED TO CHANGE THIS, should get the emp name + from other source
+//    // Save in userdefaults if you want when the user signs in.
+//    ledger.empDetails = EmpDetails(badgeNumber: "1234", name: "Roberto Mejia")
+//
+//    let ledgerRepo = C8HLedgerRepository()
+//
+//    ledgerRepo.createLedger(ledger: ledger)?.done{_ in
+//      self.performSegue(withIdentifier: "showNavControllerSegue", sender: nil)
+//    }
+    self.performSegue(withIdentifier: "showNavControllerSegue", sender: nil)
+
   }
   
   
@@ -154,23 +163,23 @@ class C8HSetGegaBalAndTableVC: UIViewController{
     // This has error if user can't select a table or updates it.......
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        dnc = destinationViewController
-        if let dnc = segue.destination as? UINavigationController{
-            if let vc = dnc.topViewController as? C8HPushCloseOrTransactionVC{
-                debugPrint("Sucessful segue to PushCloseOrTransactionVC segue.")
-                guard
-                    let table = table,
-                    let casino = casino,
-                    var tables = tables,
-                    let tableIndex = tableIndex
-                else{
-                    return
-                }
-                vc.table = table
-                vc.casino = casino
-                tables.remove(at: tableIndex)
-                vc.tables = tables
-            }
-        }
+//        if let dnc = segue.destination as? UINavigationController{
+//            if let vc = dnc.topViewController as? C8HPushCloseOrTransactionVC{
+//                debugPrint("Sucessful segue to PushCloseOrTransactionVC segue.")
+//                guard
+//                    let table = table,
+//                    let casino = casino,
+//                    var tables = tables,
+//                    let tableIndex = tableIndex
+//                else{
+//                    return
+//                }
+//                vc.table = table
+//                vc.casino = casino
+//                tables.remove(at: tableIndex)
+//                vc.tables = tables
+//            }
+      //  }
     }
 }
 //==============================================================================
