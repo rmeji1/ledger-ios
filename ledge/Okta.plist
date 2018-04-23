@@ -11,11 +11,6 @@
 	<key>redirectUri</key>
 	<string>com.oktapreview.dev-575417:/callback</string>
 	<key>scopes</key>
-	<array>
-		<string>email</string>
-		<string>offline_access</string>
-		<string>openid</string>
-		<string>profile</string>
-	</array>
+	<string>openid profile offline_access email</string>
 </dict>
 </plist>

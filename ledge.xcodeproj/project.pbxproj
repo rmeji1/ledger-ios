@@ -327,6 +327,7 @@
 		E1D703A6208E323300622D8E /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D703A7208E323300622D8E /* Vinculum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Vinculum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D703AC208E389400622D8E /* okta3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = okta3.plist; path = ledge/okta3.plist; sourceTree = SOURCE_ROOT; };
+		E1D703AE208E3B6200622D8E /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
 		E1E0FD1020879BCA003611FC /* background-add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-add-sub.png"; sourceTree = "<group>"; };
 		E1E0FD1220879E33003611FC /* background-push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-push.png"; sourceTree = "<group>"; };
 		E1E0FD1420879F94003611FC /* background-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-close.png"; sourceTree = "<group>"; };
@@ -907,6 +908,7 @@
 		E1BF19031FF57EA80083216D /* ledge */ = {
 			isa = PBXGroup;
 			children = (
+				E1D703AE208E3B6200622D8E /* Okta.plist */,
 				E1BF19041FF57EA90083216D /* AppDelegate.swift */,
 				E1BF190E1FF57EA90083216D /* Assets.xcassets */,
 				E1BF19131FF57EAA0083216D /* Info.plist */,
