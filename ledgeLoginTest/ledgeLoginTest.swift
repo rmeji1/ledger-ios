@@ -10,7 +10,7 @@ import XCTest
 import UIKit
 
 class ledgeLoginTest: XCTestCase {
-  private let app = UIApplication.shared
+  //private let app = UIApplication.shared
 //  private let
     override func setUp() {
         super.setUp()
@@ -28,6 +28,9 @@ class ledgeLoginTest: XCTestCase {
 //      var app = UIApplication.shared
 //
 //      var loginVC = C8HLoginVC.
+      
+     var repo = C8HTableRepository()
+     debugPrint(repo.findTables(forCasino: 0))
     }
     
     func testPerformanceExample() {

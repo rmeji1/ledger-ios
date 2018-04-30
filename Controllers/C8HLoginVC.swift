@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import OktaAuth
 import PromiseKit
+import Vinculum
 
 class C8HLoginVC: UIViewController {
   var activeField: UITextField?
@@ -25,6 +26,7 @@ class C8HLoginVC: UIViewController {
   @IBOutlet weak var usernameTextField: UITextField!
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var noAccountLabel: UILabel!
+  @IBOutlet weak var loginButton: UIButton!
   
 // =============================================================================
 //  MARK: Data members
@@ -53,6 +55,9 @@ class C8HLoginVC: UIViewController {
     navigationController?.view.backgroundColor = UIColor.clear
   }
   
+  /**
+   Make the navigation bar transparent to see back image.
+   */
   func makeNavigationBarTransparent(){
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
     self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -62,16 +67,9 @@ class C8HLoginVC: UIViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    
   }
   
   override func viewWillDisappear(_ animated: Bool) {
-    
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-    self.navigationController?.navigationBar.shadowImage = UIImage()
-    //self.navigationController?.navigationBar.isTranslucent = true
-    self.navigationController?.view.backgroundColor = UIColor.clear
-    //self.navigationController?.navigationBar.tintColor = UIColor.white;
   }
   
   override func didReceiveMemoryWarning() {
@@ -105,7 +103,7 @@ class C8HLoginVC: UIViewController {
    This called when user press login. OktaAuth is used to log in into Okta.
    */
   @IBAction func oktaLogin(_ sender: UIButton){
-    
+    loginButton.isEnabled = false
     // Check if user entered login information
     guard
       let username = usernameTextField.text,
@@ -114,18 +112,29 @@ class C8HLoginVC: UIViewController {
         return
     }
     
-    OktaAuth.login("rm@cre8ivehouse.com", password: "Youtube1996").start(withPListConfig: "okta3", view: self).then{ tokenManager in
-      debugPrint(tokenManager)
-//      OktaAuth.getUser{ response, error in
-//        if error != nil { print("Error: \(error!)") }
-//        if response != nil {
-//          var userInfoText = ""
-//          response?.forEach { userInfoText += ("\($0): \($1) \n") }
-//          debugPrint(userInfoText)
-//          //self.updateUI(updateText: userInfoText)
-//        }
-//      //self.performSegue(withIdentifier: "conditionSegue", sender: nil)
-//      }
+    OktaAuth.login(username, password: password).start(self).then{ tokenManager in
+      try Vinculum.set(key: "refreshToken", value: tokenManager.refreshToken!)
+      OktaAuth.getUser{ response, error in
+        if error != nil { print("Error: \(error!)") }
+        if response != nil {
+          if let profile = response {
+            UserDefaults.standard.set(profile["email"], forKey: "email")
+            UserDefaults.standard.set(profile["given_name"], forKey: "firstName")
+            UserDefaults.standard.set(profile["employeeNumber"], forKey: "id")
+          }
+          
+          var userInfoText = ""
+          response?.forEach {
+            userInfoText += ("\($0): \($1) \n")
+            
+          }
+          debugPrint(userInfoText)
+          
+//          [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:@"preferenceName"];
+          //self.updateUI(updateText: userInfoText)
+          self.performSegue(withIdentifier: "conditionSegue", sender: nil)
+        }
+      }
       }.catch{
         error in
         debugPrint(error)

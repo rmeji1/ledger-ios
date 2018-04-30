@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 import OktaAuth
+import Vinculum
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,27 +18,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      sleep(2);
-      window = UIWindow(frame: UIScreen.main.bounds)
-      UIApplication.shared.statusBarStyle = .lightContent
+//      sleep(1);
 
-      if !OktaAuth.isAuthenticated(){
+      guard
+        let config = Utils.getPlistConfiguration(),
+        let data = try? Vinculum.get("refreshToken")?.value,
+        let refreshTokenData = data,
+        let refreshToken = String(data: refreshTokenData,
+                                  encoding: String.Encoding.utf8) else{
+                                    
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as! UINavigationController
+                                    
+        self.window!.rootViewController = homeViewController
+        self.window!.makeKeyAndVisible()
+                                    
+        return true
+      }
+      
+      _ = OktaAuth.refresh(config, refreshToken: refreshToken).then(in: .main, { _ in
+        DispatchQueue.main.async {
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
+          
+            self.window!.rootViewController = homeViewController
+            self.window!.makeKeyAndVisible()
+        }
+      }).catch{ error in
         // Prompt for login
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
-        UINavigationController
-        window!.rootViewController = homeViewController
-        window!.makeKeyAndVisible()
-      }else{
-        //debugPrint(tokens?)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
-        window!.rootViewController = homeViewController
-        window!.makeKeyAndVisible()
+        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as! UINavigationController
+        
+        self.window!.rootViewController = homeViewController
+        self.window!.makeKeyAndVisible()
       }
+//      if let config = Utils.getPlistConfiguration() {
+//        _ = OktaAuth.refresh(config, refreshToken: "").then(in: .main, { _ in
+//          DispatchQueue.main.async {
+//            if !OktaAuth.isAuthenticated(){
+//              // Prompt for login
+//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
+//              UINavigationController
+//              self.window!.rootViewController = homeViewController
+//              self.window!.makeKeyAndVisible()
+//            }else{
+//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
+//              self.window!.rootViewController = homeViewController
+//              self.window!.makeKeyAndVisible()
+//            }
+//          }
+//        })
+//      }
+      
+//      if !OktaAuth.isAuthenticated(){
+//        // Prompt for login
+//        debugPrint("not logged in")
+//        // try to refresh token
+//        OktaAuth.refresh().then{_ in
+//          let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//          let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
+//          self.window!.rootViewController = homeViewController
+//          self.window!.makeKeyAndVisible()
+//          }.catch{_ in
+//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
+//              UINavigationController
+//              self.window!.rootViewController = homeViewController
+//              self.window!.makeKeyAndVisible()
+//        }
+//      }else{
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
+//        self.window!.rootViewController = homeViewController
+//        self.window!.makeKeyAndVisible()
+//      }
+//
         return true
     }
-
+  
+  func revoke() {
+    // Get current accessToken
+    guard let accessToken = tokens?.accessToken else { return }
+    
+    OktaAuth.revoke(accessToken) { response, error in
+      if error != nil { debugPrint("Error: \(error!)") }
+      if response != nil { debugPrint("AccessToken was revoked") }
+    }
+  }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -51,6 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+//      tokens?.accessToken = OktaAuth.refresh()
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

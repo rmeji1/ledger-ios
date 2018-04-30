@@ -11,8 +11,6 @@
 		E102567E2086429B001C7AB0 /* location-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E102567D2086429B001C7AB0 /* location-image.png */; };
 		E1025680208649C9001C7AB0 /* exit-right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E102567F208649C9001C7AB0 /* exit-right-arrow.png */; };
 		E10410DF203B44A800F13D57 /* extLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410DE203B44A800F13D57 /* extLoginVC.swift */; };
-		E10410E4203B504D00F13D57 /* C8HPresentTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410E2203B504D00F13D57 /* C8HPresentTables.swift */; };
-		E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10410E3203B504D00F13D57 /* C8HPresentTables.xib */; };
 		E10410E7203C903100F13D57 /* C8HCasinoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */; };
 		E10569F8200FF6CA00984A33 /* startup-image-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F7200FF6CA00984A33 /* startup-image-background.png */; };
 		E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */; };
@@ -34,6 +32,7 @@
 		E14C51FF207E6B5200A60752 /* C8HLedgerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */; };
 		E152A9392084073500828A12 /* buttons-add-sub-left.png in Resources */ = {isa = PBXBuildFile; fileRef = E152A9382084073400828A12 /* buttons-add-sub-left.png */; };
 		E152A93B2084077800828A12 /* buttons-addition.png in Resources */ = {isa = PBXBuildFile; fileRef = E152A93A2084077800828A12 /* buttons-addition.png */; };
+		E157D17C20938A9F0085CAE2 /* C8HGamesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */; };
 		E15872432052152400E199A3 /* C8HPushCloseOrTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */; };
 		E15E1D41206A06730052B0BE /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E1D40206A066E0052B0BE /* geolocation.png */; };
 		E15E1D4F206AB7C50052B0BE /* C8HOverlayViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */; };
@@ -133,7 +132,8 @@
 		E1BF191D1FF57EAB0083216D /* ledgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF191C1FF57EAB0083216D /* ledgeTests.swift */; };
 		E1BF19281FF57EAB0083216D /* ledgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19271FF57EAB0083216D /* ledgeUITests.swift */; };
 		E1D70391208E21AE00622D8E /* ledgeLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */; };
-		E1D703AD208E389400622D8E /* okta3.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D703AC208E389400622D8E /* okta3.plist */; };
+		E1D703AF208E3FBD00622D8E /* Okta.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1D703AE208E3B6200622D8E /* Okta.plist */; };
+		E1D703B9209124DA00622D8E /* C8HGegaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D703B8209124DA00622D8E /* C8HGegaStore.swift */; };
 		E1E0FD1120879BCB003611FC /* background-add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1020879BCA003611FC /* background-add-sub.png */; };
 		E1E0FD1320879E37003611FC /* background-push.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1220879E33003611FC /* background-push.png */; };
 		E1E0FD1520879F94003611FC /* background-close.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E0FD1420879F94003611FC /* background-close.png */; };
@@ -182,8 +182,6 @@
 		E102567D2086429B001C7AB0 /* location-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-image.png"; sourceTree = "<group>"; };
 		E102567F208649C9001C7AB0 /* exit-right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit-right-arrow.png"; sourceTree = "<group>"; };
 		E10410DE203B44A800F13D57 /* extLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extLoginVC.swift; sourceTree = "<group>"; };
-		E10410E2203B504D00F13D57 /* C8HPresentTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = C8HPresentTables.swift; path = Custom/C8HPresentTables.swift; sourceTree = SOURCE_ROOT; };
-		E10410E3203B504D00F13D57 /* C8HPresentTables.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = C8HPresentTables.xib; path = Custom/C8HPresentTables.xib; sourceTree = SOURCE_ROOT; };
 		E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HCasinoRepository.swift; sourceTree = "<group>"; };
 		E10569F7200FF6CA00984A33 /* startup-image-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-background.png"; sourceTree = "<group>"; };
 		E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-B.png"; sourceTree = "<group>"; };
@@ -205,6 +203,7 @@
 		E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLedgerRepository.swift; sourceTree = "<group>"; };
 		E152A9382084073400828A12 /* buttons-add-sub-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-add-sub-left.png"; sourceTree = "<group>"; };
 		E152A93A2084077800828A12 /* buttons-addition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-addition.png"; sourceTree = "<group>"; };
+		E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGamesStore.swift; sourceTree = "<group>"; };
 		E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HPushCloseOrTransactionVC.swift; sourceTree = "<group>"; };
 		E15E1D40206A066E0052B0BE /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geolocation.png; sourceTree = "<group>"; };
 		E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HOverlayViews.swift; sourceTree = "<group>"; };
@@ -326,8 +325,9 @@
 		E1D703A5208E323300622D8E /* PromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D703A6208E323300622D8E /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D703A7208E323300622D8E /* Vinculum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Vinculum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1D703AC208E389400622D8E /* okta3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = okta3.plist; path = ledge/okta3.plist; sourceTree = SOURCE_ROOT; };
 		E1D703AE208E3B6200622D8E /* Okta.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Okta.plist; sourceTree = "<group>"; };
+		E1D703B0208F80C200622D8E /* oldViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = oldViews.storyboard; sourceTree = "<group>"; };
+		E1D703B8209124DA00622D8E /* C8HGegaStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGegaStore.swift; sourceTree = "<group>"; };
 		E1E0FD1020879BCA003611FC /* background-add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-add-sub.png"; sourceTree = "<group>"; };
 		E1E0FD1220879E33003611FC /* background-push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-push.png"; sourceTree = "<group>"; };
 		E1E0FD1420879F94003611FC /* background-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-close.png"; sourceTree = "<group>"; };
@@ -446,15 +446,17 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
-		E12F7D3E204DDFA600A74219 /* Repositories */ = {
+		E12F7D3E204DDFA600A74219 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
 				E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */,
 				E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */,
 				E1B314D8206C0F4A00980650 /* TransactionRepo.swift */,
 				E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */,
+				E1D703B8209124DA00622D8E /* C8HGegaStore.swift */,
+				E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */,
 			);
-			path = Repositories;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		E12F7D3F204DDFE300A74219 /* Dependencies */ = {
@@ -464,36 +466,25 @@
 				E1426D41203E2E71004A6042 /* SwiftNotice.swift */,
 				E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */,
 				E14ACEFE20800688001FDDF3 /* C8Htitle.swift */,
+				E10569FD20100DFD00984A33 /* extUiView.swift */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
 		};
-		E15F5D0B200C465900E99EF3 /* Custom */ = {
+		E15F5D0B200C465900E99EF3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E15E1D50206AB8750052B0BE /* C8HKeyboardHandler.swift */,
-				E10410E2203B504D00F13D57 /* C8HPresentTables.swift */,
-				E10410E3203B504D00F13D57 /* C8HPresentTables.xib */,
-				E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */,
-				E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */,
 				E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */,
 			);
-			path = Custom;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E170ED80200BE3DE00238CEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E10569FD20100DFD00984A33 /* extUiView.swift */,
-				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
-				E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */,
-				E197757F2025211700D94927 /* C8HNumberPadView.swift */,
-				E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */,
-				E1D703AC208E389400622D8E /* okta3.plist */,
-				E197757D20250C4D00D94927 /* tableViewContoller.swift */,
-				E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */,
-				E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */,
-				E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */,
+				E1D703B62090B76000622D8E /* Add Subtraction View */,
+				E1D703B52090B75300622D8E /* Main Menu */,
+				E1D703B42090B73D00622D8E /* Login */,
 				E1349BDE208934E8001DB28F /* NavViewController.swift */,
 			);
 			path = Controllers;
@@ -874,11 +865,12 @@
 		E1BF18F81FF57EA80083216D = {
 			isa = PBXGroup;
 			children = (
-				E12F7D3F204DDFE300A74219 /* Dependencies */,
-				E12F7D3E204DDFA600A74219 /* Repositories */,
-				E19AC105200D5CC7005D15AE /* Model */,
-				E15F5D0B200C465900E99EF3 /* Custom */,
 				E170ED82200BEB1200238CEA /* podfile */,
+				E1D703B12090B5E500622D8E /* Deprecated */,
+				E12F7D3F204DDFE300A74219 /* Dependencies */,
+				E12F7D3E204DDFA600A74219 /* Stores */,
+				E19AC105200D5CC7005D15AE /* Model */,
+				E15F5D0B200C465900E99EF3 /* Helpers */,
 				E170ED81200BE40800238CEA /* Storyboards */,
 				E170ED80200BE3DE00238CEA /* Controllers */,
 				E1B503362008379800B4C701 /* Resources */,
@@ -942,6 +934,70 @@
 				E1D70392208E21AE00622D8E /* Info.plist */,
 			);
 			path = ledgeLoginTest;
+			sourceTree = "<group>";
+		};
+		E1D703B12090B5E500622D8E /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				E1D703B72090B79200622D8E /* Controllers */,
+				E1D703B32090B6FB00622D8E /* Views */,
+				E1D703B22090B5F600622D8E /* Helpers */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
+		E1D703B22090B5F600622D8E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */,
+				E15F5D0C200CF7D900E99EF3 /* C8HLoginValidator.swift */,
+				E15E1D50206AB8750052B0BE /* C8HKeyboardHandler.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E1D703B32090B6FB00622D8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1D703B0208F80C200622D8E /* oldViews.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1D703B42090B73D00622D8E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E10410DE203B44A800F13D57 /* extLoginVC.swift */,
+				E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		E1D703B52090B75300622D8E /* Main Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */,
+			);
+			name = "Main Menu";
+			sourceTree = "<group>";
+		};
+		E1D703B62090B76000622D8E /* Add Subtraction View */ = {
+			isa = PBXGroup;
+			children = (
+				E197757F2025211700D94927 /* C8HNumberPadView.swift */,
+			);
+			name = "Add Subtraction View";
+			sourceTree = "<group>";
+		};
+		E1D703B72090B79200622D8E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E197757D20250C4D00D94927 /* tableViewContoller.swift */,
+				E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */,
+				E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */,
+				E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1134,6 +1190,7 @@
 				E1B1DF15208694D4005B9D74 /* header-logo-white.png in Resources */,
 				E1E0FD1B2087EBB5003611FC /* optimized.png in Resources */,
 				E1B314DF207DCBD200980650 /* blackstone-background-image.png in Resources */,
+				E1D703AF208E3FBD00622D8E /* Okta.plist in Resources */,
 				E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */,
 				E1B50339200837C600B4C701 /* LatoLatin-Thin.ttf in Resources */,
 				E163CBAC20115BFB00182A6B /* pt_gaming_logo_w-01.png in Resources */,
@@ -1144,7 +1201,6 @@
 				E179B9E620894E830015A102 /* call-manager-2.png in Resources */,
 				E179B9E820894F930015A102 /* call-manager-3.png in Resources */,
 				E1BF190F1FF57EA90083216D /* Assets.xcassets in Resources */,
-				E1D703AD208E389400622D8E /* okta3.plist in Resources */,
 				E1E0FD192087EA4B003611FC /* not-optimized.png in Resources */,
 				E1E0FD172087DA4F003611FC /* add-sub-background.png in Resources */,
 				E125BEE7208664820062CAD8 /* call-manager.png in Resources */,
@@ -1165,7 +1221,6 @@
 				E1B314DB207DBED200980650 /* Blackstone.png in Resources */,
 				E1E0FD1120879BCB003611FC /* background-add-sub.png in Resources */,
 				E1B643772059C98D00BD0B08 /* 001-lock.png in Resources */,
-				E10410E5203B504D00F13D57 /* C8HPresentTables.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,9 +1255,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ledge/Pods-ledge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/HydraAsync/Hydra.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/OktaAuth/OktaAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/OktaJWT/OktaJWT.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
@@ -1211,9 +1268,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hydra.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OktaJWT.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
@@ -1312,7 +1371,9 @@
 				E125BEEC208682E60062CAD8 /* C8HMainMenuVC.swift in Sources */,
 				E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */,
 				E1B6436E2059982300BD0B08 /* AttributedTextBlock.swift in Sources */,
+				E1D703B9209124DA00622D8E /* C8HGegaStore.swift in Sources */,
 				E10569FE20100DFD00984A33 /* extUiView.swift in Sources */,
+				E157D17C20938A9F0085CAE2 /* C8HGamesStore.swift in Sources */,
 				E1B6435E2059982300BD0B08 /* CurrencyCell.swift in Sources */,
 				E1B6436D2059982300BD0B08 /* TwoTextFieldsViewController.swift in Sources */,
 				E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */,
@@ -1353,7 +1414,6 @@
 				E1B643482059982300BD0B08 /* UIColor+Extensions.swift in Sources */,
 				E1B643662059982300BD0B08 /* PhotoLibraryPickerViewController.swift in Sources */,
 				E1B6435B2059982300BD0B08 /* LocaleStore.swift in Sources */,
-				E10410E4203B504D00F13D57 /* C8HPresentTables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

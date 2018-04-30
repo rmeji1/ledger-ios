@@ -9,37 +9,168 @@
 import UIKit
 import OktaAuth
 import PromiseKit
+import CoreLocation
+import ActionSheetPicker_3_0
+import Kingfisher
 
-class C8HMainMenuVC: UIViewController, UITextFieldDelegate {
+
+class C8HMainMenuVC: UIViewController {
+  //==============================================================================
+  //  MARK: - Data memebers
+  var activeField: UITextField?
+  var casinoStore: C8HCasinoRepository?
+  var casinoDetails: CasinoDetails?
+  var gameId: Int?
   
+  //============================================================================
+  //  MARK: - Errors
   enum TokenError : Error{
     case TokenIsNotValid
   }
-  
+  //============================================================================
+  //  MARK: - Properties
   @IBOutlet weak var addSubtractButton: UIButton!
   @IBOutlet weak var setTableParametersView: UIView!
+  @IBOutlet weak var secondView: UIView!
+  
   @IBOutlet weak var overlayView: UIView!
   @IBOutlet weak var statusBar: UIView!
   @IBOutlet weak var startLedgerButton: UIButton!
+  @IBOutlet weak var openTableButton: UIButton!
   @IBOutlet weak var overlayForFirstStack: UIView!
+  @IBOutlet weak var nameLabel:UILabel!
+  @IBOutlet weak var employeeNumberLabel:UILabel!
+  
+  @IBOutlet weak var scrollView: UIScrollView!
+  
+  @IBOutlet weak var imageView: UIImageView!
+  
+  @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
   
   
+  @IBOutlet weak var selectTableTextField: C8HTextField!
+  @IBOutlet weak var selectGameTextField: C8HTextField!
+  @IBOutlet weak var selectGegaTextField: C8HTextField!
+  @IBOutlet weak var balanceTF : C8HTextField!
+  
+  //============================================================================
+  //  MARK: - View Controller funcs
+  
+  /*****************************************************************************
+   
+   */
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Customize
     addLogo()
-    //setLeftButtonItem()
-    //setRightButtonItem()
     makeNavigationBarTransparent()
+    addDoneButtonOnKeyboard()
     
-    // Check Okta tokens
-    //C8HOverlayViews.indicatorViewWithMessage("", for: view)
-    //tokensOnOkta()
-    //checkUserToken()
+    // Add user name to name label
+    if let name = UserDefaults.standard.string(forKey: "firstName"){
+      updateNameLabel(name: name)
+    }
+    
+    if let number = UserDefaults.standard.string(forKey: "id"){
+      updateEmployeeNumberLabel(employeeNumber: number)
+    }
+    // Find which casino user is in.
+    C8HOverlayViews.indicatorViewWithMessage("Finding Locaiton", for: view)
+    casinoStore = C8HCasinoRepository()
+    
+    // Find user current location.
+    CLLocationManager.requestLocation().lastValue
+      .then{location in
+        self.casinoStore!.findCasino(in:location.coordinate)
+      }.done{ casinoDetails in
+        
+        let url = URL(string: casinoDetails.casinoImageURL)!
+        self.imageView.kf.setImage(with: url)
+        
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = self.imageView.bounds
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        
+        self.imageView.layer.insertSublayer(gradient, at: 0)
+      }.catch{error in
+        debugPrint(error)
+      }.finally {
+        C8HOverlayViews.disableOverlayView(for: self.view)
+    }
   }
-//==============================================================================
-//  MARK: - Customization helpers
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  //==============================================================================
+  //  MARK: - Customization helpers
+  /**
+   Add done button to top of balance textfield.
+   */
+  
+  func dismissOverlayInThirdView(){
+    let animation = CATransition()
+    animation.type = kCATruncationStart
+    animation.duration = 0.5
+    
+    overlayForFirstStack.layer.add(animation, forKey: nil)
+    overlayView.layer.add(animation, forKey: nil)
+    
+    overlayForFirstStack.isHidden = false
+    
+    overlayForFirstStack.backgroundColor = .clear
+    
+    let blurEffect = UIBlurEffect(style: .dark)
+    //    blurEffect.
+    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.alpha = 0.95
+    
+    //always fill the view
+    blurEffectView.frame = self.overlayForFirstStack.bounds
+    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    
+    overlayForFirstStack.addSubview(blurEffectView)
+    overlayView.isHidden = true
+  }
+  func addDoneButtonOnKeyboard() {
+    let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+    doneToolbar.barStyle       = UIBarStyle.default
+    let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+    let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
+    
+    var items = [UIBarButtonItem]()
+    items.append(flexSpace)
+    items.append(done)
+    
+    doneToolbar.items = items
+    doneToolbar.sizeToFit()
+    
+    self.balanceTF.inputAccessoryView = doneToolbar
+  }
+  
+  @objc func doneButtonAction() {
+    self.balanceTF.resignFirstResponder()
+  }
+  
+  
+  /**
+   Change employee number to the number of the user.
+   */
+  func updateEmployeeNumberLabel(employeeNumber number: String){
+    employeeNumberLabel.text = number
+  }
+  
+  /**
+   Change name to the name of the user.
+   */
+  func updateNameLabel(name: String){
+    nameLabel.text = name.uppercased()
+  }
+  
   /**
    Make navigation bar transparent.
    */
@@ -50,6 +181,8 @@ class C8HMainMenuVC: UIViewController, UITextFieldDelegate {
     self.navigationController?.view.backgroundColor = UIColor.clear
     //self.navigationController?.navigationBar.tintColor = UIColor.white;
   }
+  
+  // 13BSrH3ZX$l#X#B55d
   
   /**
    Add logo to navigation bar.
@@ -111,12 +244,9 @@ class C8HMainMenuVC: UIViewController, UITextFieldDelegate {
     self.navigationItem.leftBarButtonItem = barButton
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-// =============================================================================
-// MARK: Actions
+  
+  // =============================================================================
+  //  MARK: - ACTIONS
   /**
    Check the textfields and open the table.
    Should also start the ledger.
@@ -139,100 +269,128 @@ class C8HMainMenuVC: UIViewController, UITextFieldDelegate {
     startLedgerButton.backgroundColor = UIColor(hexString: "00CC00")
     startLedgerButton.titleLabel?.font = UIFont(name: "LatoLatin-Bold", size: 16.0)
     startLedgerButton.setTitle("KC140001", for: .disabled )
-    
-    
   }
   
-  @IBAction func dismissOverlayview(_ sender: UIButton) {
+  @IBAction func startLedgerButtonPressed(_ sender: UIButton) {
     sender.isEnabled = false
-    let animation = CATransition()
-    animation.type = kCATruncationStart
-    animation.duration = 0.5
-    
-    overlayForFirstStack.layer.add(animation, forKey: nil)
-    overlayView.layer.add(animation, forKey: nil)
-    
-    overlayForFirstStack.isHidden = false
-    
-    overlayForFirstStack.backgroundColor = .clear
-    
-    let blurEffect = UIBlurEffect(style: .dark)
-//    blurEffect.
-    let blurEffectView = UIVisualEffectView(effect: blurEffect)
-    blurEffectView.alpha = 0.95
-    
-    //always fill the view
-    blurEffectView.frame = self.overlayForFirstStack.bounds
-    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
-    overlayForFirstStack.addSubview(blurEffectView)
-    
-    
-    
-    
-    
-    
-    overlayView.isHidden = true
+    dismissOverlayInThirdView();
   }
-  // =============================================================================
-// MARK: Okta Helpers
-  /**
-   Introspect token to see if a token is valid.
-   */
-//  func introspectToken(token: String) -> Promise<Bool>{
-//    return Promise{ seal in
-//      OktaAuth
-//        .introspect()
-//        .validate(token) { response, error in
-//          if error != nil {
-//            seal.reject(error!)
-//          }
-//          if let isActive = response {
-//            if isActive{
-//              seal.fulfill(true)
-//            }else {
-//              seal.fulfill(false)
-//            }
-//            seal.reject(TokenError.TokenIsNotValid)
-//            print("Is token valid? \(isActive)")
-//          }else{
-//            seal.reject(TokenError.TokenIsNotValid)
-//          }
-//      }
-//    }
-//  }
-  /**
-   Used to get tokens saved from a prior request.
-   */
-  func tokensOnOkta(){
-//    OktaAuth.tokens = OktaTokenManager(authState: nil)
-//    OktaAuth.tokens?.accessToken = OktaAuth.tokens?.get(forKey: "accessToken")
-//    OktaAuth.tokens?.idToken = OktaAuth.tokens?.get(forKey: "idToken")
-//    OktaAuth.tokens?.refreshToken = OktaAuth.tokens?.get(forKey: "refreshToken")
+  
+  @IBAction func swipeDownAction(_ sender: Any) {
+    activeField?.resignFirstResponder()
   }
   
   /**
-   Check if the access token stored on file is still valid.
+   Setting PickerView for select table.
    */
-  func checkUserToken(){
-//    OktaAuth.configuration = Utils().getPlistConfiguration()
-//    //        OktaAuth.tokens?.get(forKey: "accessToken")
-//    if let token = OktaAuth.tokens?.accessToken{
-//      firstly{
-//        introspectToken(token: token)
-//        }.done{ active in
-//          if !active {
-//            self.performSegue(withIdentifier: "conditionSegue", sender: nil)
-//          }
-//        }.catch{ error in
-//          self.performSegue(withIdentifier: "conditionSegue", sender: nil)
-//          debugPrint(error)
-//        }.finally {
-//          C8HOverlayViews.disableOverlayView(view: self.view)
-//      }
-//    }
+  @IBAction func showPickerView(_ sender: UITextField) {
+    activeField?.resignFirstResponder()
+    //    Get the rows from the repository.
+    let tableStore = C8HTableRepository()
+    
+    tableStore.findTables(forCasino: 0).done{ tableDetails in
+      var rows : [String] = []
+      
+      for table in tableDetails{
+        rows.append("Table: \(table.table)")
+      }
+      
+      let action = ActionSheetStringPicker(
+        title: "Select table", rows: rows, initialSelection: 1,
+        doneBlock: {picker, indexes, value in
+          if let text = value as? String{
+            sender.text = text
+          }
+          
+          self.gameId = tableDetails[indexes].game.id
+          
+          self.selectGameTextField.isEnabled = true
+          self.selectGegaTextField.isEnabled = true
+          self.balanceTF.isEnabled = true
+          
+          self.selectGameTextField.text = tableDetails[indexes].game.description
+          self.selectGegaTextField.text = tableDetails[indexes].gega.description
+          self.balanceTF.text = tableDetails[indexes].beginningBalance?.description
+          
+      }, cancel: {ActionStringCancelBlock in return}, origin: sender)
+      
+      action?.tapDismissAction = .cancel
+      action?.show()
+      
+      //      action?.hideWithCancelAction()
+      }.catch{ error in
+        debugPrint(error)
+    }
   }
   
+  /**
+   Show Picker View for Gega
+   */
+  @IBAction func showPickerViewForGega(_ sender: UITextField) {
+    activeField?.resignFirstResponder()
+    
+    //    Get the rows from the repository.
+    let gegaStore = C8HGegaStore()
+    
+    gegaStore.findGegas(forCasino: 0).done{ gegaDetails in
+      var rows : [String] = []
+      
+      for gega in gegaDetails{
+        rows.append("\(gega.description)")
+      }
+      
+      let action = ActionSheetStringPicker(
+        title: "Change GEGA", rows: rows, initialSelection: 1,
+        doneBlock: {picker, indexes, value in
+          if let text = value as? String{
+            sender.text = text
+          }
+          self.balanceTF.isEnabled = true
+          
+      }, cancel: {ActionStringCancelBlock in return}, origin: sender)
+      
+      action?.tapDismissAction = .cancel
+      action?.show()
+      }.catch{error in
+        debugPrint(error)
+    }
+  }
+  
+  /**
+   Show Picker View for Games
+   */
+  @IBAction func showPickerViewForGames(_ sender: UITextField) {
+    activeField?.resignFirstResponder()
+    
+    //    Get the rows from the repository.
+    let gameStore = C8HGameStore()
+    
+    gameStore.findGames(forCasino: 0).done{ gameDetails in
+      var rows : [String] = []
+      var startingIndex = 0
+      for (index, game) in gameDetails.enumerated(){
+        if game.id == self.gameId{
+          startingIndex = index
+        }
+        rows.append("\(game.description)")
+      }
+      
+      let action = ActionSheetStringPicker(
+        title: "Change Game", rows: rows, initialSelection: startingIndex,
+        doneBlock: {picker, indexes, value in
+          if let text = value as? String{
+            sender.text = text
+          }
+          self.selectGegaTextField.isEnabled = true
+          
+      }, cancel: {ActionStringCancelBlock in return}, origin: sender)
+      
+      action?.tapDismissAction = .cancel
+      action?.show()
+      }.catch{ error in
+        debugPrint(error)
+    }
+  }
   /*
    // MARK: - Navigation
    
@@ -243,4 +401,78 @@ class C8HMainMenuVC: UIViewController, UITextFieldDelegate {
    }
    */
   
+}
+
+extension C8HMainMenuVC: UITextFieldDelegate{
+  func enableKeyboardNotification(){
+    let notificationCenter = NotificationCenter.default
+    let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
+    let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+    
+    notificationCenter.addObserver(self, selector: #selector(self.keyboardWasShown), name: keyboardWillShow, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(self.keyboardWillBeHidden(_:)), name: keyboardWillHide, object: nil)
+    
+  }
+  
+  func removeObserveNoticationForKeyboard(){
+    let notificationCenter = NotificationCenter.default
+    let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
+    let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+    
+    notificationCenter.removeObserver(self, name: keyboardWillShow, object: nil)
+    notificationCenter.removeObserver(self, name: keyboardWillHide, object: nil)
+  }
+  
+  @objc
+  func keyboardWasShown(_ notification: Notification) {
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y == 0{
+        self.view.frame.origin.y -= keyboardSize.height
+      }
+    }
+  }
+  
+  @objc
+  func keyboardWillBeHidden(_ notification: Notification){
+    
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      if self.view.frame.origin.y != 0{
+        //        self.view.frame.origin.y += keyboardSize.height
+        self.view.frame.origin.y = 0
+      }
+    }
+  }
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    self.activeField = textField
+    self.swipeDownGesture.isEnabled = true
+  }
+  
+  func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool{
+    enableKeyboardNotification()
+    
+    if textField.tag == 100 || textField.tag == 200 || textField.tag == 300  {
+      return false
+    }
+    return true
+  }
+  
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+    textField.resignFirstResponder()
+    return true
+  }
+  
+  // Add any text validation here.
+  func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
+    //    if textField.tag == 400 {
+    //      openTableButton.isEnabled = true
+    //    }
+    return true
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField){
+    removeObserveNoticationForKeyboard()
+    self.swipeDownGesture.isEnabled = false
+    self.activeField = nil
+  }
 }

@@ -354,7 +354,7 @@ class C8HNumberPadView: UIViewController {
       }.catch{ error in
         debugPrint(error)
       }.finally{
-        C8HOverlayViews.disableOverlayView(view: self.view)
+        C8HOverlayViews.disableOverlayView(for: self.view)
     }
   }
   
