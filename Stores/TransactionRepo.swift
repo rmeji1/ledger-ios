@@ -14,18 +14,18 @@ class TransactionRepo{
     
     func postTransaction(transaction: Transaction) -> Promise<Int64>{
         return Promise{ seal in
-            Alamofire
-            .request("\(url)/transaction", method: .post, parameters: transaction.encodeToParameters(), encoding: JSONEncoding.default)
-            .responseJSON()
-            .done{ rsp in
-                guard let json = rsp.json as? Int64 else{
-                    return
-                }
-                seal.fulfill(json)
-                debugPrint("Worked on server here is the id: \(json)." )
-            }.catch{ error in
-                seal.reject(error)
-            }
+//            Alamofire
+//            .request("\(url)/transaction", method: .post, parameters: transaction.encodeToParameters(), encoding: JSONEncoding.default)
+//            .responseJSON()
+//            .done{ rsp in
+//                guard let json = rsp.json as? Int64 else{
+//                    return
+//                }
+//                seal.fulfill(json)
+//                debugPrint("Worked on server here is the id: \(json)." )
+//            }.catch{ error in
+//                seal.reject(error)
+//            }
         }
     }
 }

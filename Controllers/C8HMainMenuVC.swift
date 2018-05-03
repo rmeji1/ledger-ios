@@ -17,10 +17,17 @@ import Kingfisher
 class C8HMainMenuVC: UIViewController {
   //==============================================================================
   //  MARK: - Data memebers
+  var tableDetailsUpdated = false
   var activeField: UITextField?
   var casinoStore: C8HCasinoRepository?
   var casinoDetails: CasinoDetails?
-  var gameId: Int?
+  var tableDetails: TableDetails?
+  var tableStore = C8HTableDetailStore()
+  var employeeDetails: EmpDetails?
+  var ledger: Ledger?
+//
+  let ledgerStore = C8HLedgerStore()
+
   
   //============================================================================
   //  MARK: - Errors
@@ -68,13 +75,14 @@ class C8HMainMenuVC: UIViewController {
     addDoneButtonOnKeyboard()
     
     // Add user name to name label
-    if let name = UserDefaults.standard.string(forKey: "firstName"){
+    if let name = UserDefaults.standard.string(forKey: "firstName"),
+       let number = UserDefaults.standard.string(forKey: "id"){
+      employeeDetails = EmpDetails(badgeNumber: number, name: name)
+      debugPrint("BadgeNumber: "+employeeDetails!.badgeNumber)
       updateNameLabel(name: name)
-    }
-    
-    if let number = UserDefaults.standard.string(forKey: "id"){
       updateEmployeeNumberLabel(employeeNumber: number)
     }
+    
     // Find which casino user is in.
     C8HOverlayViews.indicatorViewWithMessage("Finding Locaiton", for: view)
     casinoStore = C8HCasinoRepository()
@@ -84,6 +92,7 @@ class C8HMainMenuVC: UIViewController {
       .then{location in
         self.casinoStore!.findCasino(in:location.coordinate)
       }.done{ casinoDetails in
+        self.casinoDetails = casinoDetails
         
         let url = URL(string: casinoDetails.casinoImageURL)!
         self.imageView.kf.setImage(with: url)
@@ -244,6 +253,22 @@ class C8HMainMenuVC: UIViewController {
     self.navigationItem.leftBarButtonItem = barButton
   }
   
+  func enableTextFieldsOnTableSelection(){
+    self.selectGameTextField.isEnabled = true
+    self.selectGegaTextField.isEnabled = true
+    self.balanceTF.isEnabled = true
+  }
+  
+  func setTextForTextFieldsOnTableSelection(){
+    guard let table = tableDetails else{
+      debugPrint("C8HMainMenu.setTextForTextFieldsOnTableSelection() -- Table details not set.")
+      return
+    }
+    self.selectGameTextField.text = table.game.description
+    self.selectGegaTextField.text = table.gega.description
+    self.balanceTF.text = table.beginningBalance?.description
+  }
+  
   
   // =============================================================================
   //  MARK: - ACTIONS
@@ -269,6 +294,20 @@ class C8HMainMenuVC: UIViewController {
     startLedgerButton.backgroundColor = UIColor(hexString: "00CC00")
     startLedgerButton.titleLabel?.font = UIFont(name: "LatoLatin-Bold", size: 16.0)
     startLedgerButton.setTitle("KC140001", for: .disabled )
+    
+    if tableDetailsUpdated{
+      _  = self.tableStore.save(table: &self.tableDetails!)
+    }
+    
+    guard let tableDetails = tableDetails else{
+      return
+    }
+    self.ledger = Ledger(casinoDetails: casinoDetails!, empDetails: employeeDetails!,tableDetails: tableDetails, ledgerDate: nil, active: true, transactions: nil)
+    
+    
+    _ = ledgerStore.save(ledger: ledger!)
+    
+    
   }
   
   @IBAction func startLedgerButtonPressed(_ sender: UIButton) {
@@ -292,7 +331,7 @@ class C8HMainMenuVC: UIViewController {
       var rows : [String] = []
       
       for table in tableDetails{
-        rows.append("Table: \(table.table)")
+        rows.append("Table: \(table.id)")
       }
       
       let action = ActionSheetStringPicker(
@@ -301,23 +340,20 @@ class C8HMainMenuVC: UIViewController {
           if let text = value as? String{
             sender.text = text
           }
+          // Save the table the user selected.
+          self.tableDetails = tableDetails[indexes]
           
-          self.gameId = tableDetails[indexes].game.id
+          // Set textfields text to tabledetails descriptions.
+          self.setTextForTextFieldsOnTableSelection()
           
-          self.selectGameTextField.isEnabled = true
-          self.selectGegaTextField.isEnabled = true
-          self.balanceTF.isEnabled = true
+          //Set other textfields to active.
+          self.enableTextFieldsOnTableSelection()
           
-          self.selectGameTextField.text = tableDetails[indexes].game.description
-          self.selectGegaTextField.text = tableDetails[indexes].gega.description
-          self.balanceTF.text = tableDetails[indexes].beginningBalance?.description
-          
+          self.openTableButton.isEnabled = true
       }, cancel: {ActionStringCancelBlock in return}, origin: sender)
       
       action?.tapDismissAction = .cancel
       action?.show()
-      
-      //      action?.hideWithCancelAction()
       }.catch{ error in
         debugPrint(error)
     }
@@ -341,11 +377,14 @@ class C8HMainMenuVC: UIViewController {
       
       let action = ActionSheetStringPicker(
         title: "Change GEGA", rows: rows, initialSelection: 1,
-        doneBlock: {picker, indexes, value in
+        doneBlock: {
+          picker, indexes, value in
+          
+          self.tableDetails?.gega = gegaDetails[indexes]
+          self.tableDetailsUpdated = true
           if let text = value as? String{
             sender.text = text
           }
-          self.balanceTF.isEnabled = true
           
       }, cancel: {ActionStringCancelBlock in return}, origin: sender)
       
@@ -369,20 +408,24 @@ class C8HMainMenuVC: UIViewController {
       var rows : [String] = []
       var startingIndex = 0
       for (index, game) in gameDetails.enumerated(){
-        if game.id == self.gameId{
+        
+        if self.tableDetails?.game.id == game.id{
           startingIndex = index
         }
         rows.append("\(game.description)")
+      
       }
       
       let action = ActionSheetStringPicker(
         title: "Change Game", rows: rows, initialSelection: startingIndex,
         doneBlock: {picker, indexes, value in
+          
+          self.tableDetailsUpdated = true
+          self.tableDetails?.game = gameDetails[indexes]
+          
           if let text = value as? String{
             sender.text = text
           }
-          self.selectGegaTextField.isEnabled = true
-          
       }, cancel: {ActionStringCancelBlock in return}, origin: sender)
       
       action?.tapDismissAction = .cancel
@@ -391,16 +434,36 @@ class C8HMainMenuVC: UIViewController {
         debugPrint(error)
     }
   }
-  /*
+  
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    // Get the new view controller using segue.destinationViewController.
    // Pass the selected object to the new view controller.
+    
+    if let vc = segue.destination as? C8HNumberPadView{
+      vc.ledger = ledger
+      vc.delegate = self
+    }
    }
-   */
+ 
   
+}
+
+extension C8HMainMenuVC: C8HNumberPadDelegate{
+  func updateLedger(with transaction: Transaction) {
+    guard let ledger = ledger else {
+      return
+    }
+    // Append transaction to our ledger.
+    ledger.append(transaction)
+    
+    // Update ledger to the server.
+    ledgerStore.update(ledger: ledger).catch{ error in
+      self.errorNotice(error.localizedDescription)
+    }
+  }
 }
 
 extension C8HMainMenuVC: UITextFieldDelegate{

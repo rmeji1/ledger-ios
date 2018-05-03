@@ -164,16 +164,17 @@ class C8HTableViewContoller: UITableViewController{
         if let vc = navVC as? C8HNumberPadView
         {
             print("Sucessful performaing segue.")
-            vc.delegate = self
+//            vc.delegate = self
         }
     }
  
 }
 
-extension C8HTableViewContoller: C8HNumberPadDelegate{
-    func updateTable(_ data: [String: String]) {
-        print("Should be updating")
-        MovieData.append(data)
-        tableView.reloadData()
-    }
-}
+//extension C8HTableViewContoller: C8HNumberPadDelegate{
+//    func updateTable(_ data: [String: String]) {
+//        print("Should be updating")
+//        MovieData.append(data)
+//        tableView.reloadData()
+//    }
+//}
+

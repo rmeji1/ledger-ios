@@ -121,6 +121,7 @@ class C8HLoginVC: UIViewController {
             UserDefaults.standard.set(profile["email"], forKey: "email")
             UserDefaults.standard.set(profile["given_name"], forKey: "firstName")
             UserDefaults.standard.set(profile["employeeNumber"], forKey: "id")
+            UserDefaults.standard.set(profile["initials"], forKey: "initials")
           }
           
           var userInfoText = ""

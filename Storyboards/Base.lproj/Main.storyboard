@@ -553,7 +553,7 @@
                                                                     <outlet property="delegate" destination="lAz-3A-O2u" id="neX-mm-7Mm"/>
                                                                 </connections>
                                                             </textField>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWP-WN-NiR">
+                                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWP-WN-NiR">
                                                                 <rect key="frame" x="0.0" y="228" width="298" height="47"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
@@ -1148,6 +1148,9 @@
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUE-lr-kfi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="73.333333333333329"/>
+                                                                <connections>
+                                                                    <action selector="dismissPlusVC:" destination="hUc-mh-3Ky" eventType="touchDown" id="Qde-gU-NX1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1175,15 +1178,25 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttons-subtraction.png" translatesAutoresizingMaskIntoConstraints="NO" id="XTK-XQ-YFS">
                                                                 <rect key="frame" x="74.000000000000028" y="26" width="15.333333333333329" height="21.333333333333329"/>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlf-nO-zMv">
+                                                                <rect key="frame" x="0.0" y="0.0" width="186.33333333333334" height="73.333333333333329"/>
+                                                                <connections>
+                                                                    <action selector="dismissMinusVC:" destination="hUc-mh-3Ky" eventType="touchDown" id="fIw-zj-p2m"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="Rlf-nO-zMv" secondAttribute="bottom" id="37o-uG-OhA"/>
                                                             <constraint firstItem="ckK-ZO-FYq" firstAttribute="leading" secondItem="ncr-9k-IKh" secondAttribute="leading" id="EUH-SP-j4H"/>
                                                             <constraint firstItem="XTK-XQ-YFS" firstAttribute="top" secondItem="ncr-9k-IKh" secondAttribute="top" constant="26" id="Rqh-su-oUG"/>
                                                             <constraint firstAttribute="bottom" secondItem="ckK-ZO-FYq" secondAttribute="bottom" id="bvO-uO-CZe"/>
+                                                            <constraint firstItem="Rlf-nO-zMv" firstAttribute="leading" secondItem="ncr-9k-IKh" secondAttribute="leading" id="c40-G9-X83"/>
                                                             <constraint firstItem="XTK-XQ-YFS" firstAttribute="centerX" secondItem="ckK-ZO-FYq" secondAttribute="centerX" id="gLv-Wc-4WU"/>
                                                             <constraint firstItem="XTK-XQ-YFS" firstAttribute="leading" secondItem="ncr-9k-IKh" secondAttribute="leading" constant="74" id="ibc-Eo-8oN"/>
                                                             <constraint firstItem="ckK-ZO-FYq" firstAttribute="top" secondItem="ncr-9k-IKh" secondAttribute="top" id="mkL-8d-v2n"/>
+                                                            <constraint firstItem="Rlf-nO-zMv" firstAttribute="top" secondItem="ncr-9k-IKh" secondAttribute="top" id="q0u-xA-7zl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Rlf-nO-zMv" secondAttribute="trailing" id="r9E-tK-4A5"/>
                                                             <constraint firstItem="XTK-XQ-YFS" firstAttribute="centerY" secondItem="ckK-ZO-FYq" secondAttribute="centerY" id="uw8-Pl-CZB"/>
                                                             <constraint firstAttribute="trailing" secondItem="ckK-ZO-FYq" secondAttribute="trailing" constant="23" id="zY1-Wg-y1Q"/>
                                                         </constraints>

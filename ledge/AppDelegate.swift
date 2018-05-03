@@ -36,7 +36,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
       }
       
-      _ = OktaAuth.refresh(config, refreshToken: refreshToken).then(in: .main, { _ in
+      _ = OktaAuth.refresh(config, refreshToken: refreshToken).then(in: .main, { refreshToken  in
+        debugPrint(refreshToken)
+        OktaAuth.getUser{ response, error in
+          if error != nil { print("Error: \(error!)") }
+          if response != nil {
+            if let profile = response {
+              debugPrint(profile["email"] as! String)
+              UserDefaults.standard.set(profile["email"], forKey: "email")
+              UserDefaults.standard.set(profile["given_name"], forKey: "firstName")
+              UserDefaults.standard.set(profile["employeeNumber"], forKey: "id")
+            }
+          }
+        }
         DispatchQueue.main.async {
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
@@ -52,49 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = homeViewController
         self.window!.makeKeyAndVisible()
       }
-//      if let config = Utils.getPlistConfiguration() {
-//        _ = OktaAuth.refresh(config, refreshToken: "").then(in: .main, { _ in
-//          DispatchQueue.main.async {
-//            if !OktaAuth.isAuthenticated(){
-//              // Prompt for login
-//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
-//              UINavigationController
-//              self.window!.rootViewController = homeViewController
-//              self.window!.makeKeyAndVisible()
-//            }else{
-//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
-//              self.window!.rootViewController = homeViewController
-//              self.window!.makeKeyAndVisible()
-//            }
-//          }
-//        })
-//      }
-      
-//      if !OktaAuth.isAuthenticated(){
-//        // Prompt for login
-//        debugPrint("not logged in")
-//        // try to refresh token
-//        OktaAuth.refresh().then{_ in
-//          let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//          let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
-//          self.window!.rootViewController = homeViewController
-//          self.window!.makeKeyAndVisible()
-//          }.catch{_ in
-//              let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//              let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as!
-//              UINavigationController
-//              self.window!.rootViewController = homeViewController
-//              self.window!.makeKeyAndVisible()
-//        }
-//      }else{
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "C8HMainMenuVCNav") as! UINavigationController
-//        self.window!.rootViewController = homeViewController
-//        self.window!.makeKeyAndVisible()
-//      }
-//
         return true
     }
   

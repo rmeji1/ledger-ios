@@ -13,7 +13,20 @@ class C8HOverlayViews{
   class func indicatorViewWithMessage(_ message: String,for view: UIView ){
     let overlayView = UIView(frame: view.frame)
     overlayView.backgroundColor = UIColor.white
-    overlayView.alpha = 1
+    overlayView.alpha = 0.5
+    overlayView.tag = 10
+    if message == "" {
+      overlayView.pleaseWait()
+    }else{
+      overlayView.pleaseWait(message)
+    }
+    view.addSubview(overlayView)
+  }
+  
+  class func indicatorViewWithMessage(_ message: String,for view: UIView, with color: UIColor, and alpha : CGFloat){
+    let overlayView = UIView(frame: view.frame)
+    overlayView.backgroundColor = color
+    overlayView.alpha = alpha
     overlayView.tag = 10
     if message == "" {
       overlayView.pleaseWait()

@@ -20,18 +20,18 @@ struct EmpDetails: Codable{
 }
 struct TableDetails: Codable{
   var gega: GegaDetails
-  var table: Int
+  var id: Int64
   var game: GameDetails
   var beginningBalance: Decimal?
   var endingBalance: Decimal?
   var additionsTotal: Decimal?
   var subtractionTotals: Decimal?
   
-  init(gega: GegaDetails, game: GameDetails, beginningBalance: Decimal, table: Int){
+  init(gega: GegaDetails, game: GameDetails, beginningBalance: Decimal, id: Int64){
     self.gega = gega
     self.game = game
     self.beginningBalance = beginningBalance
-    self.table = table
+    self.id = id
   }
 }
 
@@ -49,34 +49,77 @@ struct LedgerDate: Codable{
   var startDateTime : [String:String?]
   var endDateTime : [String:String?]?
 }
-struct Ledger: Codable{
-  var casinoDetails : CasinoDetails
-  var empDetails : EmpDetails
-  var tableDetails: TableDetails
-  var ledgerDate : LedgerDate
-  var active : Bool
-//  var additions: [Double]
+
+
+
+struct Transaction: Codable{
+  enum Transaction_Type : String,Codable {
+    case ADDITION
+    case SUBTRACTION
+  }
   
-  init(){
-    casinoDetails = CasinoDetails(casinoId: 0, casinoName: "", casinoImageURL: "")
-    empDetails = EmpDetails(badgeNumber:"", name: "")
+  var type : Transaction_Type
+  var managerInitals : String
+  var employeeInitals : String
+  var amount : Decimal
+}
+
+class Ledger: Codable{
+  var casinoDetails : CasinoDetails
+  var empDetails : EmpDetails?
+  var tableDetails: TableDetails?
+  var ledgerDate : LedgerDate?
+  var active : Bool
+  var transactions: [Transaction]?
+  
+  init(casinoDetails: CasinoDetails, empDetails: EmpDetails?,tableDetails: TableDetails?,
+      ledgerDate: LedgerDate?, active: Bool, transactions: [Transaction]?){
     
-    let gegaDetails = GegaDetails(id: 0, description: "GEGA1234")
-    let gameDetails = GameDetails(id: 0, description: "Black Jack")
-    tableDetails = TableDetails(gega:gegaDetails,game: gameDetails, beginningBalance: 0, table: 0)
+    self.casinoDetails = casinoDetails
+    self.empDetails = empDetails
+    self.tableDetails = tableDetails
+    self.ledgerDate = ledgerDate
+    self.active = active
+    self.transactions = transactions
+  }
+  
+  func append(_ trans : Transaction){
+    if transactions == nil{
+      transactions = []
+    }
     
-    ledgerDate = LedgerDate(startDateTime:[:], endDateTime: nil)
-    active = true
-//    additions = [0]
+    transactions?.append(trans)
+    switch trans.type {
+    case .ADDITION:
+      if tableDetails?.additionsTotal == nil {
+        tableDetails?.additionsTotal = trans.amount
+      }else{
+        tableDetails?.additionsTotal! += trans.amount
+        print("Amount\(tableDetails?.additionsTotal!)")
+      }
+    case .SUBTRACTION:
+      if tableDetails?.subtractionTotals == nil {
+        tableDetails?.subtractionTotals = trans.amount
+      }else{
+        tableDetails?.subtractionTotals! += trans.amount
+        print("Amount\(tableDetails?.subtractionTotals!)")
+
+      }
+    }
+    
   }
-  func encodeToParameters()->Parameters{
-//    FIXME: - Need to change this.
-    let parameters : Parameters = [
-      "casinoDetails" : [ "casinoName" : casinoDetails.casinoName],
-      "empDetails" : empDetails,
-      "tableDetails" : tableDetails,
-      "active" : active
-    ]
-    return parameters
-  }
+  
+//  init(){
+//    casinoDetails = CasinoDetails(casinoId: 0, casinoName: "", casinoImageURL: "")
+//    empDetails = EmpDetails(badgeNumber:"", name: "")
+//    
+//    let gegaDetails = GegaDetails(id: 0, description: "GEGA1234")
+//    let gameDetails = GameDetails(id: 0, description: "Black Jack")
+//    tableDetails = TableDetails(gega:gegaDetails,game: gameDetails, beginningBalance: 0, id: 0)
+//    
+//    ledgerDate = LedgerDate(startDateTime:[:], endDateTime: nil)
+//    active = true
+////    additions = [0]
+//  }
+
 }

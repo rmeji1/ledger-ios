@@ -22,12 +22,20 @@ struct C8HTableRepository{
         let gegaDetails = GegaDetails(id: number, description: "GEGA1234")
         let gameDetails = GameDetails(id: 3, description: "Roulette")
 
-        tables.append(TableDetails(gega:gegaDetails, game: gameDetails, beginningBalance: 0, table: number))
+        tables.append(TableDetails(gega:gegaDetails, game: gameDetails, beginningBalance: 0, id: Int64(number)))
       }
     seal.fulfill(tables)
     }
   }
 
+  func save(table :C8HTable) -> Promise<Int64>{
+    return Promise{
+      seal in
+      debugPrint("Table is being saved.")
+      table.id = 2
+      seal.fulfill(table.id)
+    }
+  }
   
   func findTablesWithCasinoId(casinoId: Int64) -> Promise<[C8HTable]>{
     return Promise{ seal in

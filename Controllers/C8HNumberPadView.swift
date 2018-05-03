@@ -14,7 +14,7 @@ import PromiseKit
 
 
 protocol C8HNumberPadDelegate : class {
-  func updateTable(_ data: [String: String])
+  func updateLedger(with: Transaction)
 }
 
 class C8HNumberPadView: UIViewController {
@@ -31,6 +31,13 @@ class C8HNumberPadView: UIViewController {
   //==============================================================================
   var picker = UIPickerView()
   weak var delegate: C8HNumberPadDelegate?
+  
+  var ledger : Ledger?
+  var type: Transaction.Transaction_Type?
+  var managerInitals: String?
+  var employeeInitals: String?
+  var amount : Decimal?
+  
   var decimal : Bool = false
   var decimalCount = 0
   var casino: C8HCasino?
@@ -38,14 +45,16 @@ class C8HNumberPadView: UIViewController {
   var tables: [C8HTable]?
   var username: String = ""
   var password: String = ""
+  
+  
   //    var transactionBalanace : Decimal = Decimal(0)
-  var transaction : Transaction = Transaction()
+  //  var transaction : Transaction = Transaction()
   
   //==============================================================================
   //  MARK: - PROPERTIES
   //==============================================================================
   @IBOutlet weak var numberLabel: UILabel!
-//  @IBOutlet weak var plusButton: UIButton!
+  //  @IBOutlet weak var plusButton: UIButton!
   //@IBOutlet weak var minusButton: UIButton!
   
   //==============================================================================
@@ -64,10 +73,10 @@ class C8HNumberPadView: UIViewController {
     navigationItem.titleView = logoContainer
     self.navigationController?.navigationBar.tintColor = UIColor.white;
     //self.navigationController?.navigationBar.tintColor = UIColor.white;
-//    minusButton.layer.cornerRadius = 10
-//    minusButton.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
-//    minusButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
-//    self.navigationItem.setHidesBackButton(true, animated:true);
+    //    minusButton.layer.cornerRadius = 10
+    //    minusButton.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+    //    minusButton.backgroundColor = UIColor.white.withAlphaComponent(0.05)
+    //    self.navigationItem.setHidesBackButton(true, animated:true);
   }
   
   override func didReceiveMemoryWarning() {
@@ -78,25 +87,6 @@ class C8HNumberPadView: UIViewController {
   //============================================================================
   //    MARK: - HELPERS
   //============================================================================
-  /**
-   Performs the transaction, called from IBAction plus or minus.
-   
-   - parameters:
-    - type: plus or minus
-    - dec: Decimal with the amount of the transaction.
-   */
-  func performTransaction(_ type: Transaction.Transaction_Type, dec: Decimal ){
-//    debugPrint("Greater than 0. \(dec)")
-//    transaction.amount = dec
-//    transaction.type = type.rawValue
-//    // FIXME: - Will lead to error if table is not instantistated.
-//    transaction.tableId = (table?.id)!
-//    transaction.casinoId = (table?.casinoId)!
-//    showAlertToAuthenticateManager()
-    
-    _ =  self.navigationController?.popViewController(animated: true)
-  }
-  
   /**
    Inputs text to numberLabel.
    
@@ -131,8 +121,8 @@ class C8HNumberPadView: UIViewController {
    Makes changes to view in view did load.
    */
   func editViewOnLoad(){
-//    editButtonImageView(on: plusButton)
-//    editButtonImageView(on: minusButton)
+    //    editButtonImageView(on: plusButton)
+    //    editButtonImageView(on: minusButton)
     numberLabel.text = "$0"
   }
   
@@ -231,131 +221,108 @@ class C8HNumberPadView: UIViewController {
           seal.reject(error)
       }
     }
-//      OktaAuth
-//        //                .login(username, password: password)
-//        .login("robertmejia30@gmail.com", password:"Ro264874033!")
-//        //                .login("rm@cre8ivehouse.com", password:"Youtube1996")
-//        .start(self).then{ tokenManager in
-//          tokenManager.accessToken!
-//        }
   }
   
- 
+  
   /**
    Retrieves profile of the manager.
    */
-  func retrieveProfile() -> PromiseKit.Promise<[String:Any]>{
+  func retrieveProfile() -> PromiseKit.Promise<Bool>{
     return Promise{ seal in
       OktaAuth.getUser{ response, error in
         if error != nil {
           print("Error: \(error!)")
-          seal.reject(error!)
+          seal.reject(AuthenticationError.unableToGetProfile)
         }
-        if let retValue = response{ seal.fulfill(retValue) }
-        seal.reject(AuthenticationError.unableToGetProfile)
+        if (response?["isManager"] as? Bool) == true {
+          if let initials = response?["initials"] as? String{
+            self.managerInitals = initials
+            seal.fulfill(true)
+          }
+        }
+        else{
+          seal.reject(AuthenticationError.notAManager)
+        }
       }
     }
   }
   
-  /**
-   Checks manager profile and manager.
-   */
-  func compareUserDetails(_ managerDetails : [String:Any]) -> PromiseKit.Promise<Bool>{
-    return Promise{ seal in
-      debugPrint("Manager Details: \(managerDetails)")
-      // Changed to employee token information.
-//      tokens?.get(forKey: "accessToken")
-//      tokens?.idToken = OktaAuth.tokens?.get(forKey: "idToken")
-//      tokens?.refreshToken = OktaAuth.tokens?.get(forKey: "refreshToken")
-//
-      firstly{
-        retrieveProfile()
-        }.done{ empDetails in
-          debugPrint("Employee Details: \(empDetails)")
-          guard
-            let employeeEmail = empDetails["email"] as? String,
-            let managerEmail = managerDetails["email"] as? String else{
-              throw AuthenticationError.cannotFindEmpEmail
-          }
-          debugPrint(employeeEmail)
-          debugPrint(managerEmail)
-          if employeeEmail == managerEmail{
-            seal.reject(AuthenticationError.needAnotherManager)
-          }
-          self.transaction.employeeInitials = empDetails["initials"] as! String
-          //TODO: - Add Id to employee details in okta.
-          //self.transaction.employeeId = empDetails[""] as! Int64
-          seal.fulfill(true)
-        }.catch{ error in
-          debugPrint(error)
-      }
-    }
-  }
-  
-  /**
-   Checks if profile sent is that of manager.
-   
-   - parameters:
-   - userDetails: user profile retrieved from okta
-   */
-  func isManager(_ userDetails : [String:Any]) -> PromiseKit.Promise<[String:Any]>{
-    return Promise{seal in
-      if userDetails.keys.contains("isMan"){
-        if let isMan = userDetails["isMan"] as? Bool{
-          if isMan {
-            transaction.managerInitials = userDetails["initials"] as! String
-            seal.fulfill(userDetails)
-          }
-        }
-      }
-      seal.reject(AuthenticationError.notAManager)
-    }
-  }
   
   /**
    Shows the alert so a manager can approve a transaction.
    */
-  func showAlertToAuthenticateManager(){
+  func createAlertToAuthenitcateManager(_ handler: @escaping ((UIAlertAction) -> Void)) -> UIAlertController{
     let alert = UIAlertController(style: .actionSheet)
     let configOne: TextField.Config = textFieldOneForModal()
     let configTwo: TextField.Config = textFieldTwoForModal()
     
     alert.addTwoTextFields(vInset: 0, textFieldOne: configOne, textFieldTwo: configTwo)
-    alert.addAction(title: "Enter manager's credientals", style: .default){ action in
-      self.actionToAuthenticateManager()
-    }
+    alert.addAction(title: "Enter manager's credientals", style: .default, handler: handler)
     alert.addAction(title: "Cancel", style: .cancel)
-    navigationController?.present(alert, animated:true)
+    
+    return alert
   }
   
   /**
    Action performed when manager enters credentials
    */
-  func actionToAuthenticateManager(){
-    C8HOverlayViews.indicatorViewWithMessage("Loading", for: self.view)
-    firstly{
-      self.logInManager(username: self.username, password: self.password)
-      }.then{ token in
-        self.retrieveProfile() // Gets manager profile
-      }.then{ managerDetails in
-        self.isManager(managerDetails) // Check if manager
-      }.then{ managerDetails in
-        //debugPrint("Manager Details: \(managerDetails)")
-        self.compareUserDetails(managerDetails) // compare to emp logged
-      }.done{ retValue in
-        if retValue{
-          debugPrint("Transaction performed.")
-          // Now need to make a call about the transaction
-          let repo = TransactionRepo()
-          repo.postTransaction(transaction: self.transaction).done{ _ in
-            _ =  self.navigationController?.popViewController(animated: true)
-          }
-        }
-      }.catch{ error in
-        debugPrint(error)
-      }.finally{
-        C8HOverlayViews.disableOverlayView(for: self.view)
+  func actionToAuthenticateManager() -> PromiseKit.Promise<Bool>{
+    // this is to check to see if I am getting the manager initals correctly.
+    return self.logInManager(username: self.username, password: self.password).then{ _ in
+      self.retrieveProfile()
+      }.map{ success in
+        return success
     }
+  }
+  
+  /**
+   Performs the transaction, called from IBAction plus or minus.
+   
+   - parameters:
+   - type: plus or minus
+   - dec: Decimal with the amount of the transaction.
+   */
+  func performTransaction(_ type: Transaction.Transaction_Type, dec: Decimal ){
+    guard let delegate = delegate,
+          let empInitials = UserDefaults.standard.string(forKey: "initials") else
+      { return }
+    
+    // Create alert to authenticate manager
+    let alert = createAlertToAuthenitcateManager{ action in
+      // Action on success.
+      let color = UIColor.init(hexString: "663399")
+      C8HOverlayViews.indicatorViewWithMessage("Loading", for: self.view, with: color, and: 0.5)
+      
+      self.actionToAuthenticateManager()
+        .map{ success -> Transaction in
+          // if success logging manager and getting his details
+          if success{
+            // Create transaction
+            
+            let trans = Transaction(type: type,
+                                    managerInitals: self.managerInitals!,
+                                    employeeInitals: empInitials,
+                                    amount: dec)
+            return trans
+          }else{
+            throw AuthenticationError.unableToGetProfile
+          }
+        }.done{ trans in
+          // main menu adds transaction to ledger and updates server. 
+          delegate.updateLedger(with: trans)
+          //finally go back
+          _ =  self.navigationController?.popViewController(animated: true)
+        }.catch{ error in
+          self.errorNotice(error.localizedDescription)
+          debugPrint(error)
+          // Should not allow user to change views at this point.
+        }.finally {
+          C8HOverlayViews.disableOverlayView(for: self.view)
+      }
+    }
+    
+    //  Present alert in nav controller.
+    navigationController?.present(alert, animated:true)
   }
   
   //==========================================================================

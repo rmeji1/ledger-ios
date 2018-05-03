@@ -16,6 +16,7 @@
 		E10569FA200FF6DE00984A33 /* pt_gaming_logo-white-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */; };
 		E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */; };
 		E10569FE20100DFD00984A33 /* extUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10569FD20100DFD00984A33 /* extUiView.swift */; };
+		E10AFA4A2098B36C00129D4F /* C8HTableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10AFA492098B36C00129D4F /* C8HTableStore.swift */; };
 		E125BEE2208661580062CAD8 /* add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEDF208661570062CAD8 /* add-sub.png */; };
 		E125BEE3208661580062CAD8 /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEE0208661580062CAD8 /* push.png */; };
 		E125BEE7208664820062CAD8 /* call-manager.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEE5208664810062CAD8 /* call-manager.png */; };
@@ -52,6 +53,7 @@
 		E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */; };
 		E195C794207FCC1000D45645 /* LatoLatin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */; };
 		E195C795207FCC1F00D45645 /* LatoLatin-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */; };
+		E196E6A72098DDF1003DA654 /* C8HLedgerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E196E6A62098DDF1003DA654 /* C8HLedgerStore.swift */; };
 		E197757E20250C5100D94927 /* tableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757D20250C4D00D94927 /* tableViewContoller.swift */; };
 		E19775802025211700D94927 /* C8HNumberPadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197757F2025211700D94927 /* C8HNumberPadView.swift */; };
 		E19FBC4E206198FA00CCB977 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19FBC4D206198F900CCB977 /* Transaction.swift */; };
@@ -187,6 +189,7 @@
 		E10569F9200FF6DE00984A33 /* pt_gaming_logo-white-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-B.png"; sourceTree = "<group>"; };
 		E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-A.png"; sourceTree = "<group>"; };
 		E10569FD20100DFD00984A33 /* extUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extUiView.swift; sourceTree = "<group>"; };
+		E10AFA492098B36C00129D4F /* C8HTableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTableStore.swift; sourceTree = "<group>"; };
 		E125BEDF208661570062CAD8 /* add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub.png"; sourceTree = "<group>"; };
 		E125BEE0208661580062CAD8 /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
 		E125BEE5208664810062CAD8 /* call-manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager.png"; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 		E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGeoRegionManager.swift; sourceTree = "<group>"; };
 		E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Black.ttf"; sourceTree = "<group>"; };
 		E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Bold.ttf"; sourceTree = "<group>"; };
+		E196E6A62098DDF1003DA654 /* C8HLedgerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLedgerStore.swift; sourceTree = "<group>"; };
 		E197757D20250C4D00D94927 /* tableViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewContoller.swift; sourceTree = "<group>"; };
 		E197757F2025211700D94927 /* C8HNumberPadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HNumberPadView.swift; sourceTree = "<group>"; };
 		E19FBC4D206198F900CCB977 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 				E14C51FE207E6B5200A60752 /* C8HLedgerRepository.swift */,
 				E1D703B8209124DA00622D8E /* C8HGegaStore.swift */,
 				E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */,
+				E10AFA492098B36C00129D4F /* C8HTableStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -865,6 +870,7 @@
 		E1BF18F81FF57EA80083216D = {
 			isa = PBXGroup;
 			children = (
+				E196E6A62098DDF1003DA654 /* C8HLedgerStore.swift */,
 				E170ED82200BEB1200238CEA /* podfile */,
 				E1D703B12090B5E500622D8E /* Deprecated */,
 				E12F7D3F204DDFE300A74219 /* Dependencies */,
@@ -1371,12 +1377,14 @@
 				E125BEEC208682E60062CAD8 /* C8HMainMenuVC.swift in Sources */,
 				E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */,
 				E1B6436E2059982300BD0B08 /* AttributedTextBlock.swift in Sources */,
+				E10AFA4A2098B36C00129D4F /* C8HTableStore.swift in Sources */,
 				E1D703B9209124DA00622D8E /* C8HGegaStore.swift in Sources */,
 				E10569FE20100DFD00984A33 /* extUiView.swift in Sources */,
 				E157D17C20938A9F0085CAE2 /* C8HGamesStore.swift in Sources */,
 				E1B6435E2059982300BD0B08 /* CurrencyCell.swift in Sources */,
 				E1B6436D2059982300BD0B08 /* TwoTextFieldsViewController.swift in Sources */,
 				E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */,
+				E196E6A72098DDF1003DA654 /* C8HLedgerStore.swift in Sources */,
 				E15872432052152400E199A3 /* C8HPushCloseOrTransactionVC.swift in Sources */,
 				E1B643502059982300BD0B08 /* UIViewController+Extensions.swift in Sources */,
 				E1B643682059982300BD0B08 /* PhotoLayout.swift in Sources */,
@@ -1636,7 +1644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1653,7 +1661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cre8ivehouse.ledge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
