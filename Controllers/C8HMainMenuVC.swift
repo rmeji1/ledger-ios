@@ -12,22 +12,26 @@ import PromiseKit
 import CoreLocation
 import ActionSheetPicker_3_0
 import Kingfisher
+import SideMenu
 
 
 class C8HMainMenuVC: UIViewController {
   //==============================================================================
   //  MARK: - Data memebers
-  var tableDetailsUpdated = false
+  //  var tableDetailsUpdated = false
   var activeField: UITextField?
   var casinoStore: C8HCasinoRepository?
-  var casinoDetails: CasinoDetails?
-  var tableDetails: TableDetails?
+  var casinoDetailsFake: CasinoDetailsFake?
+  //  var tableDetails: TableDetails?
   var tableStore = C8HTableDetailStore()
   var employeeDetails: EmpDetails?
   var ledger: Ledger?
-//
+  //
   let ledgerStore = C8HLedgerStore()
-
+  var locationManager: CLLocationManager?
+  
+  var table: TableNew?
+  var game : Game?
   
   //============================================================================
   //  MARK: - Errors
@@ -47,11 +51,12 @@ class C8HMainMenuVC: UIViewController {
   @IBOutlet weak var overlayForFirstStack: UIView!
   @IBOutlet weak var nameLabel:UILabel!
   @IBOutlet weak var employeeNumberLabel:UILabel!
+  @IBOutlet weak var tableNumberLabel:UILabel!
+  @IBOutlet weak var gegaNumberLabel:UILabel!
   
   @IBOutlet weak var scrollView: UIScrollView!
   
   @IBOutlet weak var imageView: UIImageView!
-  
   @IBOutlet var swipeDownGesture: UISwipeGestureRecognizer!
   
   
@@ -76,7 +81,7 @@ class C8HMainMenuVC: UIViewController {
     
     // Add user name to name label
     if let name = UserDefaults.standard.string(forKey: "firstName"),
-       let number = UserDefaults.standard.string(forKey: "id"){
+      let number = UserDefaults.standard.string(forKey: "id"){
       employeeDetails = EmpDetails(badgeNumber: number, name: name)
       debugPrint("BadgeNumber: "+employeeDetails!.badgeNumber)
       updateNameLabel(name: name)
@@ -88,11 +93,11 @@ class C8HMainMenuVC: UIViewController {
     casinoStore = C8HCasinoRepository()
     
     // Find user current location.
-    CLLocationManager.requestLocation().lastValue
-      .then{location in
-        self.casinoStore!.findCasino(in:location.coordinate)
+    // FIXME: - Need to request privacy settings before requesting location
+    CLLocationManager.requestLocation(authorizationType: .always).lastValue.then{location in
+      self.casinoStore!.findCasino(in:location.coordinate)
       }.done{ casinoDetails in
-        self.casinoDetails = casinoDetails
+        self.casinoDetailsFake = casinoDetails
         
         let url = URL(string: casinoDetails.casinoImageURL)!
         self.imageView.kf.setImage(with: url)
@@ -103,10 +108,9 @@ class C8HMainMenuVC: UIViewController {
         gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         
         self.imageView.layer.insertSublayer(gradient, at: 0)
-      }.catch{error in
-        debugPrint(error)
-      }.finally {
         C8HOverlayViews.disableOverlayView(for: self.view)
+      }.catch{error in
+        debugPrint("\(self.title!): Error for location services: \(error)")
     }
   }
   
@@ -120,7 +124,6 @@ class C8HMainMenuVC: UIViewController {
   /**
    Add done button to top of balance textfield.
    */
-  
   func dismissOverlayInThirdView(){
     let animation = CATransition()
     animation.type = kCATruncationStart
@@ -130,11 +133,9 @@ class C8HMainMenuVC: UIViewController {
     overlayView.layer.add(animation, forKey: nil)
     
     overlayForFirstStack.isHidden = false
-    
     overlayForFirstStack.backgroundColor = .clear
     
     let blurEffect = UIBlurEffect(style: .dark)
-    //    blurEffect.
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.alpha = 0.95
     
@@ -145,6 +146,7 @@ class C8HMainMenuVC: UIViewController {
     overlayForFirstStack.addSubview(blurEffectView)
     overlayView.isHidden = true
   }
+  
   func addDoneButtonOnKeyboard() {
     let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
     doneToolbar.barStyle       = UIBarStyle.default
@@ -165,7 +167,6 @@ class C8HMainMenuVC: UIViewController {
     self.balanceTF.resignFirstResponder()
   }
   
-  
   /**
    Change employee number to the number of the user.
    */
@@ -179,7 +180,6 @@ class C8HMainMenuVC: UIViewController {
   func updateNameLabel(name: String){
     nameLabel.text = name.uppercased()
   }
-  
   /**
    Make navigation bar transparent.
    */
@@ -190,9 +190,6 @@ class C8HMainMenuVC: UIViewController {
     self.navigationController?.view.backgroundColor = UIColor.clear
     //self.navigationController?.navigationBar.tintColor = UIColor.white;
   }
-  
-  // 13BSrH3ZX$l#X#B55d
-  
   /**
    Add logo to navigation bar.
    */
@@ -206,10 +203,8 @@ class C8HMainMenuVC: UIViewController {
     logoContainer.addSubview(imageView)
     navigationItem.titleView = logoContainer
   }
-  
-  
   /**
-   Set right button item on navgation bar
+   Set right button item on navgation bar. Call manager action.
    */
   func setRightButtonItem(){
     self.navigationItem.rightBarButtonItem = nil
@@ -237,7 +232,7 @@ class C8HMainMenuVC: UIViewController {
   }
   
   /**
-   Set right button item on navgation bar
+   Set left button item on navgation bar. Menu stack call option.
    */
   func setLeftButtonItem(){
     self.navigationItem.leftBarButtonItem = nil
@@ -257,26 +252,68 @@ class C8HMainMenuVC: UIViewController {
     self.selectGameTextField.isEnabled = true
     self.selectGegaTextField.isEnabled = true
     self.balanceTF.isEnabled = true
+    
+    self.selectGameTextField.text = ""
+    self.selectGegaTextField.text = ""
+    self.balanceTF.text = ""
   }
   
   func setTextForTextFieldsOnTableSelection(){
-    guard let table = tableDetails else{
-      debugPrint("C8HMainMenu.setTextForTextFieldsOnTableSelection() -- Table details not set.")
-      return
+    //    guard let table = tableDetails else{
+    //      debugPrint("C8HMainMenu.setTextForTextFieldsOnTableSelection() -- Table details not set.")
+    //      return
+    //    }
+    //    guard let table = self.table else{
+    //      debugPrint("C8HMainMenu.setTextForTextFieldsOnTableSelection() -- Table details not set.")
+    //      return
+    //    }
+    //    self.selectGameTextField.text = table.games.first?.description
+    //    self.selectGegaTextField.text = table.games.first?.gega
+    ////    self.balanceTF.leftView.text
+    //    self.balanceTF.text = table.balance.description
+    
+    guard let game = self.game,
+      let table = self.table else {
+        debugPrint("C8HMainMenu.setTextForTextFieldsOnTableSelection() -- Game not set.")
+        return
     }
-    self.selectGameTextField.text = table.game.description
-    self.selectGegaTextField.text = table.gega.description
-    self.balanceTF.text = table.beginningBalance?.description
+    self.selectGegaTextField.text = game.gega
+    self.selectGameTextField.text = game.description
+    
+//    var found = false
+//    for bal in table.newBalances{
+//      if bal.forGame == game.description{
+//        self.balanceTF.text = bal.balance.description
+//        found = true
+//      }
+//    }
+//    if !found{
+//      self.balanceTF.text = "0"
+//    }
+    if table.balances.keys.contains("game:\(game.id)"){
+      self.balanceTF.text = table.balances["game:\(game.id)"]?.description
+    }else{
+      self.balanceTF.text = "0"
+    }
   }
   
+  //  MARK: - View ACTIONS
   
-  // =============================================================================
-  //  MARK: - ACTIONS
+  /**
+   Push transactions
+   
+   Should take the current ledger and
+   */
+  
+  @IBAction func pushLedger(_ sender: UIButton){
+    self.performSegue(withIdentifier: "segueForSignatureView", sender: nil)
+  }
+
   /**
    Check the textfields and open the table.
    Should also start the ledger.
    Need to call the server in order to get ledger id and
-   store the edger in the database.
+   store the ledger in the database.
    */
   @IBAction func openTable(_ sender: UIButton) {
     let animation = CATransition()
@@ -293,21 +330,51 @@ class C8HMainMenuVC: UIViewController {
     
     startLedgerButton.backgroundColor = UIColor(hexString: "00CC00")
     startLedgerButton.titleLabel?.font = UIFont(name: "LatoLatin-Bold", size: 16.0)
-    startLedgerButton.setTitle("KC140001", for: .disabled )
+    startLedgerButton.setTitle("", for: .disabled) // Removes current text.
     
-    if tableDetailsUpdated{
-      _  = self.tableStore.save(table: &self.tableDetails!)
+    
+    // Check if we need to update the table information
+    guard var table = table,
+      let game = game else{ return }
+    
+    let hasGame = table.games.contains{ element in
+      if case game.id = element.id{ return true } else{ return false }
+    }
+    var update = false
+    // If we have the game check to see if we have a different balance then set by the user
+    if hasGame {
+      if !(table.balances["game:\(game.id)"] == Decimal(string: balanceTF.text!)){
+        table.balances["game:\(game.id)"] = Decimal(string: balanceTF.text!)
+        update = true
+      }
+    }else{
+      table.balances["game:\(game.id)"] = Decimal(string: balanceTF.text!)
+      table.activeGames = table.activeGames + 1
+      update = true
     }
     
-    guard let tableDetails = tableDetails else{
-      return
+    if update {
+      updateTable(table).done{ id in table.id = id }.catch{ error in }
     }
-    self.ledger = Ledger(casinoDetails: casinoDetails!, empDetails: employeeDetails!,tableDetails: tableDetails, ledgerDate: nil, active: true, transactions: nil)
+    
+    let tableDetails = TableDetails(gega: game.gega.description, game: game.description, id: table.id, number: Int64(table.number))
+    // create ledger
+    let casinoDetails = CasinoDetails(casinoCode: "FH", casinoName: "Flex Casino")
+    self.ledger = Ledger(casinoDetails: casinoDetails, empDetails: employeeDetails!,tableDetails: tableDetails, active: true, transactions: nil, beginningBalance: table.balances["game:\(game.id)"]!)
     
     
-    _ = ledgerStore.save(ledger: ledger!)
-    
-    
+    //save ledger
+    ledgerStore.save(ledger: ledger!).done{ id in
+      self.ledger?.id = id
+      self.ledger?.ledgerId = String(format: "\(self.ledger?.casinoDetails.casinoCode ?? "LC")%05d", id)
+      self.startLedgerButton.setTitle(self.ledger!.ledgerId!, for: .disabled )
+      self.tableNumberLabel.text = String(format: "Table %02d" ,
+                                          (self.ledger?.tableDetails!.number)!)
+      self.gegaNumberLabel.text = self.ledger!.tableDetails!.gega
+      }.catch{
+        error in
+        debugPrint("\(self.title?.description ?? "C8HMainMenuVC"):ledgerStore.save : \(error.localizedDescription)")
+    }
   }
   
   @IBAction func startLedgerButtonPressed(_ sender: UIButton) {
@@ -322,29 +389,27 @@ class C8HMainMenuVC: UIViewController {
   /**
    Setting PickerView for select table.
    */
-  @IBAction func showPickerView(_ sender: UITextField) {
+  @IBAction func showPickerViewToSelectTables(_ sender: UITextField) {
     activeField?.resignFirstResponder()
     //    Get the rows from the repository.
-    let tableStore = C8HTableRepository()
+    //    let tableStore = C8HTableRepository()
+    let tableStore = C8HTableDetailStore()
     
     tableStore.findTables(forCasino: 0).done{ tableDetails in
+      guard let tableDetails = tableDetails else { return }
       var rows : [String] = []
-      
       for table in tableDetails{
-        rows.append("Table: \(table.id)")
+        rows.append("Table: \(table.number)")
       }
-      
       let action = ActionSheetStringPicker(
-        title: "Select table", rows: rows, initialSelection: 1,
+        title: "Select table", rows: rows, initialSelection: 0,
         doneBlock: {picker, indexes, value in
-          if let text = value as? String{
-            sender.text = text
-          }
+          if let text = value as? String{ sender.text = text }
           // Save the table the user selected.
-          self.tableDetails = tableDetails[indexes]
-          
+          //self.tableDetails = tableDetails[indexes]
+          self.table = tableDetails[indexes]
           // Set textfields text to tabledetails descriptions.
-          self.setTextForTextFieldsOnTableSelection()
+          //self.setTextForTextFieldsOnTableSelection()
           
           //Set other textfields to active.
           self.enableTextFieldsOnTableSelection()
@@ -355,43 +420,7 @@ class C8HMainMenuVC: UIViewController {
       action?.tapDismissAction = .cancel
       action?.show()
       }.catch{ error in
-        debugPrint(error)
-    }
-  }
-  
-  /**
-   Show Picker View for Gega
-   */
-  @IBAction func showPickerViewForGega(_ sender: UITextField) {
-    activeField?.resignFirstResponder()
-    
-    //    Get the rows from the repository.
-    let gegaStore = C8HGegaStore()
-    
-    gegaStore.findGegas(forCasino: 0).done{ gegaDetails in
-      var rows : [String] = []
-      
-      for gega in gegaDetails{
-        rows.append("\(gega.description)")
-      }
-      
-      let action = ActionSheetStringPicker(
-        title: "Change GEGA", rows: rows, initialSelection: 1,
-        doneBlock: {
-          picker, indexes, value in
-          
-          self.tableDetails?.gega = gegaDetails[indexes]
-          self.tableDetailsUpdated = true
-          if let text = value as? String{
-            sender.text = text
-          }
-          
-      }, cancel: {ActionStringCancelBlock in return}, origin: sender)
-      
-      action?.tapDismissAction = .cancel
-      action?.show()
-      }.catch{error in
-        debugPrint(error)
+        print(error)
     }
   }
   
@@ -403,29 +432,34 @@ class C8HMainMenuVC: UIViewController {
     
     //    Get the rows from the repository.
     let gameStore = C8HGameStore()
+    var rows = [String: Game]()
+    for game in table!.games{
+      rows[game.description] = game
+    }
     
-    gameStore.findGames(forCasino: 0).done{ gameDetails in
-      var rows : [String] = []
-      var startingIndex = 0
-      for (index, game) in gameDetails.enumerated(){
-        
-        if self.tableDetails?.game.id == game.id{
-          startingIndex = index
+    gameStore.findGames(forCasino: 1).done{ gameDetails in
+      //      var startingIndex = 0
+      for game in gameDetails{
+        if !rows.keys.contains(game.description){
+          rows[game.description] = game
         }
-        rows.append("\(game.description)")
-      
       }
       
       let action = ActionSheetStringPicker(
-        title: "Change Game", rows: rows, initialSelection: startingIndex,
+        title: "Change Game", rows: [String](rows.keys), initialSelection: 1,
         doneBlock: {picker, indexes, value in
-          
-          self.tableDetailsUpdated = true
-          self.tableDetails?.game = gameDetails[indexes]
-          
+          //self.tableDetailsUpdated = true
+          // Need to update the games on the table.
+          //self.tableDetails?.game = gameDetails[indexes]
           if let text = value as? String{
+            self.game = rows[text]
+            self.setTextForTextFieldsOnTableSelection()
+            
             sender.text = text
           }
+          
+          
+          // if the table has that balance value we should set.
       }, cancel: {ActionStringCancelBlock in return}, origin: sender)
       
       action?.tapDismissAction = .cancel
@@ -435,33 +469,94 @@ class C8HMainMenuVC: UIViewController {
     }
   }
   
-   // MARK: - Navigation
+  // MARK: - Ledger Actions
+  
+  /**
+   Update table by calling Table Store if necessary.
    
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
+   Return a promise to update the table. So you can change them.
+   */
+  func updateTable(_ table: TableNew) -> PromiseKit.Promise<Int64>{
+    return tableStore.save(table: table).map{ id in
+      guard let id = id else { throw TableStoreError.UpdateTableError }
+      return id
+    }
+  }
+  
+  func pushLedger(){
+    // Call table store to push ledger.
+    let alert = UIAlertController(style: UIAlertControllerStyle.alert,
+                                  title: "End Balance",
+                                  message: "Please enter end balance")
     
+    let textField: TextField.Config = { textField in
+      textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
+      textField.leftViewPadding = 12
+      textField.becomeFirstResponder()
+      textField.borderWidth = 1
+      textField.cornerRadius = 8
+      textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
+      textField.backgroundColor = nil
+      textField.textColor = .black
+      textField.placeholder = "Type something"
+      textField.keyboardAppearance = .default
+      textField.keyboardType = .default
+      //textField.isSecureTextEntry = true
+      textField.returnKeyType = .done
+      textField.action { textField in
+        Log("textField = \(String(describing: textField.text))")
+        self.ledger?.endingBalance = Decimal(string: String(describing: textField.text))
+      }
+    }
+    alert.addOneTextField(configuration: textField)
+    alert.addAction(title: "OK", style: .default)
+    alert.show()
+    // FIXME -: Must send ending balance to server.
+    
+    ledgerStore.pushLedger(ledger: self.ledger!).done{ ledger in
+      self.ledger = ledger 
+      // should a call new view and send this ledger to it
+      self.performSegue(withIdentifier: "toPresentLedger", sender: nil)
+      }.catch{
+        error in
+        debugPrint("Push ledger error: \(error)")
+    }
+  }
+  
+  // MARK: - Navigation
+  
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let vc = segue.destination as? C8HNumberPadView{
       vc.ledger = ledger
       vc.delegate = self
+    }else if let vc = segue.destination as? SignatureVC{
+        vc.delegate = self
+    }else if let vc = segue.destination as? ManagerSignatureViewController{
+      vc.delegate = self
+    }else if let vc = segue.destination as? PDFViewController{
+      vc.ledger = self.ledger
+    }else if let vc = segue.destination as? UISideMenuNavigationController{
+      if let root = vc.topViewController as? C8HSideMenuTableViewController{
+        root.delegate = self
+      }
     }
-   }
- 
-  
+  }
 }
 
 extension C8HMainMenuVC: C8HNumberPadDelegate{
   func updateLedger(with transaction: Transaction) {
-    guard let ledger = ledger else {
-      return
-    }
+//    guard let ledger = ledger else {
+//      return
+//    }
     // Append transaction to our ledger.
-    ledger.append(transaction)
-    
-    // Update ledger to the server.
-    ledgerStore.update(ledger: ledger).catch{ error in
-      self.errorNotice(error.localizedDescription)
+    let transactionStore = TransactionRepo()
+    transactionStore.postTransaction(transaction: transaction).done{ updatedLedger in
+      if let updatedLedger = updatedLedger {
+        self.ledger = updatedLedger
+      }
+    }.catch{ error in
+      debugPrint("C8HMainMenuVC: updateLedger: \(error)")
     }
   }
 }
@@ -497,8 +592,7 @@ extension C8HMainMenuVC: UITextFieldDelegate{
   
   @objc
   func keyboardWillBeHidden(_ notification: Notification){
-    
-    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+    if ((notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
       if self.view.frame.origin.y != 0{
         //        self.view.frame.origin.y += keyboardSize.height
         self.view.frame.origin.y = 0
@@ -537,5 +631,58 @@ extension C8HMainMenuVC: UITextFieldDelegate{
     removeObserveNoticationForKeyboard()
     self.swipeDownGesture.isEnabled = false
     self.activeField = nil
+  }
+}
+
+extension C8HMainMenuVC: SideMenuProtocol{
+  func logout() {
+    guard let accessToken = tokens?.accessToken else{return}
+    OktaAuth.revoke(accessToken) { (response, error) in
+      
+      if error != nil {
+        print("Error: \(error!)")
+      }
+      
+      if let _ = response {
+        print("Token was revoked")
+        OktaAuth.clear()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+        let homeViewController = storyboard.instantiateViewController(withIdentifier: "C8HLoginVCNav") as! UINavigationController
+        self.show(homeViewController, sender: nil);
+      }
+    }
+  }
+}
+
+extension C8HMainMenuVC: SignatureVCDelegate, ManagerSignatureViewControllerDelegate{
+  func saveEmployeeSignature(signatureImage: UIImage, isManager: Bool) {
+    if let id = ledger?.id{
+      ledgerStore.saveEmployeeSignature(image: signatureImage, ledgerId: id, isManager: false).done{ retValue in
+        if retValue{
+          self.performSegue(withIdentifier: "segueForManagerViewController", sender: nil)
+        }
+        }.catch{
+          error in debugPrint(error)
+      }
+    }else{
+      debugPrint("Unable to make call to save employee signature")
+    }
+  }
+  
+  func saveManagerSignature(signature: UIImage){
+    guard let id = ledger?.id else{
+      debugPrint("Unable to make call to save employee signature")
+      return
+    }
+    ledgerStore.saveEmployeeSignature(image: signature, ledgerId: id, isManager: true).done{ retValue in
+      if retValue{
+        //self.performSegue(withIdentifier: "segueForManagerViewController", sender: nil)
+        // should end the activity monitor here; should have started when push button is pressed.
+        self.pushLedger()
+        // next: continue the push process.
+      }
+      }.catch{
+        error in debugPrint(error)
+    }
   }
 }

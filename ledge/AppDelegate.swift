@@ -16,7 +16,15 @@ import Vinculum
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+  
+  // Need for orientation
+  var orientationLock = UIInterfaceOrientationMask.portrait
+  var myOrientation: UIInterfaceOrientationMask = .portrait
+  
+  func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+    return myOrientation
+  }
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 //      sleep(1);
 
@@ -42,10 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           if error != nil { print("Error: \(error!)") }
           if response != nil {
             if let profile = response {
-              debugPrint(profile["email"] as! String)
               UserDefaults.standard.set(profile["email"], forKey: "email")
               UserDefaults.standard.set(profile["given_name"], forKey: "firstName")
               UserDefaults.standard.set(profile["employeeNumber"], forKey: "id")
+              UserDefaults.standard.set(profile["initials"], forKey: "initials")
             }
           }
         }

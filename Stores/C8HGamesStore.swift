@@ -10,19 +10,23 @@ import Foundation
 import PromiseKit
 
 class C8HGameStore{
-  func findGames(forCasino: Int64) -> Promise<[GameDetails]>{
-    return Promise{seal in
-      var games: [GameDetails] = []
-      for id in 1...10{
-        if id != 3{
-          games.append(GameDetails(id: id, description: "Black Jack"))
-        }
-        else{
-          games.append(GameDetails(id: id, description: "Roulette"))
+  enum LedgerInfoPlistError : Error {
+    case invalidURL
+  }
+  
+  func getInfoDictionary() -> [String: AnyObject]? {
+    guard let infoDictPath = Bundle.main.path(forResource: "Info", ofType: "plist") else { return nil }
+    return NSDictionary(contentsOfFile: infoDictPath) as? [String : AnyObject]
+  }
+  
+  func findGames(forCasino casino: Int64) -> Promise<[Game]>{
+    guard let url = getInfoDictionary()?["MainServer"] else { return Promise(error: LedgerInfoPlistError.invalidURL) }
 
-        }
-      }
-      seal.fulfill(games)
+    return Alamofire
+      .request("\(url)/games/\(casino)", method: .get)
+      .responseData()
+      .compactMap{ data, rsp in
+       try JSONDecoder().decode([Game].self, from: data)
     }
   }
 }

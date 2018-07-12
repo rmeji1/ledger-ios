@@ -9,29 +9,48 @@
 import Foundation
 import PromiseKit
 
+enum TableStoreError : Error{
+  case UpdateTableError
+}
+
 class C8HTableDetailStore{
+  enum C8HTableDetailStoreError : Error {
+    case invalidURL
+  }
   
-  func find(forCasino casinoId: Int64)->Promise<[TableDetails]>{
-    return Promise{seal in
-      var tables : [TableDetails] = []
-      for number in 1...100{
-        let gegaDetails = GegaDetails(id: number, description: "GEGA1234")
-        let gameDetails = GameDetails(id: 3, description: "Roulette")
-        
-        tables.append(TableDetails(gega:gegaDetails, game: gameDetails, beginningBalance: 0, id: Int64(number)))
-      }
-      seal.fulfill(tables)
+  func getInfoDictionary() -> [String: AnyObject]? {
+    guard let infoDictPath = Bundle.main.path(forResource: "Info", ofType: "plist") else { return nil }
+    return NSDictionary(contentsOfFile: infoDictPath) as? [String : AnyObject]
+  }
+  
+  func findTables(forCasino casinoId: Int64)->Promise<[TableNew]?>{
+    let casinoIdNew  = 1
+    guard let urlNew = getInfoDictionary()?["MainServer"] else { return Promise(error: C8HTableDetailStoreError.invalidURL) }
+    return Alamofire
+      .request("\(urlNew)/tables/\(casinoIdNew)", method : .get)
+      .responseData()
+      .compactMap{ data, rsp in
+        try JSONDecoder().decode([TableNew].self, from: data)
     }
   }
   
   //_  = self.tableStore.save(table: &self.tableDetails!)
   /// Saves the table details when they are edited.
-  func save(table : inout TableDetails) -> Promise<Int64>{
-    return Promise{
-      seal in
-      debugPrint("Table is being saved.")
-      table.id = Int64(200)
-      seal.fulfill(table.id)
+  func save(table :  TableNew) -> Promise<Int64?>{
+    guard let urlNew = getInfoDictionary()?["MainServer"] else { return Promise(error: C8HTableDetailStoreError.invalidURL) }
+    let urlString = "\(urlNew)/tables/\(table.id)"
+    debugPrint(urlString)
+    let jsonData = try? JSONEncoder().encode(table)
+    
+    let url = URL(string: urlString)!
+//    let jsonData = json.data(using: .utf8, allowLossyConversion: false)
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = HTTPMethod.put.rawValue
+    request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+    request.httpBody = jsonData
+    return Alamofire.request(request).responseString().compactMap{ data, resp in
+      return Int64(data)
     }
   }
 }

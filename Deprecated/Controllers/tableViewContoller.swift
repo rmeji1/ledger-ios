@@ -161,7 +161,7 @@ class C8HTableViewContoller: UITableViewController{
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let navVC = segue.destination
-        if let vc = navVC as? C8HNumberPadView
+        if let _ = navVC as? C8HNumberPadView
         {
             print("Sucessful performaing segue.")
 //            vc.delegate = self

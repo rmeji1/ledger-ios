@@ -37,11 +37,12 @@ struct C8HCasinoRepository{
    */
   // FIXME:- Decide if you want a casino object or string
   // Need casino object who will have url: image associated with the casino.
-  func findCasino(in: CLLocationCoordinate2D) -> Promise<CasinoDetails>{
+  func findCasino(in: CLLocationCoordinate2D) -> Promise<CasinoDetailsFake>{
     return Promise{
       seal in
-      let casino = CasinoDetails(
+      let casino = CasinoDetailsFake(
         casinoId: 1,
+        casinoCode: "CH",
         casinoName: "Cre8ive House",
         casinoImageURL: "http://arctecinc.com/wp-content/uploads/2015/08/Casino-M8trix-1-MAIN-PHOTO.jpg")
       seal.fulfill(casino)

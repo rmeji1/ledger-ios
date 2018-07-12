@@ -223,7 +223,6 @@ class C8HNumberPadView: UIViewController {
     }
   }
   
-  
   /**
    Retrieves profile of the manager.
    */
@@ -246,7 +245,6 @@ class C8HNumberPadView: UIViewController {
       }
     }
   }
-  
   
   /**
    Shows the alert so a manager can approve a transaction.
@@ -298,11 +296,9 @@ class C8HNumberPadView: UIViewController {
           // if success logging manager and getting his details
           if success{
             // Create transaction
-            
-            let trans = Transaction(type: type,
-                                    managerInitals: self.managerInitals!,
-                                    employeeInitals: empInitials,
-                                    amount: dec)
+            let trans = Transaction(ledgerId: self.ledger!.id!,
+                                    employeeInitials: empInitials, managerInitials: self.managerInitals!,
+                                    type: type, amount: dec)
             return trans
           }else{
             throw AuthenticationError.unableToGetProfile
@@ -320,7 +316,6 @@ class C8HNumberPadView: UIViewController {
           C8HOverlayViews.disableOverlayView(for: self.view)
       }
     }
-    
     //  Present alert in nav controller.
     navigationController?.present(alert, animated:true)
   }

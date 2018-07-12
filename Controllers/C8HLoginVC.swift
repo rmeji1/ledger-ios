@@ -139,6 +139,9 @@ class C8HLoginVC: UIViewController {
       }.catch{
         error in
         debugPrint(error)
+        self.loginButton.isEnabled = true
+        self.view.resignFirstResponder()
+        self.errorNotice("Error-- Invalid Credintials")
     }
   }
 }
