@@ -485,34 +485,36 @@ class C8HMainMenuVC: UIViewController {
   
   func pushLedger(){
     // Call table store to push ledger.
-    let alert = UIAlertController(style: UIAlertControllerStyle.alert,
-                                  title: "End Balance",
-                                  message: "Please enter end balance")
-    
-    let textField: TextField.Config = { textField in
-      textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
-      textField.leftViewPadding = 12
-      textField.becomeFirstResponder()
-      textField.borderWidth = 1
-      textField.cornerRadius = 8
-      textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
-      textField.backgroundColor = nil
-      textField.textColor = .black
-      textField.placeholder = "Type something"
-      textField.keyboardAppearance = .default
-      textField.keyboardType = .default
-      //textField.isSecureTextEntry = true
-      textField.returnKeyType = .done
-      textField.action { textField in
-        Log("textField = \(String(describing: textField.text))")
-        self.ledger?.endingBalance = Decimal(string: String(describing: textField.text))
-      }
-    }
-    alert.addOneTextField(configuration: textField)
-    alert.addAction(title: "OK", style: .default)
-    alert.show()
+    //FIXME: - fix this
+//    let alert = UIAlertController(style: UIAlertControllerStyle.alert,
+//                                  title: "End Balance",
+//                                  message: "Please enter end balance")
+//
+//    let textField: TextField.Config = { textField in
+//      textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
+//      textField.leftViewPadding = 12
+//      textField.becomeFirstResponder()
+//      textField.borderWidth = 1
+//      textField.cornerRadius = 8
+//      textField.borderColor = UIColor.lightGray.withAlphaComponent(0.5)
+//      textField.backgroundColor = nil
+//      textField.textColor = .black
+//      textField.placeholder = "Type something"
+//      textField.keyboardAppearance = .default
+//      textField.keyboardType = .default
+//      //textField.isSecureTextEntry = true
+//      textField.returnKeyType = .done
+//      textField.action { textField in
+//        Log("textField = \(String(describing: textField.text))")
+//        self.ledger?.endingBalance = Decimal(string: String(describing: textField.text))
+//      }
+//    }
+//    alert.addOneTextField(configuration: textField)
+//    alert.addAction(title: "OK", style: .default)
+//    alert.show()
     // FIXME -: Must send ending balance to server.
     
+    self.ledger!.endingBalance = Decimal(5000)
     ledgerStore.pushLedger(ledger: self.ledger!).done{ ledger in
       self.ledger = ledger 
       // should a call new view and send this ledger to it

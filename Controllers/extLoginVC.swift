@@ -33,21 +33,6 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     @objc
     func keyboardWasShown(_ notification: Notification) {
       scrollView.isScrollEnabled = true
-//      if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-//        let window = self.view.window?.frame {
-//        // We're not just minusing the kb height from the view height because
-//        // the view could already have been resized for the keyboard before
-//        self.view.frame = CGRect(x: self.view.frame.origin.x,
-//                                 y: self.view.frame.origin.y,
-//                                 width: self.view.frame.width,
-//                                 height: window.origin.y + window.height - keyboardSize.height)
-//      } else {
-//        debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
-//      }
-//        guard
-//          let activeField = activeField
-//          else{ return }
-
       let info = notification.userInfo
         let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
         let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize?.height)!, 0.0)
@@ -138,22 +123,6 @@ extension C8HLoginVC: C8HGeoRegionDelegate, UITextFieldDelegate{
     
     // Add any text validation here.
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool{
-        //  Set to false if any of these conditions are not
-//        guard textField.hasText else{
-//            if textField.restorationIdentifier == "employeeId"{
-//                textField.text = "Employee Id"
-//            } else {
-//                textField.text = "Password"
-//            }
-//            return true
-//        }
-//        if textField.restorationIdentifier == "employeeId"{
-//            username = textField.text!
-//            debugPrint("Username:" + username)
-//        } else {
-//            password = textField.text!
-//            debugPrint("Password:" + password)
-//        }
         return true
     }
     
