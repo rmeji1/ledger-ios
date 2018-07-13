@@ -28,14 +28,14 @@
             <objects>
                 <viewController storyboardIdentifier="C8HLoginVC" id="SM9-vo-gRl" customClass="C8HLoginVC" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dvJ-Ve-hmC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypu-Z1-P3n" userLabel="ImgView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-image.png" translatesAutoresizingMaskIntoConstraints="NO" id="mNZ-Nx-Koo">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="411"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -47,16 +47,16 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scrollEnabled="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Hcy-9n-ji2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zED-fG-XJp">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qb8-k1-pce">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="367"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackstone-logo-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="JJu-Ww-JPZ">
-                                                        <rect key="frame" x="87.666666666666686" y="150" width="200" height="44"/>
+                                                        <rect key="frame" x="87.666666666666686" y="161" width="200" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="EHq-Ov-fiN"/>
                                                             <constraint firstAttribute="height" constant="44" id="JvG-u8-aXK"/>
@@ -70,10 +70,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jT0-sq-RJr">
-                                                <rect key="frame" x="0.0" y="345" width="375" height="345"/>
+                                                <rect key="frame" x="0.0" y="367" width="375" height="367"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AIw-VU-4Ms">
-                                                        <rect key="frame" x="38.666666666666657" y="68" width="298" height="267"/>
+                                                        <rect key="frame" x="38.666666666666657" y="90" width="298" height="267"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="employeeId" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Employee Id" translatesAutoresizingMaskIntoConstraints="NO" id="Elm-p3-hf8" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="47"/>
@@ -1388,7 +1388,6 @@
         <image name="menu-stack.png" width="23" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EgH-Be-1Xj"/>
         <segue reference="dgp-Hw-qr3"/>
     </inferredMetricsTieBreakers>
 </document>

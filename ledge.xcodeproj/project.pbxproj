@@ -209,7 +209,6 @@
 		E10569FD20100DFD00984A33 /* extUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extUiView.swift; sourceTree = "<group>"; };
 		E10AFA492098B36C00129D4F /* C8HTableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTableStore.swift; sourceTree = "<group>"; };
 		E11E7E7020F7F84E00DDB3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E11E7E7420F7F88B00DDB3DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E125BEDF208661570062CAD8 /* add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub.png"; sourceTree = "<group>"; };
 		E125BEE0208661580062CAD8 /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
 		E125BEE5208664810062CAD8 /* call-manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager.png"; sourceTree = "<group>"; };
@@ -1568,7 +1567,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				E11E7E7020F7F84E00DDB3DF /* Base */,
-				E11E7E7420F7F88B00DDB3DF /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
