@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import OktaAuth
+import SideMenu
 
 protocol SideMenuProtocol {
   func logout()
+  func printPreview()
 }
 
 class C8HSideMenuTableViewController: UITableViewController {
@@ -106,6 +109,7 @@ class C8HSideMenuTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.section{
     case 0:
+      cellSelectedInSectionOne(forRow: indexPath.row)
       break
     case 1:
       break
@@ -116,11 +120,19 @@ class C8HSideMenuTableViewController: UITableViewController {
       break
     }
   }
- 
+  func cellSelectedInSectionOne(forRow row:Int){
+    if row == 1{
+      dismiss(animated: true){ () -> Void in
+        self.delegate?.printPreview()
+      }
+    }
+  }
+  
   func cellSelectedInSectionThree(forRow row:Int){
     if row == 0{
-      debugPrint("Should loggout user")
-      delegate?.logout()
+      dismiss(animated: true){ () -> Void in
+        self.delegate?.logout()
+      }
     }
   }
   
@@ -130,7 +142,7 @@ class C8HSideMenuTableViewController: UITableViewController {
     case 0:
       textLabel.text = "About"
     case 1:
-      textLabel.text = "Print Ledger"
+      textLabel.text = "Preview Ledger"
     default:
       break
     }

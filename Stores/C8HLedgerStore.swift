@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import OktaAuth
 
 class C8HLedgerStore{
   let title = "C8HLedgerStore"
@@ -83,14 +84,27 @@ class C8HLedgerStore{
     guard let serverURL = getInfoDictionary()?["MainServer"] else { return Promise(error: LedgerInfoPlistError.invalidURL) }
     let urlString = "\(serverURL)/ledger/\(ledger.id!)"
     return Alamofire
-    .request(urlString, method: .put, parameters: ["endingBalance":"100.23"]).responseData().compactMap{ data, rsp in
-      return try JSONDecoder().decode(Ledger.self, from: data)
+      .request(urlString, method: .put, parameters: ["endingBalance":"100.23"]).responseData().compactMap{ data, rsp in
+        return try JSONDecoder().decode(Ledger.self, from: data)
     }
   }
   
+  func getActiveLedgers(for casino: Int64) -> Promise<[Ledger]>{
+    guard let serverURL = getInfoDictionary()?["MainServer"] else { return Promise(error: LedgerInfoPlistError.invalidURL) }
+    guard let accessToken = OktaAuth.tokens?.accessToken else {return Promise(error: OktaAuth.OktaError.NoBearerToken)}
+    
+    let headers: HTTPHeaders = [ "Authorization": "Bearer \(accessToken)"]
+    let urlString = "\(serverURL)/ledger/active/\(casino)"
+    
+    return Alamofire
+      .request(urlString, method: .get, headers: headers).responseData().compactMap{ data, rsp in
+        return try! JSONDecoder().decode([Ledger].self, from: data)
+    }
+  }
+  
+  /// FIXME:- Don't know what this does.
   func updateTransaction(ledger: Ledger) -> Promise<Void>{
     return Promise{ _ in
-      
       
     }
   }

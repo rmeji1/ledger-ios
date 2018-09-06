@@ -12,15 +12,22 @@ import PDFKit
 class PDFViewController: UIViewController {
   
   var pdfdocument: PDFDocument?
+  var preview: Bool!
   
   var pdfview: PDFView!
   var ledger: Ledger!
   
+  @IBOutlet weak var doneButton: UIButton!
   @IBOutlet weak var printView : UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    if preview{
+      doneButton.isHidden = true
+    }else{
+      navigationItem.hidesBackButton = true
+      doneButton.isHidden = false 
+    }
     //makeNavigationBarBlackColor()
     navigationController?.navigationBar.backgroundColor = UIColor.black
     let barView = UIView(frame: CGRect(x:0, y:0, width:view.frame.width, height:UIApplication.shared.statusBarFrame.height))
@@ -42,13 +49,21 @@ class PDFViewController: UIViewController {
     pdfview.displayMode = .singlePage
     //pdfview.displayDirection = .horizontal
     //pdfview.autoScales = true
-    
     printView.addSubview(pdfview)
   }
   
+  override func viewWillDisappear(_ animated: Bool) {
+    navigationController?.navigationBar.backgroundColor = UIColor.clear
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  @IBAction func doneWithPrint() {
+    if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+      appDelegate.restartView()
+    }
   }
   
   func addLedgerData(to ledgerPrintView: UIView){
@@ -158,8 +173,10 @@ class PDFViewController: UIViewController {
   }
   
   func displaySignature(to ledgerPrintView: UIView){
+    // FIXME:- Use if let for ledger.empl...
+    guard let signature = ledger.employeeSignature else { return }
     if
-      let decodedData = Data(base64Encoded: ledger.employeeSignature! , options: .ignoreUnknownCharacters),
+      let decodedData = Data(base64Encoded: signature , options: .ignoreUnknownCharacters),
       let employeeSignature = ledgerPrintView.viewWithTag(41) as? UIImageView
     {
       let image = UIImage(data: decodedData)

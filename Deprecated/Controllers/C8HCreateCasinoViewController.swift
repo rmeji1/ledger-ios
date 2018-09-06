@@ -42,12 +42,12 @@ class C8HCreateCasinoViewController: UIViewController {
      */
     @IBAction func createCasino(_ sender: Any) {
         
-        let repo = C8HCasinoRepository()
-        do{
-            try repo.saveToServer(casino: casino)
-        }catch{
-            debugPrint(error)
-        }
+//        let repo = C8HCasinoRepository()
+//        do{
+//            try repo.saveToServer(casino: casino)
+//        }catch{
+//            debugPrint(error)
+//        }
         dismissSelf()
     }
     

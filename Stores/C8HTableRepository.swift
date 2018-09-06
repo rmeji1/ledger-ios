@@ -49,8 +49,9 @@ struct C8HTableRepository{
   
   func findTablesWithCasinoId(casinoId: Int64) -> Promise<[C8HTable]>{
     return Promise{ seal in
-      
-      let urlNew = getInfoDictionary()?["MainServer"]
+      guard let urlNew = getInfoDictionary()?["MainServer"] else{
+        return
+      }
       Alamofire.request("\(urlNew)/tables/\(casinoId)").validate().responseJSON()
         .done{ response in
           var tables : [C8HTable] = []

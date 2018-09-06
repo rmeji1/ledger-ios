@@ -1,30 +1,30 @@
 PODS:
   - ActionSheetPicker-3.0 (2.3.0)
-  - Alamofire (4.7.2)
+  - Alamofire (4.7.3)
   - AppAuth (0.91.0)
   - HydraAsync (1.0.2)
-  - Kingfisher (4.7.0)
+  - Kingfisher (4.8.1)
   - OktaAuth (1.0.0):
     - AppAuth (~> 0.91.0)
     - HydraAsync (~> 1.0.1)
     - OktaJWT (~> 1.0.0)
     - Vinculum (~> 0.2.0)
   - OktaJWT (1.0.0)
-  - PromiseKit (6.2.5):
-    - PromiseKit/CorePromise (= 6.2.5)
-    - PromiseKit/Foundation (= 6.2.5)
-    - PromiseKit/UIKit (= 6.2.5)
-  - PromiseKit/Alamofire (6.2.5):
+  - PromiseKit (6.3.4):
+    - PromiseKit/CorePromise (= 6.3.4)
+    - PromiseKit/Foundation (= 6.3.4)
+    - PromiseKit/UIKit (= 6.3.4)
+  - PromiseKit/Alamofire (6.3.4):
     - Alamofire (~> 4.0)
     - PromiseKit/CorePromise
-  - PromiseKit/CoreLocation (6.2.5):
+  - PromiseKit/CoreLocation (6.3.4):
     - PromiseKit/CorePromise
-  - PromiseKit/CorePromise (6.2.5)
-  - PromiseKit/Foundation (6.2.5):
+  - PromiseKit/CorePromise (6.3.4)
+  - PromiseKit/Foundation (6.3.4):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (6.2.5):
+  - PromiseKit/UIKit (6.3.4):
     - PromiseKit/CorePromise
-  - SideMenu (3.1.5)
+  - SideMenu (4.0.0)
   - Vinculum (0.2.0)
 
 DEPENDENCIES:
@@ -38,16 +38,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AppAuth: 3e0dc9c00ef333dc62064e4830aa89b597ae8d2f
   HydraAsync: ed694146c649474ea44b3f40e04fe2b4362fb1e9
-  Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   OktaAuth: df4e39a246c570a28865fed12acc84e011aba008
   OktaJWT: 4e03aee34aed9b0c5955c3bb19b3c11da8f4d5db
-  PromiseKit: a26828b0a8d5874960dfdb575b57a70790ec36f1
-  SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
+  SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
   Vinculum: cefd5ae89baf7598a8b53b447a18e6bcc8161380
 
-PODFILE CHECKSUM: c3c7cef2cff5dbe276a5374dbee86430d6c2be7d
+PODFILE CHECKSUM: 6bd1d0479be4e2228b52dd072521f1aa7715a603
 
 COCOAPODS: 1.3.1

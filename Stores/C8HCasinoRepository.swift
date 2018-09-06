@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import CoreData
 import PromiseKit
+import OktaAuth
 
 enum C8HCasinoError : Error{
   case errorFromCD // Error from coredata
@@ -18,10 +19,20 @@ enum C8HCasinoError : Error{
 
 
 struct C8HCasinoRepository{
+  enum C8HCasinoRepository : Error {
+    case invalidURL
+    case casinoNotValid
+  }
   
   let url = "http://10.10.111.121:8080"
   weak var delegate: C8HGeoRegionManager?
   let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+  
+  func getInfoDictionary() -> [String: AnyObject]? {
+    guard let infoDictPath = Bundle.main.path(forResource: "Info", ofType: "plist") else { return nil }
+    return NSDictionary(contentsOfFile: infoDictPath) as? [String : AnyObject]
+  }
+  
   
   //  ============================================================================
   //    Initializer
@@ -31,30 +42,31 @@ struct C8HCasinoRepository{
    Call server to find which casino the user is in
    
    - parameters:
-    - CLLocationCoordinate2D
+   - CLLocationCoordinate2D
    - returns:
-    String containing casino name or casino object.
+   String containing casino name or casino object.
    */
   // FIXME:- Decide if you want a casino object or string
   // Need casino object who will have url: image associated with the casino.
-  func findCasino(in: CLLocationCoordinate2D) -> Promise<CasinoDetailsFake>{
-    return Promise{
-      seal in
-      let casino = CasinoDetailsFake(
-        casinoId: 1,
-        casinoCode: "CH",
-        casinoName: "Cre8ive House",
-        casinoImageURL: "http://arctecinc.com/wp-content/uploads/2015/08/Casino-M8trix-1-MAIN-PHOTO.jpg")
-      seal.fulfill(casino)
-    }
-  }
+//  func findCasino(in: CLLocationCoordinate2D) -> Promise<Casino Fake>{
+//    return Promise{
+//      seal in
+//      let casino = Casino Fake(
+//        casinoId: 1,
+//        casinoCode: "CH",
+//        casinoName: "Cre8ive House",
+//        casinoImageURL: "http://arctecinc.com/wp-content/uploads/2015/08/Casino-M8trix-1-MAIN-PHOTO.jpg")
+//      seal.fulfill(casino)
+//    }
+//  }
+  
   /**
    Encode casino to json and save to online server. This server throws.
-   
+   Will not be used in app.
    - parameters:
    - casino: An instance of C8HCasino used to encode and send to server.
    */
-  func saveToServer(casino: C8HCasino?) throws {
+  func save(casino: C8HCasino?) throws {
     guard let casino = casino else { return }
     
     let encoder = JSONEncoder()
@@ -63,7 +75,7 @@ struct C8HCasinoRepository{
     let data = try encoder.encode(casino)
     guard
       let dictionary =  try serialize(data, .mutableLeaves) as? [String:Any] else {
-      throw CasinoRepositoryError.UnableToParseJson
+        throw CasinoRepositoryError.UnableToParseJson
     }
     
     Alamofire.request("http://10.10.111.128:8080/casino", method: .post, parameters: dictionary, encoding: JSONEncoding.default).responseJSON().done{ rsp in
@@ -74,7 +86,7 @@ struct C8HCasinoRepository{
       }catch{
         debugPrint(error)
       }
-    }.catch{ error in
+      }.catch{ error in
         debugPrint(error)
     }
   }
@@ -82,13 +94,17 @@ struct C8HCasinoRepository{
   /**
    Tries to return a casino object.
    
+   No longer using. Good to have.
+   
    - parameters:
    - loc: CLLocation that represents user's current location.
    */
   func findInWhichCasino(loc: CLLocation)->Promise<C8HCasino>{
-    try! self.deleteAllCasinos()
+    //try! self.deleteAllCasinos()
     return Promise{ seal in
       let find = self.findInWhichCasinoFromCoreData
+      
+      // Create request so I can add time interval.
       var request = URLRequest(url: URL(string: "\(url)/casinos/count")!)
       request.timeoutInterval = 5 // 5 secs
       
@@ -110,6 +126,11 @@ struct C8HCasinoRepository{
     }
   }
   
+  /**
+   Retrieve the casinos in CoreData and scan to find if user is near any casino. 
+   - parameters:
+   - loc: CLLocation that represents user's current location.
+   */
   private func findInWhichCasinoFromCoreData(loc: CLLocation) throws -> C8HCasino{
     let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let casinoFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Casino")
@@ -147,6 +168,39 @@ struct C8HCasinoRepository{
     }
   }
   
+  func getAllCasinosAndFind( loc: CLLocationCoordinate2D ) -> Promise<Casino?>{
+    guard let urlNew = getInfoDictionary()?["MainServer"] else { return Promise(error: C8HCasinoRepository.invalidURL) }
+    guard let accessToken = OktaAuth.tokens?.accessToken else {return Promise(error: OktaAuth.OktaError.NoBearerToken)}
+    
+    let headers: HTTPHeaders = [ "Authorization": "Bearer \(accessToken)" ]
+    
+    return Alamofire
+      .request("\(urlNew)/casinos", method : .get, headers: headers)
+      .responseData()
+      .compactMap{ try JSONDecoder().decode([Casino].self, from: $0.data) }
+      .compactMap{ casinos in
+        var returnValue : Casino? = nil
+        
+        // Scan casinos regions to see if user location is within region.
+        for casino in casinos {
+          let center = CLLocationCoordinate2D(
+            latitude: Double(casino.latitude),
+            longitude: CLLocationDegrees(casino.longitude))
+          let region = CLCircularRegion(
+            center: center,
+            radius: 100.0,
+            identifier: casino.casinoName)
+          if region.contains(loc){
+            debugPrint("found region")
+            returnValue = casino
+            break
+          }
+        }
+        
+        return returnValue
+    }
+  }
+  
   func getAllCasinosAndSave(_ seal: Resolver<C8HCasino>, loc: CLLocation){
     Alamofire.request("\(url)/casinos").validate().responseJSON()
       .done{ response in
@@ -169,6 +223,7 @@ struct C8HCasinoRepository{
         seal.reject(error)
     }
   }
+  
   func getAllCasinos(){
     Alamofire.request(url + "/casinos")
       .validate(statusCode: 200..<300)
@@ -185,7 +240,7 @@ struct C8HCasinoRepository{
               fatalError("Error getting casinos from server")
             }
           }
-      
+          
         }
     }
   }

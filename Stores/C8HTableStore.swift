@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import OktaAuth
 
 enum TableStoreError : Error{
   case UpdateTableError
@@ -26,8 +27,12 @@ class C8HTableDetailStore{
   func findTables(forCasino casinoId: Int64)->Promise<[TableNew]?>{
     let casinoIdNew  = 1
     guard let urlNew = getInfoDictionary()?["MainServer"] else { return Promise(error: C8HTableDetailStoreError.invalidURL) }
+    guard let accessToken = OktaAuth.tokens?.accessToken else {return Promise(error: OktaAuth.OktaError.NoBearerToken)}
+    
+    let headers: HTTPHeaders = [ "Authorization": "Bearer \(accessToken)"]
+    
     return Alamofire
-      .request("\(urlNew)/tables/\(casinoIdNew)", method : .get)
+      .request("\(urlNew)/tables/\(casinoIdNew)", method : .get, headers: headers)
       .responseData()
       .compactMap{ data, rsp in
         try JSONDecoder().decode([TableNew].self, from: data)

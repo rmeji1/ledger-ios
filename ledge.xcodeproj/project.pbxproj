@@ -17,6 +17,7 @@
 		E10569FC200FF70000984A33 /* pt_gaming_logo-white-A.png in Resources */ = {isa = PBXBuildFile; fileRef = E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */; };
 		E10569FE20100DFD00984A33 /* extUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10569FD20100DFD00984A33 /* extUiView.swift */; };
 		E10AFA4A2098B36C00129D4F /* C8HTableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10AFA492098B36C00129D4F /* C8HTableStore.swift */; };
+		E10CC2A620FE4EDA00C1AF85 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CC2A520FE4ED900C1AF85 /* ViewController.swift */; };
 		E11E7E7120F7F84E00DDB3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11E7E6F20F7F84E00DDB3DF /* Main.storyboard */; };
 		E125BEE2208661580062CAD8 /* add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEDF208661570062CAD8 /* add-sub.png */; };
 		E125BEE3208661580062CAD8 /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = E125BEE0208661580062CAD8 /* push.png */; };
@@ -26,6 +27,7 @@
 		E12F7D3D204DB6AA00A74219 /* C8HTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */; };
 		E12F7D412050522B00A74219 /* extTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12F7D402050522A00A74219 /* extTable.swift */; };
 		E1349BDF208934E8001DB28F /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1349BDE208934E8001DB28F /* NavViewController.swift */; };
+		E13FB32520F9638100082F66 /* C8HOpenTableVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13FB32420F9638100082F66 /* C8HOpenTableVCViewController.swift */; };
 		E1426D42203E2E71004A6042 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1426D41203E2E71004A6042 /* SwiftNotice.swift */; };
 		E14ACEF5207FFFBD001FDDF3 /* 2018022201-ldgrs-header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E14ACEF4207FFFBC001FDDF3 /* 2018022201-ldgrs-header-logo.png */; };
 		E14ACEF72080011C001FDDF3 /* C8HImageViewNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */; };
@@ -37,6 +39,7 @@
 		E152A93B2084077800828A12 /* buttons-addition.png in Resources */ = {isa = PBXBuildFile; fileRef = E152A93A2084077800828A12 /* buttons-addition.png */; };
 		E157D17C20938A9F0085CAE2 /* C8HGamesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */; };
 		E15872432052152400E199A3 /* C8HPushCloseOrTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */; };
+		E15D1C962108C90F006BF4D4 /* C8HLedgersOpenedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D1C952108C90F006BF4D4 /* C8HLedgersOpenedTableViewController.swift */; };
 		E15E1D41206A06730052B0BE /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = E15E1D40206A066E0052B0BE /* geolocation.png */; };
 		E15E1D4F206AB7C50052B0BE /* C8HOverlayViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */; };
 		E15E1D51206AB8750052B0BE /* C8HKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15E1D50206AB8750052B0BE /* C8HKeyboardHandler.swift */; };
@@ -45,10 +48,13 @@
 		E16C458C20041DF8005F3D5C /* C8HLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */; };
 		E16F7BD12017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */; };
 		E170ED83200BEB1200238CEA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = E170ED82200BEB1200238CEA /* podfile */; };
+		E173A4DD20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E173A4DC20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift */; };
+		E175369F2141AF920052BFE9 /* C8HSideMenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175369E2141AF920052BFE9 /* C8HSideMenuParent.swift */; };
 		E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175CACA202E0F88005E7AAC /* Ledger.swift */; };
 		E179B9E420894A600015A102 /* blackstone-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E320894A5F0015A102 /* blackstone-logo-white.png */; };
 		E179B9E620894E830015A102 /* call-manager-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E520894E820015A102 /* call-manager-2.png */; };
 		E179B9E820894F930015A102 /* call-manager-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E179B9E720894F920015A102 /* call-manager-3.png */; };
+		E17F5A002141BBF9006CD5E2 /* LedgerPrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F59FF2141BBF9006CD5E2 /* LedgerPrintView.swift */; };
 		E180D5662066DA6C00E3F191 /* C8HCreateCasinoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */; };
 		E180D5682066DB8700E3F191 /* extCasino.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180D5672066DB8700E3F191 /* extCasino.swift */; };
 		E189592A20C8832B006D1B2E /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189592920C8832B006D1B2E /* SignatureVC.swift */; };
@@ -61,6 +67,7 @@
 		E18DFC3B20AF120C003359EA /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18DFC3A20AF120C003359EA /* Game.swift */; };
 		E18DFC3D20AF1286003359EA /* TableNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18DFC3C20AF1285003359EA /* TableNew.swift */; };
 		E18EFCDB20364E2F0008183B /* startup-image-iphone-X-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */; };
+		E1919DA3212C86D2003757B1 /* CasinoRepoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1919DA2212C86D2003757B1 /* CasinoRepoTest.swift */; };
 		E192EC78200C10CE00E7F2BC /* C8HGeoRegionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */; };
 		E195C794207FCC1000D45645 /* LatoLatin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C793207FCC0D00D45645 /* LatoLatin-Bold.ttf */; };
 		E195C795207FCC1F00D45645 /* LatoLatin-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E195C792207FCA9E00D45645 /* LatoLatin-Black.ttf */; };
@@ -147,7 +154,6 @@
 		E1BF19281FF57EAB0083216D /* ledgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BF19271FF57EAB0083216D /* ledgeUITests.swift */; };
 		E1C1100520CAD1510025285C /* ManagerSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C1100420CAD1510025285C /* ManagerSignatureViewController.swift */; };
 		E1C1100720CF13A10025285C /* LedgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C1100620CF13A10025285C /* LedgerViewController.swift */; };
-		E1C1100B20D009010025285C /* LedgerPrintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C1100A20D009010025285C /* LedgerPrintView.swift */; };
 		E1C1100D20D0145E0025285C /* PDFKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C1100C20D0145D0025285C /* PDFKit.framework */; };
 		E1C1100F20D015500025285C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C1100E20D0154E0025285C /* QuartzCore.framework */; };
 		E1D70391208E21AE00622D8E /* ledgeLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */; };
@@ -208,8 +214,8 @@
 		E10569FB200FF70000984A33 /* pt_gaming_logo-white-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-A.png"; sourceTree = "<group>"; };
 		E10569FD20100DFD00984A33 /* extUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extUiView.swift; sourceTree = "<group>"; };
 		E10AFA492098B36C00129D4F /* C8HTableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTableStore.swift; sourceTree = "<group>"; };
+		E10CC2A520FE4ED900C1AF85 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = /Users/robert/Documents/Projects/ledge/Controllers/ViewController.swift; sourceTree = "<absolute>"; };
 		E11E7E7020F7F84E00DDB3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E11E7E7420F7F88B00DDB3DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E125BEDF208661570062CAD8 /* add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub.png"; sourceTree = "<group>"; };
 		E125BEE0208661580062CAD8 /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
 		E125BEE5208664810062CAD8 /* call-manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager.png"; sourceTree = "<group>"; };
@@ -218,6 +224,7 @@
 		E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HTableRepository.swift; sourceTree = "<group>"; };
 		E12F7D402050522A00A74219 /* extTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extTable.swift; sourceTree = "<group>"; };
 		E1349BDE208934E8001DB28F /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
+		E13FB32420F9638100082F66 /* C8HOpenTableVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HOpenTableVCViewController.swift; sourceTree = "<group>"; };
 		E1426D41203E2E71004A6042 /* SwiftNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		E14ACEF4207FFFBC001FDDF3 /* 2018022201-ldgrs-header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2018022201-ldgrs-header-logo.png"; sourceTree = "<group>"; };
 		E14ACEF62080011C001FDDF3 /* C8HImageViewNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HImageViewNav.swift; sourceTree = "<group>"; };
@@ -229,6 +236,7 @@
 		E152A93A2084077800828A12 /* buttons-addition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-addition.png"; sourceTree = "<group>"; };
 		E157D17B20938A9E0085CAE2 /* C8HGamesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGamesStore.swift; sourceTree = "<group>"; };
 		E15872422052152400E199A3 /* C8HPushCloseOrTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HPushCloseOrTransactionVC.swift; sourceTree = "<group>"; };
+		E15D1C952108C90F006BF4D4 /* C8HLedgersOpenedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLedgersOpenedTableViewController.swift; sourceTree = "<group>"; };
 		E15E1D40206A066E0052B0BE /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geolocation.png; sourceTree = "<group>"; };
 		E15E1D4E206AB7C50052B0BE /* C8HOverlayViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HOverlayViews.swift; sourceTree = "<group>"; };
 		E15E1D50206AB8750052B0BE /* C8HKeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HKeyboardHandler.swift; sourceTree = "<group>"; };
@@ -241,10 +249,13 @@
 		E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLoginVC.swift; sourceTree = "<group>"; };
 		E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HSetGegaBalAndTableVC.swift; sourceTree = "<group>"; };
 		E170ED82200BEB1200238CEA /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E173A4DC20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HMainMenuButtonsViewController.swift; sourceTree = "<group>"; };
+		E175369E2141AF920052BFE9 /* C8HSideMenuParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = C8HSideMenuParent.swift; path = /Users/robert/Documents/Projects/ledge/Controllers/C8HSideMenuParent.swift; sourceTree = "<absolute>"; };
 		E175CACA202E0F88005E7AAC /* Ledger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ledger.swift; sourceTree = "<group>"; };
 		E179B9E320894A5F0015A102 /* blackstone-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-logo-white.png"; sourceTree = "<group>"; };
 		E179B9E520894E820015A102 /* call-manager-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-2.png"; sourceTree = "<group>"; };
 		E179B9E720894F920015A102 /* call-manager-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-3.png"; sourceTree = "<group>"; };
+		E17F59FF2141BBF9006CD5E2 /* LedgerPrintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerPrintView.swift; sourceTree = "<group>"; };
 		E180D5652066DA6C00E3F191 /* C8HCreateCasinoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HCreateCasinoViewController.swift; sourceTree = "<group>"; };
 		E180D5672066DB8700E3F191 /* extCasino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extCasino.swift; sourceTree = "<group>"; };
 		E189592920C8832B006D1B2E /* SignatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
@@ -257,6 +268,7 @@
 		E18DFC3A20AF120C003359EA /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		E18DFC3C20AF1285003359EA /* TableNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableNew.swift; sourceTree = "<group>"; };
 		E18EFCDA20364E2E0008183B /* startup-image-iphone-X-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-iphone-X-B.png"; sourceTree = "<group>"; };
+		E1919DA2212C86D2003757B1 /* CasinoRepoTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasinoRepoTest.swift; sourceTree = "<group>"; };
 		E192EC74200BF8CA00E7F2BC /* AppAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E192EC75200BF8CA00E7F2BC /* OktaAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OktaAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E192EC77200C10CE00E7F2BC /* C8HGeoRegionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HGeoRegionManager.swift; sourceTree = "<group>"; };
@@ -351,7 +363,6 @@
 		E1BF19291FF57EAB0083216D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1C1100420CAD1510025285C /* ManagerSignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerSignatureViewController.swift; sourceTree = "<group>"; };
 		E1C1100620CF13A10025285C /* LedgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerViewController.swift; sourceTree = "<group>"; };
-		E1C1100A20D009010025285C /* LedgerPrintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerPrintView.swift; sourceTree = "<group>"; };
 		E1C1100C20D0145D0025285C /* PDFKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PDFKit.framework; path = System/Library/Frameworks/PDFKit.framework; sourceTree = SDKROOT; };
 		E1C1100E20D0154E0025285C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E1D7038E208E21AE00622D8E /* ledgeLoginTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledgeLoginTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -492,6 +503,7 @@
 		E12F7D3E204DDFA600A74219 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				E196E6A62098DDF1003DA654 /* C8HLedgerStore.swift */,
 				E12F7D3C204DB6AA00A74219 /* C8HTableRepository.swift */,
 				E10410E6203C903100F13D57 /* C8HCasinoRepository.swift */,
 				E1B314D8206C0F4A00980650 /* TransactionRepo.swift */,
@@ -527,6 +539,7 @@
 		E170ED80200BE3DE00238CEA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E175369E2141AF920052BFE9 /* C8HSideMenuParent.swift */,
 				E1D703B62090B76000622D8E /* Add Subtraction View */,
 				E1D703B52090B75300622D8E /* Main Menu */,
 				E1D703B42090B73D00622D8E /* Login */,
@@ -549,6 +562,14 @@
 				E19A0F3820D1BDBB002E5DF6 /* C8HLedgerPrintView.xib */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E17F59FE2141BBF9006CD5E2 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E17F59FF2141BBF9006CD5E2 /* LedgerPrintView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		E189592B20C98BA1006D1B2E /* Signature */ = {
@@ -941,8 +962,7 @@
 		E1BF18F81FF57EA80083216D = {
 			isa = PBXGroup;
 			children = (
-				E1C1100A20D009010025285C /* LedgerPrintView.swift */,
-				E196E6A62098DDF1003DA654 /* C8HLedgerStore.swift */,
+				E17F59FE2141BBF9006CD5E2 /* CustomViews */,
 				E170ED82200BEB1200238CEA /* podfile */,
 				E1D703B12090B5E500622D8E /* Deprecated */,
 				E12F7D3F204DDFE300A74219 /* Dependencies */,
@@ -1008,6 +1028,7 @@
 		E1D7038F208E21AE00622D8E /* ledgeLoginTest */ = {
 			isa = PBXGroup;
 			children = (
+				E1919DA2212C86D2003757B1 /* CasinoRepoTest.swift */,
 				E1D70390208E21AE00622D8E /* ledgeLoginTest.swift */,
 				E1D70392208E21AE00622D8E /* Info.plist */,
 			);
@@ -1054,8 +1075,12 @@
 		E1D703B52090B75300622D8E /* Main Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E173A4DC20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift */,
+				E10CC2A520FE4ED900C1AF85 /* ViewController.swift */,
+				E13FB32420F9638100082F66 /* C8HOpenTableVCViewController.swift */,
 				E125BEEB208682E60062CAD8 /* C8HMainMenuVC.swift */,
 				E14CEA8020AC760600B8211C /* C8HSideMenuTableViewController.swift */,
+				E15D1C952108C90F006BF4D4 /* C8HLedgersOpenedTableViewController.swift */,
 			);
 			name = "Main Menu";
 			sourceTree = "<group>";
@@ -1415,6 +1440,7 @@
 			files = (
 				E1B643552059982300BD0B08 /* ContactCell.swift in Sources */,
 				E1B6436B2059982300BD0B08 /* LikeButtonCell.swift in Sources */,
+				E175369F2141AF920052BFE9 /* C8HSideMenuParent.swift in Sources */,
 				E1B643542059982300BD0B08 /* Contact.swift in Sources */,
 				E15E1D4F206AB7C50052B0BE /* C8HOverlayViews.swift in Sources */,
 				E1B643742059982300BD0B08 /* TextField.swift in Sources */,
@@ -1455,6 +1481,7 @@
 				E12F7D3D204DB6AA00A74219 /* C8HTableRepository.swift in Sources */,
 				E125BEEC208682E60062CAD8 /* C8HMainMenuVC.swift in Sources */,
 				E1BF190D1FF57EA90083216D /* ledge.xcdatamodeld in Sources */,
+				E13FB32520F9638100082F66 /* C8HOpenTableVCViewController.swift in Sources */,
 				E1B6436E2059982300BD0B08 /* AttributedTextBlock.swift in Sources */,
 				E10AFA4A2098B36C00129D4F /* C8HTableStore.swift in Sources */,
 				E189593720C98BA1006D1B2E /* UIBezierPath+WeightedPoint.swift in Sources */,
@@ -1462,6 +1489,7 @@
 				E1D703B9209124DA00622D8E /* C8HGegaStore.swift in Sources */,
 				E10569FE20100DFD00984A33 /* extUiView.swift in Sources */,
 				E157D17C20938A9F0085CAE2 /* C8HGamesStore.swift in Sources */,
+				E10CC2A620FE4EDA00C1AF85 /* ViewController.swift in Sources */,
 				E1B6435E2059982300BD0B08 /* CurrencyCell.swift in Sources */,
 				E1B6436D2059982300BD0B08 /* TwoTextFieldsViewController.swift in Sources */,
 				E15F5D0D200CF7D900E99EF3 /* C8HLoginValidator.swift in Sources */,
@@ -1486,19 +1514,21 @@
 				E1B643692059982300BD0B08 /* TelegramPickerViewController.swift in Sources */,
 				E189593420C98BA1006D1B2E /* SignatureBezierProvider.swift in Sources */,
 				E1C1100720CF13A10025285C /* LedgerViewController.swift in Sources */,
+				E17F5A002141BBF9006CD5E2 /* LedgerPrintView.swift in Sources */,
 				E1349BDF208934E8001DB28F /* NavViewController.swift in Sources */,
 				E12F7D412050522B00A74219 /* extTable.swift in Sources */,
 				E1B6434E2059982300BD0B08 /* UITextView+Extensions.swift in Sources */,
 				E1B6436C2059982300BD0B08 /* OneTextFieldViewController.swift in Sources */,
 				E1B6434C2059982300BD0B08 /* UISegmentedControl+Extensions.swift in Sources */,
 				E1B643562059982300BD0B08 /* DatePickerViewController.swift in Sources */,
+				E15D1C962108C90F006BF4D4 /* C8HLedgersOpenedTableViewController.swift in Sources */,
 				E1B643642059982300BD0B08 /* Location.swift in Sources */,
+				E173A4DD20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift in Sources */,
 				E1BF19051FF57EA90083216D /* AppDelegate.swift in Sources */,
 				E14C51FF207E6B5200A60752 /* C8HLedgerRepository.swift in Sources */,
 				E1B643612059982300BD0B08 /* LocationSearchResultsViewController.swift in Sources */,
 				E1426D42203E2E71004A6042 /* SwiftNotice.swift in Sources */,
 				E1B643522059982300BD0B08 /* ContactsPickerViewController.swift in Sources */,
-				E1C1100B20D009010025285C /* LedgerPrintView.swift in Sources */,
 				E1B6434D2059982300BD0B08 /* UITextField+Extensions.swift in Sources */,
 				E1B643402059982300BD0B08 /* Array+Extensions.swift in Sources */,
 				E1B643712059982300BD0B08 /* GradientSlider.swift in Sources */,
@@ -1534,6 +1564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1919DA3212C86D2003757B1 /* CasinoRepoTest.swift in Sources */,
 				E1D70391208E21AE00622D8E /* ledgeLoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1568,7 +1599,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				E11E7E7020F7F84E00DDB3DF /* Base */,
-				E11E7E7420F7F88B00DDB3DF /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

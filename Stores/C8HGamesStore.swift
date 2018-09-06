@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import OktaAuth
 
 class C8HGameStore{
   enum LedgerInfoPlistError : Error {
@@ -21,9 +22,12 @@ class C8HGameStore{
   
   func findGames(forCasino casino: Int64) -> Promise<[Game]>{
     guard let url = getInfoDictionary()?["MainServer"] else { return Promise(error: LedgerInfoPlistError.invalidURL) }
-
+    guard let accessToken = OktaAuth.tokens?.accessToken else {return Promise(error: OktaAuth.OktaError.NoBearerToken)}
+    
+    let headers: HTTPHeaders = [ "Authorization": "Bearer \(accessToken)"]
+    
     return Alamofire
-      .request("\(url)/games/\(casino)", method: .get)
+      .request("\(url)/games/\(casino)", method: .get, headers: headers)
       .responseData()
       .compactMap{ data, rsp in
        try JSONDecoder().decode([Game].self, from: data)
