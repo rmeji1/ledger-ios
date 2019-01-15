@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LatoLatin-Bold.ttf">
+            <string>LatoLatin-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="C8HTwoLabelModalView" customModule="ledge" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="oWD-ZE-t3K" id="FUA-2A-QWY"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="F6e-Vn-8KY"/>
+                <outlet property="gegaTextField" destination="Bqb-YF-6dk" id="1gi-IL-eln"/>
+                <outlet property="nameTextField" destination="LLM-m9-brn" id="dZ8-mM-6ch"/>
+                <outlet property="navBar" destination="9KC-0x-fLX" id="Ewk-9r-cGe"/>
+                <outlet property="submitButton" destination="v6E-4q-LG6" id="gFB-Ta-6AS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="270" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iqu-9S-AcD">
+                    <rect key="frame" x="0.0" y="0.0" width="270" height="200"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9KC-0x-fLX">
+                            <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                            <items>
+                                <navigationItem title="New Game" id="l5g-19-cIi"/>
+                            </items>
+                        </navigationBar>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LLM-m9-brn">
+                            <rect key="frame" x="0.0" y="44" width="270" height="48"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="GEGA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bqb-YF-6dk">
+                            <rect key="frame" x="0.0" y="92" width="270" height="48"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="89P-QZ-KPo">
+                            <rect key="frame" x="0.0" y="140" width="270" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWD-ZE-t3K">
+                                    <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                    <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="16"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" red="0.58431372549019611" green="0.1764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-4q-LG6">
+                                    <rect key="frame" x="135" y="0.0" width="135" height="60"/>
+                                    <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="16"/>
+                                    <state key="normal" title="Create">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="LLM-m9-brn" firstAttribute="top" secondItem="9KC-0x-fLX" secondAttribute="bottom" id="1Iv-rG-VSO"/>
+                        <constraint firstItem="Bqb-YF-6dk" firstAttribute="top" secondItem="LLM-m9-brn" secondAttribute="bottom" id="2ba-T2-fum"/>
+                        <constraint firstItem="89P-QZ-KPo" firstAttribute="top" secondItem="iqu-9S-AcD" secondAttribute="top" constant="140" id="4N6-OG-ya6"/>
+                        <constraint firstItem="LLM-m9-brn" firstAttribute="height" secondItem="Bqb-YF-6dk" secondAttribute="height" id="HwT-YB-e14"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="iqu-9S-AcD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="AW5-hk-Tdr"/>
+                <constraint firstItem="iqu-9S-AcD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YSF-TB-BWf"/>
+                <constraint firstItem="iqu-9S-AcD" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bxl-Ly-jKe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iqu-9S-AcD" secondAttribute="trailing" id="gk0-Z5-nws"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="72" y="53"/>
+        </view>
+    </objects>
+</document>

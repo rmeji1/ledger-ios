@@ -34,7 +34,13 @@ class C8HMainMenuVC: UIViewController {
   // var tableDetailsUpdated = false
   // var activeField: UITextField?
   var casinoStore = C8HCasinoRepository()
-  var casino  : Casino?
+  var casino  : Casino?{
+    didSet{
+      setCasinoImageOnView()
+      checkCasinoPodium()
+      performSegue(withIdentifier: "ledgersOpenedSegue", sender: nil)
+    }
+  }
   var preview = false
   
   var tableStore = C8HTableDetailStore()
@@ -74,8 +80,6 @@ class C8HMainMenuVC: UIViewController {
   //  MARK: - View Controller funcs
   override func viewDidLoad() {
     super.viewDidLoad()
-    debugPrint("Accesstoken \(OktaAuth.tokens?.accessToken ?? "")")
-    // Customize
     addLogo()
     makeNavigationBarTransparent()
     // FIXME -: THIS HAS TO BE ADDED TO OPEN TABLE.
@@ -96,25 +100,41 @@ class C8HMainMenuVC: UIViewController {
     // Find user current location.
     CLLocationManager.requestLocation(authorizationType: .always).lastValue.then{
       self.casinoStore.getAllCasinosAndFind(loc: $0.coordinate)
-      }.done{ casino  in
-        guard let casino  = casino  else{ throw C8HCasinoRepository.C8HCasinoRepository.casinoNotValid }
-        self.casino  = casino
-
-        let url = URL(string: casino .casinoImageURL)!
-        self.imageView.kf.setImage(with: url)
-
-        let gradient = CAGradientLayer()
-
-        gradient.frame = self.imageView.bounds
-        gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-
-        self.imageView.layer.insertSublayer(gradient, at: 0)
+      }.done{
+        if let casino = $0{
+          self.casino = casino
+        }
+        else{
+          let selectCasinoViewController = C8HSelectCasinoViewController(
+            nibName: "C8HSelectCasinoViewController",
+            bundle: nil,
+            casinos: self.casinoStore.casinosCache,
+            delegate: self)
+          
+          
+          selectCasinoViewController.modalPresentationStyle = .overCurrentContext
+          self.present(selectCasinoViewController, animated: false, completion: nil)
+        }
         C8HOverlayViews.disableOverlayView(for: self.view)
-      }.catch{error in
+      }
+      .catch{error in
         debugPrint("\(self.title!): Error for location services: \(error)")
     }
   }
   
+  func setCasinoImageOnView(){
+    guard let casino = casino else{ return }
+    
+    let url = URL(string: casino.casinoImageURL)!
+    self.imageView.kf.setImage(with: url)
+    
+    let gradient = CAGradientLayer()
+    
+    gradient.frame = self.imageView.bounds
+    gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+    
+    self.imageView.layer.insertSublayer(gradient, at: 0)
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -122,7 +142,7 @@ class C8HMainMenuVC: UIViewController {
   
   func getAnamation() -> CATransition{
     let animation = CATransition()
-    animation.type = kCATransitionPush
+    animation.type = CATransitionType.push
     animation.duration = 0.25
     return animation
   }
@@ -151,7 +171,7 @@ class C8HMainMenuVC: UIViewController {
    */
   func dismissOverlayInThirdView(){
     let animation = CATransition()
-    animation.type = kCATruncationStart
+    animation.type = CATransitionType.push
     animation.duration = 0.5
     
     overlayForFirstStack.layer.add(animation, forKey: nil)
@@ -218,7 +238,7 @@ class C8HMainMenuVC: UIViewController {
     let button = UIButton.init(type: .custom)
     button.frame = CGRect.init(x: 0, y: 0, width: 18, height: 22)
     
-    button.setImage(UIImage.init(named: "call-manager.png"), for: UIControlState.normal)
+    button.setImage(UIImage.init(named: "call-manager.png"), for: UIControl.State.normal)
     //button.addTarget(<#T##target: Any?##Any?#>, action: Selector, for: <#T##UIControlEvents#>)
     
     let menuBarItem = UIBarButtonItem(customView: button)
@@ -231,6 +251,18 @@ class C8HMainMenuVC: UIViewController {
     currHeight?.isActive = true
     
     self.navigationItem.rightBarButtonItem = menuBarItem
+  }
+  
+  func checkCasinoPodium(){
+    guard let podium = casino?.podium else { return }
+    
+    if podium == 0{
+      let alert = UIAlertController(title: "Needs to be alert", message: "This is an alert for me. Should be pop up", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+        NSLog("The \"OK\" alert occured.")
+      }))
+      self.present(alert, animated: true, completion: nil)
+    }
   }
   
   @IBAction func buttonAction(_ sender: Any){
@@ -246,7 +278,7 @@ class C8HMainMenuVC: UIViewController {
     let button = UIButton.init(type: .custom)
     button.frame = CGRect.init(x: 0, y: 0, width: 22, height: 22)
     
-    button.setImage(UIImage.init(named: "menu-stack.png"), for: UIControlState.normal)
+    button.setImage(UIImage.init(named: "menu-stack.png"), for: UIControl.State.normal)
     button.imageView?.contentMode = .scaleAspectFill
     button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     
@@ -269,9 +301,7 @@ class C8HMainMenuVC: UIViewController {
   func pushLedger(){
     // Call table store to push ledger.
     //FIXME: - fix this
-    let alert = UIAlertController(style: UIAlertControllerStyle.alert,
-                                  title: "End Balance",
-                                  message: "Please enter end balance")
+    let alert = UIAlertController(title: "End Balance", message: "Please enter end balance", preferredStyle: UIAlertController.Style.alert)
     
     let textField: TextField.Config = { textField in
       //textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
@@ -310,12 +340,19 @@ class C8HMainMenuVC: UIViewController {
   
   func remove(child: UIViewController){
     createLedgerView.isHidden = true
-    child.willMove(toParentViewController: nil)
+    child.willMove(toParent: nil)
     child.view.removeFromSuperview()
-    child.removeFromParentViewController()
+    child.removeFromParent()
   }
   
   // MARK: - Navigation
+  
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    if identifier == "ledgersOpenedSegue" && casino == nil{
+      return false
+    }
+    return true
+  }
   
   // In a storyboard-based application, you will often want to do a little preparation before navigation
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -335,14 +372,18 @@ class C8HMainMenuVC: UIViewController {
       vc.ledgerStore = self.ledgerStore
       vc.tableStore = self.tableStore
     }else if let vc = segue.destination as? UISideMenuNavigationController{
-      if let root = vc.topViewController as? ViewController{
+      if let root = vc.topViewController as? C8HSideMenuParent{
         root.delegate = self
       }
     }else if let vc = segue.destination as? C8HMainMenuButtonsViewController{
       vc.delegate = self
     }else if let vc = segue.destination as? C8HLedgersOpenedTableViewController{
       //TODO: - Should be the casino id.
-      vc.casinoId = 1
+      vc.casinoId = casino?.casinoId
+    }else if let vc = segue.destination as? C8HAddGameViewController{
+      vc.casinoId = casino?.casinoId
+    }else if let vc = segue.destination as? C8HSelectCasinoViewController{
+      debugPrint("Got the correct segue")
     }
   }
 }
@@ -372,6 +413,10 @@ extension C8HMainMenuVC: C8HNumberPadDelegate{
 }
 
 extension C8HMainMenuVC: SideMenuProtocol{
+  func addGameSegue() {
+    self.performSegue(withIdentifier: "addGameSegue", sender: nil)
+  }
+  
   func printPreview() {
     if let _ = self.ledger{
       preview = true
@@ -426,5 +471,11 @@ extension C8HMainMenuVC: SignatureVCDelegate, ManagerSignatureViewControllerDele
       }.catch{
         error in debugPrint(error)
     }
+  }
+}
+
+extension C8HMainMenuVC: C8HSelectCasinoProtocol{
+  func setCasinoFromSelectCasino(_ casino: Casino) {
+    self.casino = casino
   }
 }

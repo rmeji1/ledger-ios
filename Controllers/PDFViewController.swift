@@ -187,7 +187,7 @@ class PDFViewController: UIViewController {
   func share(_ document: PDFDocument?) {
     guard let data = document?.dataRepresentation() else { return }
     let vc = UIActivityViewController(activityItems: [data], applicationActivities: [])
-    vc.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+    vc.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
       if !completed {
         // User canceled
         return

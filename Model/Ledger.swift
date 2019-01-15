@@ -21,6 +21,7 @@ struct Casino: Codable{
   let casinoImageURL : String
   let latitude : Float
   let longitude : Float
+  let podium : Decimal
 }
 
 struct EmpDetails: Codable{

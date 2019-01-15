@@ -17,6 +17,6 @@ class C8HTextField: UITextField {
         let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: 5, height: 20))
         self.leftView = paddingView
         self.leftViewMode = .always
-        self.contentVerticalAlignment = UIControlContentVerticalAlignment.center
+        self.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
     }
 }

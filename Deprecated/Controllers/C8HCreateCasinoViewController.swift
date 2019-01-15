@@ -63,11 +63,12 @@ class C8HCreateCasinoViewController: UIViewController {
     
     // MARK: - Customization
     func dismissSelf(){
-        if let vc = self.presentingViewController as? C8HSetGegaBalAndTableVC{
-            vc.viewWillReturnFromCreateCasino(self.casino!)
+        if let _ = self.presentingViewController as? C8HSetGegaBalAndTableVC{
+//           vc.viewWillReturnFromCreateCasino(self.casino!)
             self.dismiss(animated: true, completion: nil)
         }
     }
+  
     func casinoAddressPresentMap(){
         C8HOverlayViews.indicatorViewWithMessage("Waiting", for: self.view)
         let alert = UIAlertController(style: .alert)
@@ -113,7 +114,7 @@ extension C8HCreateCasinoViewController : UITextFieldDelegate{
         guard let num = Decimal(string: text) else{
             let title = "Error"
             let message = "Please check beginning balance."
-            let alert = UIAlertController(style: .actionSheet, title: title , message: message)
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
             alert.addAction(title: "Ok", style: .destructive)
             self.present(alert, animated: true, completion: nil)
             return

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7YF-dK-Lua">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -246,13 +246,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="96"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHRISTOPHER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWu-ZV-BdX" userLabel="nameLabel">
-                                                                <rect key="frame" x="30" y="0.0" width="152.33333333333334" height="96"/>
+                                                                <rect key="frame" x="30" y="0.0" width="155" height="96"/>
                                                                 <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="22"/>
                                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7U-Du-PPr">
-                                                                <rect key="frame" x="32" y="52" width="61" height="35"/>
+                                                                <rect key="frame" x="32" y="52" width="155.66666666666666" height="35"/>
                                                                 <fontDescription key="fontDescription" name="LatoLatin-Thin" family="LatoLatin" pointSize="15"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -263,9 +263,9 @@
                                                             <constraint firstItem="PWu-ZV-BdX" firstAttribute="leading" secondItem="WDe-Qx-Dyp" secondAttribute="leading" constant="30" id="5Xm-Hh-3nY"/>
                                                             <constraint firstAttribute="bottom" secondItem="PWu-ZV-BdX" secondAttribute="bottom" id="Beg-hQ-tGp"/>
                                                             <constraint firstAttribute="bottom" secondItem="u7U-Du-PPr" secondAttribute="bottom" constant="9" id="IqV-4C-hAB"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u7U-Du-PPr" secondAttribute="trailing" id="Kme-qu-1MO"/>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="u7U-Du-PPr" secondAttribute="trailing" id="Kme-qu-1MO"/>
                                                             <constraint firstItem="u7U-Du-PPr" firstAttribute="leading" secondItem="WDe-Qx-Dyp" secondAttribute="leading" constant="32" id="SaU-Zz-JeE"/>
-                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PWu-ZV-BdX" secondAttribute="trailing" constant="3.3300000000000001" id="rVw-8B-aj7"/>
+                                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="PWu-ZV-BdX" secondAttribute="trailing" constant="3.3300000000000001" id="rVw-8B-aj7"/>
                                                             <constraint firstItem="u7U-Du-PPr" firstAttribute="top" secondItem="WDe-Qx-Dyp" secondAttribute="top" constant="52" id="sZD-Yg-Nlc"/>
                                                             <constraint firstItem="PWu-ZV-BdX" firstAttribute="top" secondItem="WDe-Qx-Dyp" secondAttribute="top" id="xL3-Su-hFi"/>
                                                         </constraints>
@@ -386,7 +386,7 @@
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQF-fA-F9o">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                                 <connections>
-                                                    <segue destination="XM5-eo-mZN" kind="embed" id="Iw8-5Y-VGH"/>
+                                                    <segue destination="XM5-eo-mZN" kind="embed" identifier="ledgersOpenedSegue" id="Iw8-5Y-VGH"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -437,7 +437,7 @@
                                 <segue destination="Bwc-3w-fpG" kind="presentation" id="xIO-yR-ffA"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="call-manager-3.png" id="hXp-9r-bVI">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" id="hXp-9r-bVI">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -459,6 +459,7 @@
                         <segue destination="6YW-pi-3zq" kind="show" identifier="toPresentLedger" id="lis-8W-A0l"/>
                         <segue destination="hUc-mh-3Ky" kind="show" identifier="numberPadViewSegue" id="Up0-UL-tC6"/>
                         <segue destination="0BS-tt-422" kind="show" identifier="segueForSignatureView" id="I9e-O3-JWc"/>
+                        <segue destination="ZA5-9e-uVS" kind="presentation" identifier="addGameSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="JdF-yR-WYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-Nb-aQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1375,8 +1376,55 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fH4-yx-GCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="6JK-Ws-s2C">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <viewLayoutGuide key="safeArea" id="rpl-8Z-uN6"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-3921" y="777"/>
+        </scene>
+        <!--Add Game View Controller-->
+        <scene sceneID="mvS-oq-ES8">
+            <objects>
+                <viewController id="ZA5-9e-uVS" customClass="C8HAddGameViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqf-qc-tCs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V11-ud-W79" customClass="C8HTwoLabelModalView" customModule="ledge" customModuleProvider="target">
+                                <rect key="frame" x="52" y="306" width="270" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.30478335889570551" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="V11-ud-W79" firstAttribute="top" secondItem="7ko-Pp-yn4" secondAttribute="top" constant="262" id="L9L-Q3-jiE"/>
+                            <constraint firstItem="V11-ud-W79" firstAttribute="leading" secondItem="7ko-Pp-yn4" secondAttribute="leading" constant="52" id="ioY-U1-lOe"/>
+                            <constraint firstItem="V11-ud-W79" firstAttribute="centerX" secondItem="nqf-qc-tCs" secondAttribute="centerX" id="ubH-y3-0Nv"/>
+                            <constraint firstItem="V11-ud-W79" firstAttribute="centerY" secondItem="nqf-qc-tCs" secondAttribute="centerY" id="x0E-MT-PhP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ko-Pp-yn4"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="addGameView" destination="V11-ud-W79" id="Hcl-6R-oW7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQv-J4-h6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6116" y="859"/>
         </scene>
         <!--Open TableVC View Controller-->
         <scene sceneID="9xF-Zl-nNH">
@@ -1602,7 +1650,6 @@
         <image name="buttons-add-sub-right.png" width="506" height="192"/>
         <image name="buttons-addition.png" width="49" height="51"/>
         <image name="buttons-subtraction.png" width="49" height="6"/>
-        <image name="call-manager-3.png" width="22" height="22"/>
         <image name="header-logo" width="505" height="129"/>
         <image name="location-image.png" width="620" height="414"/>
         <image name="menu-stack.png" width="23" height="17"/>

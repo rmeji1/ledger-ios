@@ -50,10 +50,10 @@
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
-	<key>MainServerR</key>
-	<string>https://guarded-bayou-11275.herokuapp.com</string>
 	<key>MainServer</key>
-	<string>http://192.168.0.26:8080</string>
+	<string>https://guarded-bayou-11275.herokuapp.com</string>
+	<key>MainServerS</key>
+	<string>http://192.168.0.16:8080</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>UISupportedInterfaceOrientations</key>

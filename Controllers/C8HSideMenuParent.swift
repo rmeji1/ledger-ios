@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class C8HSideMenuParent: UIViewController {
   var delegate : SideMenuProtocol?
   
     override func viewDidLoad() {

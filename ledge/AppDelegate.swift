@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return myOrientation
   }
   
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     //      sleep(1);
     
     guard
@@ -45,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     _ = OktaAuth.refresh(config, refreshToken: refreshToken).then(in: .main, { refreshToken  in
-      debugPrint(refreshToken)
       OktaAuth.getUser{ response, error in
         if error != nil { print("Error: \(error!)") }
         if response != nil {
