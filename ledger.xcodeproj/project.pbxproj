@@ -32,6 +32,47 @@
 		E16C458C20041DF8005F3D5C /* C8HLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */; };
 		E16F7BD12017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */; };
 		E170ED83200BEB1200238CEA /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = E170ED82200BEB1200238CEA /* podfile */; };
+		E172831A2244076B0016959B /* 001-lock.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F12244076A0016959B /* 001-lock.png */; };
+		E172831B2244076B0016959B /* 002-user-silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F22244076A0016959B /* 002-user-silhouette.png */; };
+		E172831C2244076B0016959B /* 2018022201-ldgrs-header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F32244076A0016959B /* 2018022201-ldgrs-header-logo.png */; };
+		E172831D2244076B0016959B /* add-sub-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F42244076A0016959B /* add-sub-background.png */; };
+		E172831E2244076B0016959B /* add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F52244076A0016959B /* add-sub.png */; };
+		E172831F2244076B0016959B /* background-add-sub.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F62244076A0016959B /* background-add-sub.png */; };
+		E17283202244076B0016959B /* background-close.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F72244076A0016959B /* background-close.png */; };
+		E17283212244076B0016959B /* background-push.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F82244076A0016959B /* background-push.png */; };
+		E17283222244076B0016959B /* blackstone-background-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282F92244076A0016959B /* blackstone-background-image.png */; };
+		E17283232244076B0016959B /* blackstone-logo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FA2244076A0016959B /* blackstone-logo-black.png */; };
+		E17283242244076B0016959B /* blackstone-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FB2244076A0016959B /* blackstone-logo-white.png */; };
+		E17283252244076B0016959B /* Blackstone.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FC2244076A0016959B /* Blackstone.png */; };
+		E17283262244076B0016959B /* blackstone_gaming_logo-V3.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FD2244076A0016959B /* blackstone_gaming_logo-V3.png */; };
+		E17283272244076B0016959B /* buttons-add-sub-left.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FE2244076A0016959B /* buttons-add-sub-left.png */; };
+		E17283282244076B0016959B /* buttons-add-sub-right.png in Resources */ = {isa = PBXBuildFile; fileRef = E17282FF2244076A0016959B /* buttons-add-sub-right.png */; };
+		E17283292244076B0016959B /* buttons-addition.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283002244076A0016959B /* buttons-addition.png */; };
+		E172832A2244076B0016959B /* buttons-subtraction.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283012244076A0016959B /* buttons-subtraction.png */; };
+		E172832B2244076B0016959B /* call-manager-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283022244076A0016959B /* call-manager-2.png */; };
+		E172832C2244076B0016959B /* call-manager-3.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283032244076A0016959B /* call-manager-3.png */; };
+		E172832D2244076B0016959B /* call-manager.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283042244076A0016959B /* call-manager.png */; };
+		E172832E2244076B0016959B /* close-1.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283052244076A0016959B /* close-1.png */; };
+		E172832F2244076B0016959B /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283062244076A0016959B /* close.png */; };
+		E17283302244076B0016959B /* exit-right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283072244076A0016959B /* exit-right-arrow.png */; };
+		E17283312244076B0016959B /* geolocation.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283082244076A0016959B /* geolocation.png */; };
+		E17283322244076B0016959B /* header-logo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283092244076A0016959B /* header-logo-white.png */; };
+		E17283332244076B0016959B /* header-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E172830A2244076A0016959B /* header-logo.png */; };
+		E17283342244076B0016959B /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E172830B2244076A0016959B /* Lato-Regular.ttf */; };
+		E17283352244076B0016959B /* LatoLatin-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E172830C2244076A0016959B /* LatoLatin-Black.ttf */; };
+		E17283362244076B0016959B /* LatoLatin-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E172830D2244076A0016959B /* LatoLatin-Bold.ttf */; };
+		E17283372244076B0016959B /* LatoLatin-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E172830E2244076A0016959B /* LatoLatin-Thin.ttf */; };
+		E17283382244076B0016959B /* location-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E172830F2244076A0016959B /* location-image.png */; };
+		E17283392244076B0016959B /* menu-stack.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283102244076A0016959B /* menu-stack.png */; };
+		E172833A2244076B0016959B /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283112244076A0016959B /* negative.png */; };
+		E172833B2244076B0016959B /* not-optimized.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283122244076A0016959B /* not-optimized.png */; };
+		E172833C2244076B0016959B /* pt_gaming_logo-white-A.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283132244076A0016959B /* pt_gaming_logo-white-A.png */; };
+		E172833D2244076B0016959B /* pt_gaming_logo-white-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283142244076A0016959B /* pt_gaming_logo-white-B.png */; };
+		E172833E2244076B0016959B /* pt_gaming_logo_w-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283152244076A0016959B /* pt_gaming_logo_w-01.png */; };
+		E172833F2244076B0016959B /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283162244076A0016959B /* push.png */; };
+		E17283402244076B0016959B /* stack-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283172244076B0016959B /* stack-menu.png */; };
+		E17283412244076B0016959B /* startup-image-background.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283182244076B0016959B /* startup-image-background.png */; };
+		E17283422244076B0016959B /* startup-image-iphone-X-B.png in Resources */ = {isa = PBXBuildFile; fileRef = E17283192244076B0016959B /* startup-image-iphone-X-B.png */; };
 		E173A4DD20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E173A4DC20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift */; };
 		E175369F2141AF920052BFE9 /* C8HSideMenuParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175369E2141AF920052BFE9 /* C8HSideMenuParent.swift */; };
 		E175CACB202E0F88005E7AAC /* Ledger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175CACA202E0F88005E7AAC /* Ledger.swift */; };
@@ -195,6 +236,47 @@
 		E16C458B20041DF8005F3D5C /* C8HLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HLoginVC.swift; sourceTree = "<group>"; };
 		E16F7BD02017DA8600FFFA03 /* C8HSetGegaBalAndTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HSetGegaBalAndTableVC.swift; sourceTree = "<group>"; };
 		E170ED82200BEB1200238CEA /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E17282F12244076A0016959B /* 001-lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "001-lock.png"; sourceTree = "<group>"; };
+		E17282F22244076A0016959B /* 002-user-silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "002-user-silhouette.png"; sourceTree = "<group>"; };
+		E17282F32244076A0016959B /* 2018022201-ldgrs-header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2018022201-ldgrs-header-logo.png"; sourceTree = "<group>"; };
+		E17282F42244076A0016959B /* add-sub-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub-background.png"; sourceTree = "<group>"; };
+		E17282F52244076A0016959B /* add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-sub.png"; sourceTree = "<group>"; };
+		E17282F62244076A0016959B /* background-add-sub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-add-sub.png"; sourceTree = "<group>"; };
+		E17282F72244076A0016959B /* background-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-close.png"; sourceTree = "<group>"; };
+		E17282F82244076A0016959B /* background-push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-push.png"; sourceTree = "<group>"; };
+		E17282F92244076A0016959B /* blackstone-background-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-background-image.png"; sourceTree = "<group>"; };
+		E17282FA2244076A0016959B /* blackstone-logo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-logo-black.png"; sourceTree = "<group>"; };
+		E17282FB2244076A0016959B /* blackstone-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone-logo-white.png"; sourceTree = "<group>"; };
+		E17282FC2244076A0016959B /* Blackstone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blackstone.png; sourceTree = "<group>"; };
+		E17282FD2244076A0016959B /* blackstone_gaming_logo-V3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackstone_gaming_logo-V3.png"; sourceTree = "<group>"; };
+		E17282FE2244076A0016959B /* buttons-add-sub-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-add-sub-left.png"; sourceTree = "<group>"; };
+		E17282FF2244076A0016959B /* buttons-add-sub-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-add-sub-right.png"; sourceTree = "<group>"; };
+		E17283002244076A0016959B /* buttons-addition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-addition.png"; sourceTree = "<group>"; };
+		E17283012244076A0016959B /* buttons-subtraction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttons-subtraction.png"; sourceTree = "<group>"; };
+		E17283022244076A0016959B /* call-manager-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-2.png"; sourceTree = "<group>"; };
+		E17283032244076A0016959B /* call-manager-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager-3.png"; sourceTree = "<group>"; };
+		E17283042244076A0016959B /* call-manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "call-manager.png"; sourceTree = "<group>"; };
+		E17283052244076A0016959B /* close-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-1.png"; sourceTree = "<group>"; };
+		E17283062244076A0016959B /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		E17283072244076A0016959B /* exit-right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit-right-arrow.png"; sourceTree = "<group>"; };
+		E17283082244076A0016959B /* geolocation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geolocation.png; sourceTree = "<group>"; };
+		E17283092244076A0016959B /* header-logo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo-white.png"; sourceTree = "<group>"; };
+		E172830A2244076A0016959B /* header-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "header-logo.png"; sourceTree = "<group>"; };
+		E172830B2244076A0016959B /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		E172830C2244076A0016959B /* LatoLatin-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Black.ttf"; sourceTree = "<group>"; };
+		E172830D2244076A0016959B /* LatoLatin-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Bold.ttf"; sourceTree = "<group>"; };
+		E172830E2244076A0016959B /* LatoLatin-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LatoLatin-Thin.ttf"; sourceTree = "<group>"; };
+		E172830F2244076A0016959B /* location-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location-image.png"; sourceTree = "<group>"; };
+		E17283102244076A0016959B /* menu-stack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-stack.png"; sourceTree = "<group>"; };
+		E17283112244076A0016959B /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
+		E17283122244076A0016959B /* not-optimized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "not-optimized.png"; sourceTree = "<group>"; };
+		E17283132244076A0016959B /* pt_gaming_logo-white-A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-A.png"; sourceTree = "<group>"; };
+		E17283142244076A0016959B /* pt_gaming_logo-white-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo-white-B.png"; sourceTree = "<group>"; };
+		E17283152244076A0016959B /* pt_gaming_logo_w-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt_gaming_logo_w-01.png"; sourceTree = "<group>"; };
+		E17283162244076A0016959B /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
+		E17283172244076B0016959B /* stack-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stack-menu.png"; sourceTree = "<group>"; };
+		E17283182244076B0016959B /* startup-image-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-background.png"; sourceTree = "<group>"; };
+		E17283192244076B0016959B /* startup-image-iphone-X-B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startup-image-iphone-X-B.png"; sourceTree = "<group>"; };
 		E173A4DC20FE7BC000C05B8D /* C8HMainMenuButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C8HMainMenuButtonsViewController.swift; sourceTree = "<group>"; };
 		E175369E2141AF920052BFE9 /* C8HSideMenuParent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = C8HSideMenuParent.swift; path = /Users/robert/Documents/Projects/ledger/Controllers/C8HSideMenuParent.swift; sourceTree = "<absolute>"; };
 		E175CACA202E0F88005E7AAC /* Ledger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ledger.swift; sourceTree = "<group>"; };
@@ -410,6 +492,54 @@
 				E19A0F3820D1BDBB002E5DF6 /* C8HLedgerPrintView.xib */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E17282F02244076A0016959B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E17282F12244076A0016959B /* 001-lock.png */,
+				E17282F22244076A0016959B /* 002-user-silhouette.png */,
+				E17282F32244076A0016959B /* 2018022201-ldgrs-header-logo.png */,
+				E17282F42244076A0016959B /* add-sub-background.png */,
+				E17282F52244076A0016959B /* add-sub.png */,
+				E17282F62244076A0016959B /* background-add-sub.png */,
+				E17282F72244076A0016959B /* background-close.png */,
+				E17282F82244076A0016959B /* background-push.png */,
+				E17282F92244076A0016959B /* blackstone-background-image.png */,
+				E17282FA2244076A0016959B /* blackstone-logo-black.png */,
+				E17282FB2244076A0016959B /* blackstone-logo-white.png */,
+				E17282FC2244076A0016959B /* Blackstone.png */,
+				E17282FD2244076A0016959B /* blackstone_gaming_logo-V3.png */,
+				E17282FE2244076A0016959B /* buttons-add-sub-left.png */,
+				E17282FF2244076A0016959B /* buttons-add-sub-right.png */,
+				E17283002244076A0016959B /* buttons-addition.png */,
+				E17283012244076A0016959B /* buttons-subtraction.png */,
+				E17283022244076A0016959B /* call-manager-2.png */,
+				E17283032244076A0016959B /* call-manager-3.png */,
+				E17283042244076A0016959B /* call-manager.png */,
+				E17283052244076A0016959B /* close-1.png */,
+				E17283062244076A0016959B /* close.png */,
+				E17283072244076A0016959B /* exit-right-arrow.png */,
+				E17283082244076A0016959B /* geolocation.png */,
+				E17283092244076A0016959B /* header-logo-white.png */,
+				E172830A2244076A0016959B /* header-logo.png */,
+				E172830B2244076A0016959B /* Lato-Regular.ttf */,
+				E172830C2244076A0016959B /* LatoLatin-Black.ttf */,
+				E172830D2244076A0016959B /* LatoLatin-Bold.ttf */,
+				E172830E2244076A0016959B /* LatoLatin-Thin.ttf */,
+				E172830F2244076A0016959B /* location-image.png */,
+				E17283102244076A0016959B /* menu-stack.png */,
+				E17283112244076A0016959B /* negative.png */,
+				E17283122244076A0016959B /* not-optimized.png */,
+				E17283132244076A0016959B /* pt_gaming_logo-white-A.png */,
+				E17283142244076A0016959B /* pt_gaming_logo-white-B.png */,
+				E17283152244076A0016959B /* pt_gaming_logo_w-01.png */,
+				E17283162244076A0016959B /* push.png */,
+				E17283172244076B0016959B /* stack-menu.png */,
+				E17283182244076B0016959B /* startup-image-background.png */,
+				E17283192244076B0016959B /* startup-image-iphone-X-B.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E17F59FE2141BBF9006CD5E2 /* CustomViews */ = {
@@ -777,6 +907,7 @@
 		E1BF18F81FF57EA80083216D = {
 			isa = PBXGroup;
 			children = (
+				E17282F02244076A0016959B /* Resources */,
 				E17F5A042141BCE5006CD5E2 /* Dependencies */,
 				E170ED82200BEB1200238CEA /* podfile */,
 				E1D703B12090B5E500622D8E /* Deprecated */,
@@ -1076,16 +1207,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E172832C2244076B0016959B /* call-manager-3.png in Resources */,
+				E172833E2244076B0016959B /* pt_gaming_logo_w-01.png in Resources */,
+				E172832B2244076B0016959B /* call-manager-2.png in Resources */,
 				E11E7E7120F7F84E00DDB3DF /* Main.storyboard in Resources */,
+				E172833C2244076B0016959B /* pt_gaming_logo-white-A.png in Resources */,
+				E172831A2244076B0016959B /* 001-lock.png in Resources */,
 				E1FAD1F321515FBC0039428E /* C8HSelectCasinoViewController.xib in Resources */,
 				E17F5A062141BD30006CD5E2 /* C8HTwoLabelModalView.xib in Resources */,
 				E170ED83200BEB1200238CEA /* podfile in Resources */,
+				E172831C2244076B0016959B /* 2018022201-ldgrs-header-logo.png in Resources */,
+				E17283262244076B0016959B /* blackstone_gaming_logo-V3.png in Resources */,
+				E172833F2244076B0016959B /* push.png in Resources */,
+				E17283342244076B0016959B /* Lato-Regular.ttf in Resources */,
+				E172831F2244076B0016959B /* background-add-sub.png in Resources */,
 				E1BF19121FF57EA90083216D /* LaunchScreen.storyboard in Resources */,
 				E19A0F3B20D1BDF2002E5DF6 /* lederPrintImage.png in Resources */,
+				E172831B2244076B0016959B /* 002-user-silhouette.png in Resources */,
+				E172832A2244076B0016959B /* buttons-subtraction.png in Resources */,
+				E172833D2244076B0016959B /* pt_gaming_logo-white-B.png in Resources */,
+				E17283242244076B0016959B /* blackstone-logo-white.png in Resources */,
+				E17283252244076B0016959B /* Blackstone.png in Resources */,
+				E17283352244076B0016959B /* LatoLatin-Black.ttf in Resources */,
+				E17283292244076B0016959B /* buttons-addition.png in Resources */,
+				E17283282244076B0016959B /* buttons-add-sub-right.png in Resources */,
+				E172832F2244076B0016959B /* close.png in Resources */,
+				E17283412244076B0016959B /* startup-image-background.png in Resources */,
 				E1D703AF208E3FBD00622D8E /* Okta.plist in Resources */,
+				E17283422244076B0016959B /* startup-image-iphone-X-B.png in Resources */,
+				E17283372244076B0016959B /* LatoLatin-Thin.ttf in Resources */,
+				E172833B2244076B0016959B /* not-optimized.png in Resources */,
+				E172832E2244076B0016959B /* close-1.png in Resources */,
+				E17283212244076B0016959B /* background-push.png in Resources */,
+				E17283392244076B0016959B /* menu-stack.png in Resources */,
+				E17283302244076B0016959B /* exit-right-arrow.png in Resources */,
+				E17283272244076B0016959B /* buttons-add-sub-left.png in Resources */,
 				E1BF190F1FF57EA90083216D /* Assets.xcassets in Resources */,
 				E19A0F3920D1BDBB002E5DF6 /* C8HLedgerPrintView.xib in Resources */,
+				E17283222244076B0016959B /* blackstone-background-image.png in Resources */,
+				E17283362244076B0016959B /* LatoLatin-Bold.ttf in Resources */,
+				E172831D2244076B0016959B /* add-sub-background.png in Resources */,
+				E172832D2244076B0016959B /* call-manager.png in Resources */,
+				E17283202244076B0016959B /* background-close.png in Resources */,
+				E172831E2244076B0016959B /* add-sub.png in Resources */,
+				E17283402244076B0016959B /* stack-menu.png in Resources */,
+				E17283232244076B0016959B /* blackstone-logo-black.png in Resources */,
+				E17283322244076B0016959B /* header-logo-white.png in Resources */,
+				E17283332244076B0016959B /* header-logo.png in Resources */,
+				E17283312244076B0016959B /* geolocation.png in Resources */,
 				E1B643592059982300BD0B08 /* Countries.bundle in Resources */,
+				E17283382244076B0016959B /* location-image.png in Resources */,
+				E172833A2244076B0016959B /* negative.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

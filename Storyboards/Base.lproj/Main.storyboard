@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +23,7 @@
         <!--LoginVC-->
         <scene sceneID="KVv-Mc-1wE">
             <objects>
-                <viewController storyboardIdentifier="C8HLoginVC" id="SM9-vo-gRl" customClass="C8HLoginVC" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="C8HLoginVC" id="SM9-vo-gRl" customClass="C8HLoginVC" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dvJ-Ve-hmC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,7 +53,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackstone-logo-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="JJu-Ww-JPZ">
-                                                        <rect key="frame" x="87.666666666666686" y="151" width="200" height="44"/>
+                                                        <rect key="frame" x="87.666666666666686" y="150.66666666666666" width="200" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="EHq-Ov-fiN"/>
                                                             <constraint firstAttribute="height" constant="44" id="JvG-u8-aXK"/>
@@ -73,10 +70,10 @@
                                                 <rect key="frame" x="0.0" y="345" width="375" height="345"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="AIw-VU-4Ms">
-                                                        <rect key="frame" x="38.666666666666657" y="68" width="298" height="267"/>
+                                                        <rect key="frame" x="38.666666666666657" y="68" width="505.66666666666674" height="267"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="employeeId" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Employee Id" translatesAutoresizingMaskIntoConstraints="NO" id="Elm-p3-hf8" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="298" height="47"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="employeeId" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Employee Id" translatesAutoresizingMaskIntoConstraints="NO" id="Elm-p3-hf8" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="505.66666666666669" height="47"/>
                                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                                                 <constraints>
@@ -98,8 +95,8 @@
                                                                     <outlet property="delegate" destination="SM9-vo-gRl" id="7Zh-yj-hRA"/>
                                                                 </connections>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-df-9bZ" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="55" width="298" height="47"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="password" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-df-9bZ" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="55" width="505.66666666666669" height="47"/>
                                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="LatoLatin-Thin" family="LatoLatin" pointSize="20"/>
@@ -117,13 +114,13 @@
                                                                 </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login with your username and password given to you by your administrator. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llR-dh-52M">
-                                                                <rect key="frame" x="0.0" y="110" width="298" height="47"/>
+                                                                <rect key="frame" x="0.0" y="110" width="505.66666666666669" height="47"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e89-KB-PER">
-                                                                <rect key="frame" x="0.0" y="165" width="298" height="47"/>
+                                                                <rect key="frame" x="0.0" y="165" width="505.66666666666669" height="47"/>
                                                                 <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -146,7 +143,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Please contact your network administrator." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcK-gy-dai">
-                                                                <rect key="frame" x="0.0" y="220" width="298" height="47"/>
+                                                                <rect key="frame" x="0.0" y="220" width="505.66666666666669" height="47"/>
                                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -206,7 +203,7 @@
         <!--Nav View Controller-->
         <scene sceneID="6XL-hw-f8u">
             <objects>
-                <navigationController storyboardIdentifier="C8HLoginVCNav" id="7YF-dK-Lua" customClass="NavViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="C8HLoginVCNav" id="7YF-dK-Lua" customClass="NavViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K7V-YD-Tlw">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -223,7 +220,7 @@
         <!--Main Menu-->
         <scene sceneID="cJU-7f-yD8">
             <objects>
-                <viewController storyboardIdentifier="C8HMainMenuVC" title="Main Menu" id="lAz-3A-O2u" customClass="C8HMainMenuVC" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="C8HMainMenuVC" title="Main Menu" id="lAz-3A-O2u" customClass="C8HMainMenuVC" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yc6-f8-M74">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +243,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="96"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHRISTOPHER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWu-ZV-BdX" userLabel="nameLabel">
-                                                                <rect key="frame" x="30" y="0.0" width="155" height="96"/>
+                                                                <rect key="frame" x="30" y="0.0" width="154.33333333333334" height="96"/>
                                                                 <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="22"/>
                                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -274,7 +271,7 @@
                                                         <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="96"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xi-J5-vWr">
-                                                                <rect key="frame" x="32" y="26" width="123" height="44"/>
+                                                                <rect key="frame" x="31.999999999999993" y="26" width="123.33333333333331" height="44"/>
                                                                 <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123.33" id="Ki7-wb-h85"/>
@@ -330,7 +327,7 @@
                                         <rect key="frame" x="0.0" y="462" width="375" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TABLE OPEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="686-fs-LqZ">
-                                                <rect key="frame" x="144" y="0.0" width="87.666666666666686" height="20"/>
+                                                <rect key="frame" x="143.66666666666666" y="0.0" width="87.666666666666657" height="20"/>
                                                 <fontDescription key="fontDescription" name="LatoLatin-Thin" family="LatoLatin" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -474,7 +471,7 @@
         <!--SignatureVC-->
         <scene sceneID="Tpd-OQ-Smt">
             <objects>
-                <viewController id="0BS-tt-422" customClass="SignatureVC" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0BS-tt-422" customClass="SignatureVC" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSj-8W-A8J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,7 +561,7 @@
         <!--Manager Signature View Controller-->
         <scene sceneID="LaP-uF-5MZ">
             <objects>
-                <viewController id="gAm-Lx-CyC" customClass="ManagerSignatureViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gAm-Lx-CyC" customClass="ManagerSignatureViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAM-dW-xd1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -658,7 +655,7 @@
         <!--View Controller-->
         <scene sceneID="en6-Rm-2Ot">
             <objects>
-                <viewController id="6YW-pi-3zq" customClass="PDFViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6YW-pi-3zq" customClass="PDFViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c6G-qC-Du0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -764,7 +761,7 @@
         <!--Side Menu Parent-->
         <scene sceneID="Z11-Rs-263">
             <objects>
-                <viewController id="JOp-sd-WBE" customClass="C8HSideMenuParent" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JOp-sd-WBE" customClass="C8HSideMenuParent" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujX-Ie-V8D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -821,7 +818,7 @@
         <!--Number Pad View-->
         <scene sceneID="ixn-7V-qQH">
             <objects>
-                <viewController id="hUc-mh-3Ky" customClass="C8HNumberPadView" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hUc-mh-3Ky" customClass="C8HNumberPadView" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QAA-2T-rv1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1065,10 +1062,10 @@
                                                                 <rect key="frame" x="23" y="0.0" width="163.66666666666666" height="69"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buttons-addition.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-mG-fFP">
-                                                                <rect key="frame" x="97" y="26" width="14.666666666666671" height="17"/>
+                                                                <rect key="frame" x="97" y="26" width="15" height="17"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUE-lr-kfi">
-                                                                <rect key="frame" x="0.0" y="0.0" width="187" height="69"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="186.66666666666666" height="69"/>
                                                                 <connections>
                                                                     <action selector="dismissPlusVC:" destination="hUc-mh-3Ky" eventType="touchDown" id="Qde-gU-NX1"/>
                                                                 </connections>
@@ -1183,7 +1180,7 @@
         <!--Main Menu Buttons View Controller-->
         <scene sceneID="ro2-1V-iI2">
             <objects>
-                <viewController id="HGL-nn-8j8" customClass="C8HMainMenuButtonsViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HGL-nn-8j8" customClass="C8HMainMenuButtonsViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fu6-gY-cuT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1300,7 +1297,7 @@
         <!--Ledgers Opened Table View Controller-->
         <scene sceneID="vHb-YD-lzG">
             <objects>
-                <tableViewController id="XM5-eo-mZN" customClass="C8HLedgersOpenedTableViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="XM5-eo-mZN" customClass="C8HLedgersOpenedTableViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rzv-D7-ygE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1314,7 +1311,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KZV-QL-k9F">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LXF-FF-g2R">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
@@ -1346,13 +1343,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Bal: 100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0b-dv-rvV">
-                                                    <rect key="frame" x="0.0" y="50" width="375" height="25"/>
+                                                    <rect key="frame" x="0.0" y="50" width="375" height="24.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time: HH:MM Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxb-Jt-HI8">
-                                                    <rect key="frame" x="0.0" y="75" width="375" height="25"/>
+                                                    <rect key="frame" x="0.0" y="74.666666666666671" width="375" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1388,13 +1385,13 @@
         <!--Add Game View Controller-->
         <scene sceneID="mvS-oq-ES8">
             <objects>
-                <viewController id="ZA5-9e-uVS" customClass="C8HAddGameViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZA5-9e-uVS" customClass="C8HAddGameViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nqf-qc-tCs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V11-ud-W79" customClass="C8HTwoLabelModalView" customModule="ledge" customModuleProvider="target">
-                                <rect key="frame" x="52" y="306" width="270" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V11-ud-W79" customClass="C8HTwoLabelModalView" customModule="ledger" customModuleProvider="target">
+                                <rect key="frame" x="52" y="306" width="271" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="circleCorner" value="NO"/>
@@ -1429,7 +1426,7 @@
         <!--Open TableVC View Controller-->
         <scene sceneID="9xF-Zl-nNH">
             <objects>
-                <viewController id="Wxb-Oh-KDI" customClass="C8HOpenTableVCViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wxb-Oh-KDI" customClass="C8HOpenTableVCViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z0d-R6-PVt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="349.33333333333331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1438,9 +1435,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="349.33333333333331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-NP-sZd">
-                                        <rect key="frame" x="39" y="38" width="298" height="275"/>
+                                        <rect key="frame" x="38.666666666666657" y="37.333333333333343" width="298" height="275"/>
                                         <subviews>
-                                            <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Select Table" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPW-RJ-AeP" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
+                                            <textField opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Select Table" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPW-RJ-AeP" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="298" height="47"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -1464,7 +1461,7 @@
                                                     <outlet property="delegate" destination="Wxb-Oh-KDI" id="Ntq-d4-Aco"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" tag="200" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Game" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLK-5b-6Oc" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
+                                            <textField opaque="NO" tag="200" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Game" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CLK-5b-6Oc" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="57" width="298" height="47"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -1489,7 +1486,7 @@
                                                     <outlet property="delegate" destination="Wxb-Oh-KDI" id="zBK-ib-IXI"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" tag="300" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="GEGA" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-AE-kRJ" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
+                                            <textField opaque="NO" tag="300" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="GEGA" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-AE-kRJ" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="114" width="298" height="47"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -1513,7 +1510,7 @@
                                                     <outlet property="delegate" destination="Wxb-Oh-KDI" id="yoe-bD-lGO"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" tag="400" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Beginning Balanace" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MyF-Wc-fEU" customClass="C8HTextField" customModule="ledge" customModuleProvider="target">
+                                            <textField opaque="NO" tag="400" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="line" placeholder="Beginning Balanace" clearsOnBeginEditing="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MyF-Wc-fEU" customClass="C8HTextField" customModule="ledger" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="171" width="298" height="47"/>
                                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -1537,7 +1534,7 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8sn-Rt-MqM">
-                                                <rect key="frame" x="0.0" y="228" width="298" height="47"/>
+                                                <rect key="frame" x="0.0" y="227.99999999999997" width="298" height="47.000000000000028"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                                 <constraints>
@@ -1603,7 +1600,7 @@
         <!--Side Menu Table View Controller-->
         <scene sceneID="zhQ-XM-g7O">
             <objects>
-                <tableViewController id="MAt-JH-9RX" customClass="C8HSideMenuTableViewController" customModule="ledge" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MAt-JH-9RX" customClass="C8HSideMenuTableViewController" customModule="ledger" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="0hF-FQ-dfL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="690"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
