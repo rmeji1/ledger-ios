@@ -41,6 +41,8 @@ class C8HLoginVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+//    UIApplication.shared.delegate?.window.//
+    
 //    let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
 //    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 24.151))
 //    imageView.contentMode = .scaleAspectFit
@@ -113,13 +115,19 @@ class C8HLoginVC: UIViewController {
     }
     
     OktaAuth.login(username, password: password).start(self).then{ tokenManager in
+      debugPrint("AccessToken: \(tokenManager.accessToken ?? "")")
       try Vinculum.set(key: "refreshToken", value: tokenManager.refreshToken!)
       OktaAuth.getUser{ response, error in
         if error != nil { print("Error: \(error!)") }
         if response != nil {
           if let profile = response {
+            debugPrint(profile)
             UserDefaults.standard.set(profile["email"], forKey: "email")
+            
+            // Save last name
+            // TODO: go to okta account find what the call last name and save it.
             UserDefaults.standard.set(profile["given_name"], forKey: "firstName")
+            UserDefaults.standard.set(profile["family_name"], forKey: "lastName")
             UserDefaults.standard.set(profile["employeeNumber"], forKey: "id")
             UserDefaults.standard.set(profile["initials"], forKey: "initials")
           }

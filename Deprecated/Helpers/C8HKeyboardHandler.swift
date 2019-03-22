@@ -24,8 +24,8 @@ class C8HKeyboardHandler{
     }
     func enableKeyboardNotification(){
         let notificationCenter = NotificationCenter.default
-        let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
-        let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWillShow = UIResponder.keyboardWillShowNotification
+        let keyboardWillHide = UIResponder.keyboardWillHideNotification
         
         notificationCenter.addObserver(self, selector: #selector(self.keyboardWasShown), name: keyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(self.keyboardWillBeHidden(_:)), name: keyboardWillHide, object: nil)
@@ -34,8 +34,8 @@ class C8HKeyboardHandler{
     
     func removeObserveNoticationForKeyboard(){
         let notificationCenter = NotificationCenter.default
-        let keyboardWillShow = NSNotification.Name.UIKeyboardWillShow
-        let keyboardWillHide = NSNotification.Name.UIKeyboardWillHide
+        let keyboardWillShow = UIResponder.keyboardWillShowNotification
+        let keyboardWillHide = UIResponder.keyboardWillHideNotification
         
         notificationCenter.removeObserver(self, name: keyboardWillShow, object: nil)
         notificationCenter.removeObserver(self, name: keyboardWillHide, object: nil)
@@ -45,8 +45,8 @@ class C8HKeyboardHandler{
     func keyboardWasShown(_ notification: Notification) {
         guard let activeField = activeField else { return }
         let info = notification.userInfo
-        let kbSize = (info?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
-        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, (kbSize?.height)!, 0.0)
+        let kbSize = (info?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: (kbSize?.height)!, right: 0.0)
         
         self.scrollView.contentInset = contentInsets
         self.scrollView.scrollIndicatorInsets = contentInsets;

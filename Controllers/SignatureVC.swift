@@ -13,57 +13,56 @@ protocol SignatureVCDelegate: class {
 }
 
 class SignatureVC: UIViewController, SignatureDrawingViewControllerDelegate {
-
   // MARK: Delegate
   weak var delegate : SignatureVCDelegate?
   
   // MARK: UIViewController
-  
+//  @Override
   @IBOutlet weak var secondaryView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     // Setting signature view
     signatureViewController.delegate = self
     secondaryView.addSubview(signatureViewController.view)
-    signatureViewController.didMove(toParentViewController: self)
+    signatureViewController.didMove(toParent: self)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(false)
+    
+    // Nav bar configuration
+    let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+    navigationController?.navigationBar.titleTextAttributes = textAttributes
+    navigationController?.navigationBar.tintColor = UIColor.white
+    navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x93278F)
+    navigationItem.title = "Employee Signature"
+    navigationItem.backBarButtonItem?.setTitleTextAttributes(textAttributes, for: .normal)
     
     // Force landscape mode
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.myOrientation = .landscape
     let value = UIInterfaceOrientation.landscapeRight.rawValue
     UIDevice.current.setValue(value, forKey: "orientation")
-    
-    // Nav bar configuration
-    let textAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
-    navigationController?.navigationBar.titleTextAttributes = textAttributes
-    navigationController?.navigationBar.tintColor = UIColor.white
-    navigationController?.navigationBar.backgroundColor = UIColor(hex: 0x93278F)
-    navigationItem.title = "Employee Signature"
-    navigationItem.backBarButtonItem?.setTitleTextAttributes(textAttributes, for: .normal)
-//    navigationItem.backBarButtonItem?.action
-//    navigationItem.hidesBackButton = true
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    if isMovingFromParent {
+      // Force portrait mode
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      appDelegate.myOrientation = .portrait
+      let value = UIInterfaceOrientation.portrait.rawValue
+      UIDevice.current.setValue(value, forKey: "orientation")
+      
+      navigationController?.navigationBar.backgroundColor = UIColor.clear
+    }
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    if isMovingFromParentViewController {
-      // Force portrait mode
-      let appDelegate = UIApplication.shared.delegate as! AppDelegate
-      appDelegate.myOrientation = .portrait
-      
-      let value = UIInterfaceOrientation.portrait.rawValue
-      UIDevice.current.setValue(value, forKey: "orientation")
-      navigationController?.navigationBar.backgroundColor = UIColor.clear
-    }
-
-//     Remove color added to navigation bar.
-  }
-  
   
   // MARK: - Action
   

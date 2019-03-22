@@ -22,7 +22,7 @@ class ManagerSignatureViewController: UIViewController, SignatureDrawingViewCont
     // Do any additional setup after loading the view.
     signatureViewController.delegate = self
     secondaryView.addSubview(signatureViewController.view)
-    signatureViewController.didMove(toParentViewController: self)
+    signatureViewController.didMove(toParent: self)
     
     // Force landscape mode
     let appDelegate = UIApplication.shared.delegate as! AppDelegate

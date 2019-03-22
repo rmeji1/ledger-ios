@@ -52,12 +52,13 @@
 	<true/>
 	<key>MainServer</key>
 	<string>https://guarded-bayou-11275.herokuapp.com</string>
-	<key>MainServerLoc</key>
-	<string>http://192.168.0.14:8080</string>
+	<key>MainServerS</key>
+	<string>http://192.168.0.16:8080</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>

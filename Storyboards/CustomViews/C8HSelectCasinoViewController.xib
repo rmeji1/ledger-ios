@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="LatoLatin-Bold.ttf">
+            <string>LatoLatin-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="C8HSelectCasinoViewController" customModule="ledge" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="56X-Hv-6Iw" id="hzo-2p-UPP"/>
+                <outlet property="selectButton" destination="aBJ-hT-2GW" id="faN-bB-cgj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxT-XO-rsq">
+                    <rect key="frame" x="52" y="133" width="270" height="400"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L7D-u9-R7a">
+                            <rect key="frame" x="0.0" y="0.0" width="270" height="400"/>
+                            <subviews>
+                                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cs-xU-LGS">
+                                    <rect key="frame" x="0.0" y="0.0" width="270" height="44"/>
+                                    <items>
+                                        <navigationItem title="Select Casino" id="UPp-je-dfZ"/>
+                                    </items>
+                                </navigationBar>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="et1-Cy-nA4">
+                                    <rect key="frame" x="0.0" y="44" width="270" height="296"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="b7B-aa-SI8"/>
+                                        <outlet property="delegate" destination="-1" id="AXM-Ra-G6k"/>
+                                    </connections>
+                                </tableView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="am6-AY-gge">
+                                    <rect key="frame" x="0.0" y="340" width="270" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56X-Hv-6Iw">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                            <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="16"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" red="0.58431372550000005" green="0.1764705882" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" alpha="0.34999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBJ-hT-2GW">
+                                            <rect key="frame" x="135" y="0.0" width="135" height="60"/>
+                                            <color key="backgroundColor" red="0.40000000000000002" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="LatoLatin-Bold" family="LatoLatin" pointSize="16"/>
+                                            <state key="normal" title="Select">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="selectCasino:" destination="-1" eventType="touchUpInside" id="dNd-Eb-UQV"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="5Ek-pm-1wh"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="7cs-xU-LGS" firstAttribute="top" secondItem="L7D-u9-R7a" secondAttribute="top" id="Gth-pu-car"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="L7D-u9-R7a" firstAttribute="top" secondItem="IxT-XO-rsq" secondAttribute="top" id="0JT-5H-FaI"/>
+                        <constraint firstAttribute="trailing" secondItem="L7D-u9-R7a" secondAttribute="trailing" id="JvL-q9-D1T"/>
+                        <constraint firstAttribute="bottom" secondItem="L7D-u9-R7a" secondAttribute="bottom" id="ZAW-iE-NEw"/>
+                        <constraint firstItem="L7D-u9-R7a" firstAttribute="leading" secondItem="IxT-XO-rsq" secondAttribute="leading" id="cAz-L5-Xr7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IxT-XO-rsq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="113" id="9MG-N4-Hnr"/>
+                <constraint firstItem="IxT-XO-rsq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="52" id="Bvk-TD-Y7A"/>
+                <constraint firstItem="IxT-XO-rsq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="asH-SD-1E5"/>
+                <constraint firstItem="IxT-XO-rsq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="tnE-BZ-QTS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="124.5"/>
+        </view>
+    </objects>
+</document>

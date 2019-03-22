@@ -134,7 +134,7 @@ class C8HNumberPadView: UIViewController {
    */
   func editButtonImageView(on button: UIButton){
     button.imageView?.contentMode = .scaleAspectFit
-    button.imageEdgeInsets = UIEdgeInsetsMake(15,15,15,15)
+    button.imageEdgeInsets = UIEdgeInsets.init(top: 15,left: 15,bottom: 15,right: 15)
   }
   
   /**
@@ -282,8 +282,8 @@ class C8HNumberPadView: UIViewController {
    */
   func performTransaction(_ type: Transaction.Transaction_Type, dec: Decimal ){
     guard let delegate = delegate,
-          let empInitials = UserDefaults.standard.string(forKey: "initials") else
-      { return }
+      let empInitials = UserDefaults.standard.string(forKey: "initials") else
+    { return }
     
     // Create alert to authenticate manager
     let alert = createAlertToAuthenitcateManager{ action in

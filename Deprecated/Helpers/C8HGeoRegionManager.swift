@@ -53,9 +53,9 @@ class C8HGeoRegionManager: NSObject, CLLocationManagerDelegate{
         let notificationCenter = NotificationCenter.default
         if enable{
             notificationCenter.addObserver(self, selector: #selector(applicationWillEnterForeground), name:
-                NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+                UIApplication.willEnterForegroundNotification, object: nil)
         }else{
-            notificationCenter.removeObserver(NSNotification.Name.UIApplicationWillEnterForeground)
+            notificationCenter.removeObserver(UIApplication.willEnterForegroundNotification)
         }
     }
 //  ============================================================================

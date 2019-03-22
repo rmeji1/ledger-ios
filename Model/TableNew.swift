@@ -13,6 +13,9 @@ struct Balance : Codable{
   var balance : Decimal
 }
 
+enum TableError:Error {
+  case invalidId
+}
 struct TableNew : Codable{
   var id : Int64
   var number : Int
